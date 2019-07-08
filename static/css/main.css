@@ -1,0 +1,44 @@
+.hide {
+  display: none;
+}
+
+h1 {
+  background: url("https://i.imgur.com/jGIGWOA.jpg");
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 100px;
+  font-weight:900;
+  text-align:center;
+  letter-spacing:-2px;
+  margin:0;
+}
+
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-family: 'Orbitron', sans-serif;
+  font-family: 'Special Elite', cursive;
+  font-family: 'Sacramento', cursive; 
+}
+
+body {
+  min-height: 99vh;
+  min-width: 95vw;
+  /* background-image: 
+    linear-gradient(to right bottom, rgba(65, 65, 27, 0.852), rgba(21, 11, 11, 0.728)), 
+    url('../imgs/wall.jpg'); */
+    /* url('../imgs/rv2.jpg'); */
+    /* url('../imgs/batman1.jpg'); */
+    /* url('../imgs/batman2.jpg'); */
+    /* url('../imgs/batman6.jpg'); */
+    /* url('../imgs/joker1.jpg'); */
+  /* wall, rv2, batman1/2/6, joker1 */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+
+.font-bigger1 { font-size: 1.2em; }
+.font-bigger2 { font-size: 1.4em; }
+.font-bigger3 { font-size: 1.6em; }
