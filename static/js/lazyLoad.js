@@ -1,8 +1,13 @@
 (function() {
   const lazyLoadConfig = {
     skills: {
-      js: ["js/skills/tagcanvas.min.js", "js/skills/skillsCloud.js"],
-      fonts: ['Special Elite'],
+      dependancies: [
+        ["js/skills/tagcanvas.min.js", 'script'],
+        ["js/skills/skillsCloud.js", 'script'],
+        ['Special Elite', 'font']
+      ],
+      // js: ["js/skills/tagcanvas.min.js", "js/skills/skillsCloud.js"],
+      // fonts: ['Special Elite'],
       initializer: 'initSkillsCloud'
     }
   };
@@ -10,15 +15,17 @@
   let loadedScripts = {};
   
   window.lazyLoad = {
+    resource: (hrefOrName, type) => lazyLoad[type](hrefOrName), // font or script
     pageResources(pageName) {
-      let {js=[], fonts=[], initializer} = lazyLoadConfig[pageName];
-      return Promise.all([
-        ...js.map( src => lazyLoad.script(src)),
-        ...fonts.map( font => lazyLoad.font(font))
-      ]).then( () => {
-        window[initializer] && window[initializer]();
-        console.log("Lazy loading, initialized " + pageName);
-      }).catch( console.error );
+
+      let {dependancies, initializer} = lazyLoadConfig[pageName];
+      let loadedDependacies = dependancies.map(([link, type]) => lazyLoad.resource(link, type) );
+
+      return Promise.all( loadedDependacies )
+              .then( () => {
+                window[initializer] && window[initializer]();
+                console.log("Lazy loading, initialized " + pageName);
+              }).catch( console.error );
     },
     font(familyName) {
       // starting to load the font and returning a promise
@@ -71,12 +78,13 @@
       const $content = document.getElementById(elementId);
     
       let newDocument = new DOMParser().parseFromString(htmlString, "text/html");
-      $content.innerHTML = newDocument.getElementById('content').innerHTML;
+      $content.innerHTML = newDocument.getElementById(elementId).innerHTML;
     
       // innerHTML / reappending existing script doesn't execute the script
       // that's why we need to execute it manually if any
       const initializer = $content.querySelector('script#initializer');
       initializer && Function(initializer.textContent)();
-    }
+    },
+
   };
 })();

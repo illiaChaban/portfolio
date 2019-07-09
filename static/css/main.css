@@ -25,14 +25,17 @@ body {
   min-height: 99vh;
   min-width: 95vw;
   /* background-image: 
-    linear-gradient(to right bottom, rgba(65, 65, 27, 0.852), rgba(21, 11, 11, 0.728)), 
+    linear-gradient(to right bottom, rgba(63, 189, 103, 0.715), rgba(21, 11, 11, 0.728)), 
     url('../imgs/wall.jpg'); */
     /* url('../imgs/rv2.jpg'); */
     /* url('../imgs/batman1.jpg'); */
     /* url('../imgs/batman2.jpg'); */
     /* url('../imgs/batman6.jpg'); */
     /* url('../imgs/joker1.jpg'); */
-  /* wall, rv2, batman1/2/6, joker1 */
+    /* url('../imgs/superman1.jpg'); */
+    /* url('../imgs/superman2.png'); */
+    /* url('../imgs/batman8.jpg'); */
+  /* wall, rv2, batman1/2/6, joker1, superman2 ---> for skills page? */  
   background-size: cover;
   background-position: center;
   position: relative;

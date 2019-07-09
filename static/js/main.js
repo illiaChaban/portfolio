@@ -27,9 +27,16 @@
     }
   };
 
+  function preloadExtraFiles() {
+    // preload specific fonts, scripts 
+    // setTimeout( () => {}, 0)
+  }
+
+
   utils.onDocumentReady( () => {
     bindMenu();
     bindHistoryNavigation();
+    preloadExtraFiles();
   });
 })();
 
