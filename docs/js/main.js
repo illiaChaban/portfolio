@@ -20,10 +20,8 @@
   };
   
   function bindHistoryNavigation() {
-    window.onpopstate = (e) => {
-      // console.log("pop state",{e});
-      lazy.updateContent(document.location.pathname.slice(1))
-    }
+    window.onpopstate = () => 
+      lazy.updateContent(document.location.pathname);
   };
 
   function preloadExtraFiles() {
@@ -36,24 +34,20 @@
     let pageHref = path[path.length-1];
     let indexPathes = ['', 'index.html', 'index'];
     if (indexPathes.includes( pageHref )) {
-      // redirect to home from html
-      // path[path.length-1] = 'home';
-      // location.pathname = path.join("/");
-
       lazy.updateContent('home.html');
-      // updating location.href without reloading
       window.history.replaceState(null, "", 'home'); 
-      // console.log(path.join("/"));
     }
-    // return pageHref;
   }
 
 
 
+
   utils.onDocumentReady( () => {
+    lazy.cacheCurrContent();
     redirectToHomeFromIndex();
     bindMenu();
     bindHistoryNavigation();
+    lazy.initPage( lazy.getCurrPageName() );
     preloadExtraFiles();
   });
 })();

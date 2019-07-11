@@ -11,17 +11,18 @@ const port = 5000;
 
 
 function generateStaticHtml() {
-  const pages = [
-    'home', 'skills'
-  ];
+  let files = fs.readdirSync("./html");
+  files = files.filter( x => x !== 'index.html');
+  // console.log(files)
 
   let index = fs.readFileSync('./html/index.html', 'utf8');
   fs.writeFileSync(`./docs/index.html`, index);
 
-  pages.forEach( page => {
-    let content = fs.readFileSync(`./html/${page}.html`, 'utf8');
+  files.forEach( file => {
+    let content = fs.readFileSync(`./html/${file}`, 'utf8');
+    // console.log(content)
     let combinedPages = index.replace("<div id='content'></div>", content);
-    fs.writeFileSync(`./docs/${page}.html`, combinedPages);
+    fs.writeFileSync(`./docs/${file}`, combinedPages);
   });
 
   console.log('rewritten HTML files successfully');

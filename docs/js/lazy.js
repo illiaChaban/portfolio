@@ -28,7 +28,7 @@ window.lazy = {};
     let loader = switcher[type];
     return loader(hrefOrName); 
   };
-  l.loadPageResources = (pageName) => {
+  l.initPage = (pageName) => {
 
     if ( !(pageName in pageConfig)) return Promise.resolve();
     let {dependancies, initializer, args=[]} = pageConfig[pageName];
@@ -93,26 +93,21 @@ window.lazy = {};
     return href.match( pageMatcher )[1];
   };
   l.updateContent = async (href) => {
-    const $content = document.getElementById('content');
-
-    // cache curr content
-    let currPage = l.getPageName(document.location.pathname);
-    cachedContent[currPage] = $content.innerHTML;
-
-    // console.log(cachedContent)
     let requestedPage = l.getPageName(href);
-    let newContentHtml = cachedContent[requestedPage] || await l.loadContent(href);
-    $content.innerHTML = newContentHtml;
-    // innerHTML / reappending existing script doesn't execute the script
-    // that's why we need to execute it manually if any
-    l.loadPageResources(requestedPage);
-    // const initializer = $content.querySelector('script#initializer');
-    // initializer && Function(initializer.textContent)();
+    if ( !(requestedPage in cachedContent)) cachedContent[requestedPage] = await l.loadContent(href);
+    document.getElementById('content').innerHTML = cachedContent[requestedPage];
+    l.initPage(requestedPage);
+  };
+  l.getCurrPageName = () => lazy.getPageName(document.location.pathname);
+  l.cacheCurrContent = () => {
+    cachedContent[l.getCurrPageName()] = document.getElementById('content').innerHTML;
   };
   l.loadContent = async (href) => {
     let html = await fetch(href).then( res => res.text() );    
     let doc = parser.parseFromString(html, "text/html");
-    return doc.getElementById('content').innerHTML;
-  }
+    return doc.getElementById('content').innerHTML;;
+  };
+
+  // l.cachedContent = cachedContent; // REMOVE IT
 
 })(window.lazy);
