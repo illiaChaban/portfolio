@@ -24,6 +24,7 @@ function generateStaticHtml() {
     fs.writeFileSync(`./docs/${page}.html`, combinedPages);
   });
 
+  console.log('rewritten HTML files successfully');
 }
 
 
@@ -32,6 +33,8 @@ function generateStaticHtml() {
 
 generateStaticHtml();
 
-app.use(express.static(__dirname + '/docs')); 
+app.use(express.static(__dirname + '/docs', {
+  extensions: ['html'] // remove the need of .html extension in the browser
+})); 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

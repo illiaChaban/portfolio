@@ -4,7 +4,7 @@ window.lazy = {};
   const pageMatcher = /([a-z]+)(?:\.html)?$/;;
   const parser = new DOMParser();
   const skillCloudFont = 'Special Elite';
-  const lazyLoadConfig = {
+  const pageConfig = {
     skills: {
       dependancies: [
         ["js/skills/tagcanvas.min.js", 'script'],
@@ -30,7 +30,8 @@ window.lazy = {};
   };
   l.loadPageResources = (pageName) => {
 
-    let {dependancies, initializer, args=[]} = lazyLoadConfig[pageName];
+    if ( !(pageName in pageConfig)) return Promise.resolve();
+    let {dependancies, initializer, args=[]} = pageConfig[pageName];
     let loadedDependacies = dependancies.map(([link, type]) => l.loadResource(link, type) );
 
     return Promise.all( loadedDependacies )
@@ -85,7 +86,7 @@ window.lazy = {};
     }
     return loadedScripts[src];
   };
-  l.getPageName = (href) => href.match( pageMatcher )[1],
+  l.getPageName = (href) => href === "/" ? "index" : href.match( pageMatcher )[1];
   l.updateContent = async (href) => {
     const $content = document.getElementById('content');
 
@@ -99,8 +100,9 @@ window.lazy = {};
     $content.innerHTML = newContentHtml;
     // innerHTML / reappending existing script doesn't execute the script
     // that's why we need to execute it manually if any
-    const initializer = $content.querySelector('script#initializer');
-    initializer && Function(initializer.textContent)();
+    l.loadPageResources(requestedPage);
+    // const initializer = $content.querySelector('script#initializer');
+    // initializer && Function(initializer.textContent)();
   };
   l.loadContent = async (href) => {
     let html = await fetch(href).then( res => res.text() );    

@@ -32,8 +32,22 @@
   }
 
   function redirectToHomeFromIndex() {
-    if (window.location.pathname.includes('index.html')) location.href = location.href.replace('index.html', 'home.html');
+    let path = window.location.pathname.split("/");
+    let pageHref = path[path.length-1];
+    let indexPathes = ['', 'index.html', 'index'];
+    if (indexPathes.includes( pageHref )) {
+      // redirect to home from html
+      // path[path.length-1] = 'home';
+      // location.pathname = path.join("/");
+
+      lazy.updateContent('home.html');
+      // updating location.href without reloading
+      window.history.replaceState(null, "", 'home'); 
+      // console.log(path.join("/"));
+    }
+    // return pageHref;
   }
+
 
 
   utils.onDocumentReady( () => {
