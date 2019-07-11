@@ -1,14 +1,16 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+
+const app = express();
 const port = 5000;
-const bodyparser = require('body-parser');
+const pageBuilder = require("./pageBuilderRoute");
 
-app.use(bodyparser.text());
+// const bodyparser = require('body-parser');
+// app.use(bodyparser.text());
 // app.use(bodyparser.json());
-app.get("/", (req, res) => {
-    console.log("hello world")
-})
 
-app.use(express.static(__dirname + '/static'));
+
+app.use(pageBuilder); // serve html
+
+app.use(express.static(__dirname + '/assets')); // serve js, css and images
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
