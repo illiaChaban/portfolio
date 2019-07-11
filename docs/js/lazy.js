@@ -86,7 +86,12 @@ window.lazy = {};
     }
     return loadedScripts[src];
   };
-  l.getPageName = (href) => href === "/" ? "index" : href.match( pageMatcher )[1];
+  l.getPageName = (href) => {
+    let path = href.split("/");
+    let lastPath = path[path.length-1];
+    if (lastPath === '') return 'index';
+    return href.match( pageMatcher )[1];
+  };
   l.updateContent = async (href) => {
     const $content = document.getElementById('content');
 
