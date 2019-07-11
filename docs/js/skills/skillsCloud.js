@@ -20,7 +20,7 @@
     zoom: 0.9,
     noSelect: true,
   
-    textFont: null, //'Special Elite' ,'Orbitron'
+    // textFont: null, 
     
     pinchZoom: true,
     freezeDecel: true,
@@ -33,14 +33,13 @@
     // weightSize: 2,
   };
   
-  window.initSkillsCloud = (textFont) => {
+  window.initSkillsCloud = (textFont=null) => {
     try {
       // update text font
       // is done this way so the font can be async preloaded before initialization
-      if (textFont) skillsCloudOptions.textFont = textFont;
+      skillsCloudOptions.textFont = textFont; //'Special Elite' ,'Orbitron'
       TagCanvas.Start('skills-canvas', 'skills-cloud', skillsCloudOptions );
       document.getElementById('skills-container').classList.remove('hide');
-      document.getElementById('skills-cloud').classList.add('hide');
     } catch(e) {
       console.error("Skills canvas has error", e);
     }
