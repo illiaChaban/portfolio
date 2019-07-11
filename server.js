@@ -16,6 +16,8 @@ function generateStaticHtml() {
   ];
 
   let index = fs.readFileSync('./html/index.html', 'utf8');
+  fs.writeFileSync(`./docs/index.html`, index);
+
   pages.forEach( page => {
     let content = fs.readFileSync(`./html/${page}.html`, 'utf8');
     let combinedPages = index.replace("<div id='content'></div>", content);
@@ -30,6 +32,6 @@ function generateStaticHtml() {
 
 generateStaticHtml();
 
-app.use(express.static(__dirname + '/docs')); // serve js, css and images
+app.use(express.static(__dirname + '/docs')); 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

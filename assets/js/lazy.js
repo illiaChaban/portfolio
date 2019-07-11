@@ -1,7 +1,7 @@
 window.lazy = {};
 
 (function(l) {
-  const pageMatcher = /(\w+).html/;
+  const pageMatcher = /([a-z]+)(?:\.html)?$/;
   const parser = new DOMParser();
   const skillCloudFont = 'Special Elite';
   const lazyLoadConfig = {

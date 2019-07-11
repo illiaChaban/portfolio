@@ -31,8 +31,13 @@
     // setTimeout( () => {}, 0)
   }
 
+  function redirectToHomeFromIndex() {
+    if (window.location.pathname.includes('index.html')) location.href = location.href.replace('index.html', 'home.html');
+  }
+
 
   utils.onDocumentReady( () => {
+    redirectToHomeFromIndex();
     bindMenu();
     bindHistoryNavigation();
     preloadExtraFiles();
