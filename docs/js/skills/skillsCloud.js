@@ -6,9 +6,10 @@
   
     // dragControl: true,
   
-    textColour: '#fe0853', //pink
+    // textColour: '#fe0853', //pink
     // textColour: '#08FDD8', //blue
     // textColour: '#00000', //black
+    textColour: '#ffffc2', // yellow
     
     // outlineThickness: 0.5,
     // outlineColour: '#fe0853',
@@ -32,7 +33,7 @@
     // weightFrom: 'data-weight',
     // weightSize: 2,
   };
-  
+
   window.initSkillsCloud = (textFont=null) => {
     try {
       // update text font

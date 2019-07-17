@@ -3,9 +3,12 @@
     document.getElementById("menu").addEventListener('click', async (e) => {
       // console.log(e)
       const el = e.target;
-      if (el && el.tagName === 'A') {
+      // console.log( el.parentElement.tagName)
+      let link = el.tagName === 'A' ? el : el.closest("#menu a");
+      console.log(link)
+      if (link) {
         e.preventDefault();
-        let href = el.getAttribute('href');
+        let href = link.getAttribute('href');
 
         lazy.updateContent(href);
         // updating location.href without reloading

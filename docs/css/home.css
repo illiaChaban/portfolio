@@ -1,0 +1,54 @@
+
+h1.header {
+  background: url("https://i.imgur.com/jGIGWOA.jpg");
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 70px;
+  font-weight:900;
+  text-align:left;
+  letter-spacing:-2px;
+  margin:0;
+}
+
+h1.header {
+  font-family: 'Special Elite', cursive;
+  font-family: 'Sacramento', cursive; 
+  /* font-family: "IM Fell Double Pica", serif; */
+}
+
+#art {
+  position: absolute;
+  top: 60px;
+  right: 0px;
+  --width: 600px;
+  width: var(--width, 500px);
+  height: calc(433 / 1058 * var(--width, 500px)); /* mountain picture aspect ratio */
+}
+
+.relative-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#rv, #mountain {
+  position: absolute;
+}
+
+#rv {
+  width: 70%;
+  top: 28%;
+  right: 9%; /* 44% */
+}
+
+#mountain {
+  width: 100%;
+  right: 0px;
+}
+
+#mountain::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+}

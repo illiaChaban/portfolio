@@ -2,31 +2,36 @@
   display: none;
 }
 
-h1 {
-  background: url("https://i.imgur.com/jGIGWOA.jpg");
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 100px;
-  font-weight:900;
-  text-align:center;
-  letter-spacing:-2px;
-  margin:0;
-}
+.subtle {
+  font-size: 1em;
+  color: grey;
+  font-family: 'Amatic SC', cursive;
 
-h1 {
-  font-family: 'Permanent Marker', cursive;
-  font-family: 'Orbitron', sans-serif;
-  font-family: 'Special Elite', cursive;
-  font-family: 'Sacramento', cursive; 
 }
 
 body {
-  min-height: 99vh;
+  font-family: 'Sacramento', cursive;
+  /* font-family: 'Special Elite';
+
+  font-family: 'Inconsolata', monospace;
+  font-family: 'Amatic SC', cursive;
+  font-family: 'BenchNine', sans-serif;
+  font-family: 'Saira', sans-serif; */
+  /* font-family: "IM Fell Double Pica", serif; */
+
+
+  margin: 0;
+  /* background: url('../imgs/bg5.jpg'); */
+  background: #262728; 
+  /* #4d4d4e -- subtle grey */
+  /* color: white; */
+  /* color: #e4dcca; */
+  color: #ffffc2;
+  min-height: 100vh;
   min-width: 95vw;
   /* background-image: 
-    linear-gradient(to right bottom, rgba(63, 189, 103, 0.715), rgba(21, 11, 11, 0.728)), 
-    url('../imgs/wall.jpg'); */
+  linear-gradient(to right bottom, rgba(35, 39, 36, 0.715), rgba(222, 221, 221, 0.728)), */
+    /* url('../imgs/wall.jpg'); */
     /* url('../imgs/rv2.jpg'); */
     /* url('../imgs/batman1.jpg'); */
     /* url('../imgs/batman2.jpg'); */
@@ -45,3 +50,123 @@ body {
 .font-bigger1 { font-size: 1.2em; }
 .font-bigger2 { font-size: 1.4em; }
 .font-bigger3 { font-size: 1.6em; }
+
+
+
+/* menu */
+#menu {
+  background: #181818; /* #2f2f2f */
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  min-height: 500px;
+}
+
+#nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch; /* center */
+
+
+  text-align: center;
+  position: absolute;
+  height: 210px;
+  top: 50%;
+  margin-top: -120px;
+  width: 100%;
+}
+
+
+
+#nav a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  font-size: 22px;
+  height: 51px;
+  line-height: 51px;
+}
+
+#nav a::after {
+  content: '';
+  font-size: 9px;
+  /* letter-spacing: 2px; */
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+#nav a:hover::after {
+  /* content: "HI"; */
+  opacity: 1;
+}
+
+#nav i {
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+
+#nav a:hover i {
+  opacity: 0;
+}
+
+#nav a:first-child::after { content: 'ABOUT'; }
+#nav a:first-child+a::after { content: 'SKILLS'; }
+#nav a:first-child+a+a::after { content: 'PROJECTS'; }
+#nav a:first-child+a+a+a::after { content: 'FONTS'; }
+
+#nav {
+  font-family: 'Inconsolata', monospace;
+  /* font-family: 'Amatic SC', cursive; */
+
+  /* font-size: 1.7rem; */
+}
+
+
+#content {
+  padding-left: 70px;
+}
+
+
+
+@media (max-width: 960px) {
+  #menu {
+      width: 100%;
+      height: 60px;
+      /* position: absolute; */
+      /* top: 0; */
+      left: 0;
+      /* z-index: 3; */
+      min-height: 0;
+  }
+  #nav {
+    flex-direction: row;
+    width: 42%;
+    /* position: absolute; */
+    left: 50%;
+    margin-left: -19%;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+    height: 60px;
+    top: 0;
+    margin-top: 0;
+  }
+
+  #content {
+    padding-left: 0;
+    padding-top: 70px;
+  }
+}
+
+
+

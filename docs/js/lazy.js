@@ -13,18 +13,40 @@ window.lazy = {};
       ],
       initializer: 'initSkillsCloud', // add arguments !!!! (text font),
       args: [skillCloudFont]
+    },
+    // projects: {
+    //   dependancies: [
+    //     ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
+    //     ['js/projects/projects.js', 'script'],
+    //     ['css/projects.css', 'css'],
+    //     ['Sacramento', 'font'],
+    //     ['Amatic SC', 'font']
+    //   ],
+    //   initializer: 'initProjects'
+    // },
+    fonts: {
+      dependancies: [
+        ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
+        ['js/projects/fonts.js', 'script'],
+        ['css/fonts.css', 'css'],
+        ['Sacramento', 'font'],
+        ['Amatic SC', 'font']
+      ],
+      initializer: 'initFonts'
     }
   };
   let loadedFonts = {};
   let loadedScripts = {};
+  let loadedCss = {};
   let cachedContent = {};
 
   
   l.loadResource = (hrefOrName, type) => {
     const switcher = {
       'font' : l.loadFont,
-      'script': l.loadScript
-    }
+      'script': l.loadScript,
+      'css': l.loadCss
+    };
     let loader = switcher[type];
     return loader(hrefOrName); 
   };
@@ -85,6 +107,29 @@ window.lazy = {};
       })
     }
     return loadedScripts[src];
+  };
+  l.loadCss = (src) => {
+    if ( !(src in loadedCss) ) {
+      if (document.querySelector(`link[href='${src}']`)) {
+        loadedCss[src] = Promise.resolve();
+        console.log("CSS src = " + src + " was sync loaded");
+      } else {
+        loadedCss[src] = new Promise( (resolve,reject) => {
+          let s = document.createElement('link');
+          s.setAttribute('href', src);
+          s.setAttribute('rel', 'stylesheet');
+          s.setAttribute('type', 'text/css')
+          s.onload = () => {
+            console.log("LOADED CSS src = " + src);
+            // console.log(s.sheet.cssRules[0].cssText)
+            resolve()
+          };
+          s.onerror = reject;
+          document.querySelector('head').appendChild(s);
+        })
+      }
+    }
+    return loadedCss[src];
   };
   l.getPageName = (href) => {
     let path = href.split("/");
