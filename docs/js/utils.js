@@ -5,6 +5,16 @@ window.utils = {
       window.addEventListener('DOMContentLoaded', callback ) :
       callback();
   },
+  	// vanilla JS window width and height
+	getWindowWidthHeight() {
+		var w=window,
+		d=document,
+		e=d.documentElement,
+		g=d.getElementsByTagName('body')[0],
+		x=w.innerWidth||e.clientWidth||g.clientWidth,
+		y=w.innerHeight||e.clientHeight||g.clientHeight;
+		return [x,y];
+	},
 
   // fonts loader
   // fontsWereRequested: false,

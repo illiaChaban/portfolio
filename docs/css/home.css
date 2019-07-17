@@ -1,30 +1,56 @@
 
+header {
+  --margin-left: 29px;
+  margin-left: var(--margin-left);
+  transform: translateY(30%);
+  color: var(--text-color-bright);
+
+}
+
 h1.header {
-  background: url("https://i.imgur.com/jGIGWOA.jpg");
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* background: url("https://i.imgur.com/jGIGWOA.jpg"); */
+  /* -webkit-background-clip: text; */
+  /* background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
   font-size: 70px;
   font-weight:900;
   text-align:left;
-  letter-spacing:-2px;
-  margin:0;
+  letter-spacing:2px;
+  /* margin-top:100px; */
+  line-height: 1.2em;
+  margin: 0;
+  /* margin-left: 29px; */
 }
 
 h1.header {
   font-family: 'Special Elite', cursive;
-  font-family: 'Sacramento', cursive; 
+  /* font-family: 'Sacramento', cursive;  */
   /* font-family: "IM Fell Double Pica", serif; */
 }
 
+
+
 #art {
+  --content-width: 100%; /* must be in pixels, will be updated with JS */
+  --art-width-ratio: 0.95;
+  --art-width: calc( var(--content-width) * var(--art-width-ratio));
+  
+  --rv-width: calc( var(--art-width) * 0.7);
+  --rv-top: 28%;
+  --rv-right: 9%;
+  --rv-width-to-squirrel-height-aspect: 7;
+  --squirrel-width: calc( var(--rv-width) / 5.25);
+  --squirrel-height: calc( var(--rv-width) / var(--rv-width-to-squirrel-height-aspect));
+
+  z-index: -1;
   position: absolute;
-  top: 60px;
+  top: 130px;
   right: 0px;
-  --width: 600px;
-  width: var(--width, 500px);
-  height: calc(433 / 1058 * var(--width, 500px)); /* mountain picture aspect ratio */
+  width: var(--art-width, 500px);
+  /* max-width: 95%; */
+  height: calc(433 / 1058 * var(--art-width, 500px)); /* mountain picture aspect ratio */
 }
+
 
 .relative-container {
   position: relative;
@@ -37,9 +63,9 @@ h1.header {
 }
 
 #rv {
-  width: 70%;
-  top: 28%;
-  right: 9%; /* 44% */
+  width: var(--rv-width);
+  top: var(--rv-top);
+  right: var(--rv-right); /* 44% */
 }
 
 #mountain {
@@ -47,8 +73,164 @@ h1.header {
   right: 0px;
 }
 
-#mountain::after {
+/* #mountain::after {
   content: '';
   width: 100%;
   height: 100%;
+} */
+
+
+
+.squirrel {
+  position: absolute;
+  /* top: 48%;
+  right: 55%; */
+  /* top: 31%;
+  right: 49%; */
+  top: 28%;
+  right: 48%;
+  /* top: calc( var(--rv-top) + 3%); */
+  /* right: calc( var(--rv-width) / 7 * 4 + var(--rv-right) ); */
+
+  /* --squirrel-box-height: 60px; */
+
+  /* determines how long is squirrel's jump */
+  width: var(--squirrel-width);
+  height: var(--squirrel-height);
+  /* bug occurs here if --squirrel-height is in percentage */
+  background-size: calc( var(--squirrel-height) * 1.2 );
+  background-repeat: no-repeat;
+  background-image: url('../imgs/squirrel.svg');
+  /* border: 1px solid black; */
+  transform: scaleX(-1); /* "mirror" effect on squirrel */
+}
+
+@keyframes animatedSquirrel {
+  0% {
+    background-position: left top;
+  }
+
+  15% {
+    top: 29%;
+  }
+
+  30% {
+    top: 32%;
+  }
+
+  75% {
+    top: 46%;
+    right: 55%;
+    background-position-x: 100%;
+  }
+
+  100% {
+    background-position: 100% bottom;
+    top: 46%;
+    right: 55%;
+  }
+}
+
+/* @-webkit-keyframes animatedSquirrel {
+  from {
+    background-position: left top;
+  }
+
+  to {
+    background-position: right bottom;
+  }
+} */
+
+.animate-squirrel {
+  animation-name: animatedSquirrel;
+  animation-duration: 1s;
+  animation-delay: 2s;
+  animation-timing-function: steps(9);
+  animation-fill-mode: forwards;
+  /* animation-iteration-count: infinite; */
+  /* animation-direction: normal; */
+  /* animation: animatedSquirrel 1s 5s steps(9) forwards;
+  -ms-animation: animatedSquirrel 1s 1s steps(9) forwards;
+  -webkit-animation: animatedSquirrel 1s 1s steps(9) forwards;
+  -moz-animation: animatedSquirrel 1s 1s steps(9) forwards; */
+
+  /* -o-animation-fill-mode: forwards; */
+
+}
+
+
+
+/* HI! */
+.ml8 {
+  font-weight: 900;
+  font-size: 4.5em;
+  /* color: white; */
+  width: 3em;
+  height: 3em;
+  position: relative;
+  font-family: 'Special Elite';
+  /* font-family: 'Amatic SC', cursive;  */
+  margin: 0;
+  margin-left: calc( -1 * var(--margin-left) );
+  transform: translateY(15px);
+
+}
+
+.ml8 .letters-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  height: 1em;
+  text-align: center; /* centering text */
+}
+
+.ml8 .letters {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  line-height: 0.7em;
+  right: -0.12em;
+  top: -0.2em;
+}
+
+.ml8 .bang {
+  font-size: 1.4em;
+  top: auto;
+  left: -0.06em;
+}
+
+.ml8 .circle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+
+.ml8 .circle-white {
+  width: 3em;
+  height: 3em;
+  border: 2px dashed var(--text-color-main, white);
+  border-radius: 2em;
+}
+
+.ml8 .circle-dark {
+  width: 2.2em;
+  height: 2.2em;
+  background-color: #4f7b86;
+  border-radius: 3em;
+  z-index: 1;
+}
+
+.ml8 .circle-dark-dashed {
+  border-radius: 2.4em;
+  background-color: transparent;
+  border: 2px dashed #a5c4bc;
+  /* border: 2px dashed #4f7b86; */
+  width: 2.3em;
+  height: 2.3em;
 }

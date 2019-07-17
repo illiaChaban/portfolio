@@ -1,15 +1,13 @@
-.hide {
-  display: none;
-}
-
-.subtle {
-  font-size: 1em;
-  color: grey;
-  font-family: 'Amatic SC', cursive;
-
+html, body {
+  height: 100%;
+  width: 100%;
 }
 
 body {
+  --text-color-main: #e6d6b2;
+  --text-color-bright: #f2f1c6;
+  --text-color-subtle: grey;
+
   font-family: 'Sacramento', cursive;
   /* font-family: 'Special Elite';
 
@@ -22,11 +20,12 @@ body {
 
   margin: 0;
   /* background: url('../imgs/bg5.jpg'); */
-  background: #262728; 
+  background: #2c3135; 
   /* #4d4d4e -- subtle grey */
   /* color: white; */
   /* color: #e4dcca; */
-  color: #ffffc2;
+  /* color: #ffffc2; */
+  color: var(--text-color-main);
   min-height: 100vh;
   min-width: 95vw;
   /* background-image: 
@@ -43,7 +42,19 @@ body {
   /* wall, rv2, batman1/2/6, joker1, superman2 ---> for skills page? */  
   background-size: cover;
   background-position: center;
-  position: relative;
+  /* position: relative; */
+}
+
+.hide {
+  display: none;
+}
+
+.subtle {
+  font-size: 1em;
+  color: var(--text-color-subtle);
+  font-family: 'Amatic SC', cursive;
+  margin:0;
+
 }
 
 
@@ -134,6 +145,14 @@ body {
 
 #content {
   padding-left: 70px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.fill-div {
+  width: 100%;
+  height: 100%;
 }
 
 
