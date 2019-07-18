@@ -39,7 +39,7 @@ window.lazy = {};
         ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
         ['js/home.js', 'script']
       ],
-      initializer: 'initHome'
+      initializer: 'initHomeHiAnimation'
     }
   };
   let loadedFonts = {};
@@ -138,12 +138,6 @@ window.lazy = {};
     }
     return loadedCss[src];
   };
-  l.getPageName = (href) => {
-    let path = href.split("/");
-    let lastPath = path[path.length-1];
-    if (lastPath === '') return 'index';
-    return href.match( pageMatcher )[1];
-  };
   l.updateContent = async (href) => {
     let requestedPage = l.getPageName(href);
     let currContent = document.getElementById('content');
@@ -156,11 +150,17 @@ window.lazy = {};
     currContent.append( ...cachedContent[requestedPage])
     l.initPage(requestedPage);
   };
+  l.getPageName = (href) => {
+    let path = href.split("/");
+    let lastPath = path[path.length-1];
+    if (lastPath === '') return 'index';
+    return href.match( pageMatcher )[1];
+  };
   l.getCurrPageName = () => l.getPageName(document.location.pathname);
   l.cacheContent = (page, doc) => {
     // transforming from HTMLCollection to array to be able to cache elements
-    // HTMLCollection gets updated on .innerHTML = '' and elements get removed
-    cachedContent[page] = [ ...doc.getElementById('content').children];
+    // HTMLCollection/NodeList gets updated on .innerHTML = '' and elements get removed
+    cachedContent[page] = [...doc.getElementById('content').childNodes];
   };
   l.cacheCurrContent = () => l.cacheContent( l.getCurrPageName(), document );
 
@@ -170,6 +170,6 @@ window.lazy = {};
     return doc;
   };
 
-  // l.cachedContent = cachedContent; // REMOVE IT
+  l.cachedContent = cachedContent; // REMOVE IT
 
 })(window.lazy);

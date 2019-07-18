@@ -1,23 +1,32 @@
 (function() {
-  
+  // ***********
+  // rendering rv and squirrel
   const $art = document.getElementById('art');
   const $rvContainer = document.getElementById('rv-squirrel-container');
   const $content = document.getElementById('content');
 
   const updateArtWidth = () => {
+    // set content width in pixels instead of percentage
     $art.setAttribute( 'style', `--content-width: ${$content.offsetWidth}px;`);
   };
+  updateArtWidth();
+  window.addEventListener('resize', updateArtWidth);
+  // show squirrel and rv after css variable was updated to indicate
+  // content width in pixels
+  $rvContainer.classList.remove('hide'); 
+  // *******
 
-  window.initHome = () => {
   
-    updateArtWidth();
-    $rvContainer.classList.remove('hide');
-    window.addEventListener('resize', updateArtWidth);
+
+  let hiAnimation = null;
+  let dashWasAnimated = false;
+  // should be called after anime.js was loaded
+  window.initHomeHiAnimation = () => {
   
     // HI
-    document.querySelector(".ml8").classList.remove('hide');
-    anime.timeline({loop: false})
-      .add({
+    if (!hiAnimation) {
+      document.querySelector(".ml8").classList.remove('hide');
+      hiAnimation = anime.timeline({loop: false}).add({
         targets: '.ml8 .circle-white',
         scale: [0, 3],
         opacity: [1, 0],
@@ -56,14 +65,22 @@
         offset: '-=1000'
       })
       .add({}); // fixes "!" bug
+    }
+
+    hiAnimation.restart();
     
-    anime({
-      targets: '.ml8 .circle-dark-dashed',
-      rotateZ: 360,
-      duration: 8000,
-      easing: "linear",
-      loop: true
-    });
+
+    // should be called only once
+    if (!dashWasAnimated) {
+      anime({
+        targets: '.ml8 .circle-dark-dashed',
+        rotateZ: 360,
+        duration: 8000,
+        easing: "linear",
+        loop: true
+      });
+      dashWasAnimated = true;
+    }
   }   
 
 })();

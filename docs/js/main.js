@@ -5,20 +5,23 @@
       const el = e.target;
       // console.log( el.parentElement.tagName)
       let link = el.tagName === 'A' ? el : el.closest("#menu a");
+      if (!link) return;
       // console.log(link)
-      if (link) {
-        e.preventDefault();
-        let href = link.getAttribute('href');
+      e.preventDefault();
+      let href = link.getAttribute('href');
+      // don't update if user clicks on the active menu link
+      if (lazy.getCurrPageName() === lazy.getPageName(href)) return;
 
-        lazy.updateContent(href);
-        // updating location.href without reloading
-        window.history.pushState(null, "", href); 
+      lazy.updateContent(href);
+      // updating location.href without reloading
+      window.history.pushState(null, "", href); 
+      highlightActiveMenu(link);
 
-        // console.log(cachedContent)
 
-        // ADD --> If curr location is the same, no update needed
-        // ADD --> reuse loaded html ?
-      }
+      // console.log(cachedContent)
+
+      // ADD --> If curr location is the same, no update needed
+      // ADD --> reuse loaded html ?
     });
   };
   
@@ -30,7 +33,7 @@
   function preloadExtraFiles() {
     // preload specific fonts, scripts 
     // setTimeout( () => {}, 0)
-  }
+  };
 
   function redirectToHomeFromIndex() {
     let path = window.location.pathname.split("/");
@@ -40,16 +43,25 @@
       lazy.updateContent('home.html');
       window.history.replaceState(null, "", 'home'); 
     }
-  }
+  };
 
-  function highlightActiveMenu() {
-
-  }
+  const $nav = document.getElementById('nav');
+  let activeLink = null;
+  function highlightActiveMenu(currLink=null) {
+    if (!currLink) {
+      let currPage = lazy.getCurrPageName();
+      currLink = $nav.querySelector(`a[href^=${currPage}]`);
+    }
+    if (activeLink) activeLink.classList.remove('active');
+    currLink.classList.add('active');
+    activeLink = currLink;
+  };
 
 
 
 
   utils.onDocumentReady( () => {
+    highlightActiveMenu();
     lazy.cacheCurrContent();
     redirectToHomeFromIndex();
     bindMenu();
