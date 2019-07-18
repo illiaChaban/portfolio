@@ -9,7 +9,8 @@
     // textColour: '#fe0853', //pink
     // textColour: '#08FDD8', //blue
     // textColour: '#00000', //black
-    textColour: '#ffffc2', // yellow
+    // textColour: '#ffffc2', // yellow 
+    textColour: '#e6d6b2', // 
     
     // outlineThickness: 0.5,
     // outlineColour: '#fe0853',

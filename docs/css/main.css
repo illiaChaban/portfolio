@@ -50,7 +50,7 @@ body {
 }
 
 .subtle {
-  font-size: 1em;
+  font-size: 1rem;
   color: var(--text-color-subtle);
   font-family: 'Amatic SC', cursive;
   margin:0;
@@ -67,6 +67,7 @@ body {
 /* menu */
 #menu {
   background: #181818; /* #2f2f2f */
+  color: var(--text-color-subtle);
   width: 60px;
   height: 100%;
   position: absolute;
@@ -91,7 +92,6 @@ body {
 }
 
 
-
 #nav a {
   color: inherit;
   text-decoration: none;
@@ -104,8 +104,8 @@ body {
 
 #nav a::after {
   content: '';
-  font-size: 9px;
-  /* letter-spacing: 2px; */
+  font-size: 11px;
+  letter-spacing: 1px;
   position: absolute;
   bottom: 0;
   display: block;
@@ -130,10 +130,12 @@ body {
   opacity: 0;
 }
 
-#nav a:first-child::after { content: 'ABOUT'; }
-#nav a:first-child+a::after { content: 'SKILLS'; }
-#nav a:first-child+a+a::after { content: 'PROJECTS'; }
-#nav a:first-child+a+a+a::after { content: 'FONTS'; }
+#nav a:first-child::after { content: 'HOME'; }
+#nav a:first-child+a::after { content: 'ABOUT'; }
+#nav a:first-child+a+a::after { content: 'SKILLS'; }
+#nav a:first-child+a+a+a { font-size: 20px; }
+#nav a:first-child+a+a+a::after { content: 'PROJECTS'; }
+#nav a:first-child+a+a+a+a::after { content: 'FONTS'; }
 
 #nav {
   font-family: 'Inconsolata', monospace;

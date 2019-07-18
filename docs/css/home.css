@@ -2,8 +2,12 @@
 header {
   --margin-left: 29px;
   margin-left: var(--margin-left);
-  transform: translateY(30%);
+  transform: translateY(50%);
   color: var(--text-color-bright);
+  font-size: 2rem;
+  font-family: 'Special Elite', cursive;
+  font-weight:900;
+
 
 }
 
@@ -12,8 +16,6 @@ h1.header {
   /* -webkit-background-clip: text; */
   /* background-clip: text; */
   /* -webkit-text-fill-color: transparent; */
-  font-size: 70px;
-  font-weight:900;
   text-align:left;
   letter-spacing:2px;
   /* margin-top:100px; */
@@ -22,18 +24,14 @@ h1.header {
   /* margin-left: 29px; */
 }
 
-h1.header {
-  font-family: 'Special Elite', cursive;
-  /* font-family: 'Sacramento', cursive;  */
-  /* font-family: "IM Fell Double Pica", serif; */
-}
+
 
 
 
 #art {
   --content-width: 100%; /* must be in pixels, will be updated with JS */
-  --art-width-ratio: 0.95;
-  --art-width: calc( var(--content-width) * var(--art-width-ratio));
+  --content-to-art-width-ratio: 0.95;
+  --art-width: calc( var(--content-width) * var(--content-to-art-width-ratio));
   
   --rv-width: calc( var(--art-width) * 0.7);
   --rv-top: 28%;
@@ -44,12 +42,13 @@ h1.header {
 
   z-index: -1;
   position: absolute;
-  top: 130px;
+  top: 60px;
   right: 0px;
   width: var(--art-width, 500px);
   /* max-width: 95%; */
   height: calc(433 / 1058 * var(--art-width, 500px)); /* mountain picture aspect ratio */
 }
+
 
 
 .relative-container {
@@ -163,13 +162,11 @@ h1.header {
 /* HI! */
 .ml8 {
   font-weight: 900;
-  font-size: 4.5em;
+  /* font-size: 4.5em; */
   /* color: white; */
   width: 3em;
   height: 3em;
   position: relative;
-  font-family: 'Special Elite';
-  /* font-family: 'Amatic SC', cursive;  */
   margin: 0;
   margin-left: calc( -1 * var(--margin-left) );
   transform: translateY(15px);
@@ -197,7 +194,7 @@ h1.header {
 }
 
 .ml8 .bang {
-  font-size: 1.4em;
+  /* font-size: 1.4em; */
   top: auto;
   left: -0.06em;
 }
@@ -233,4 +230,31 @@ h1.header {
   /* border: 2px dashed #4f7b86; */
   width: 2.3em;
   height: 2.3em;
+}
+
+
+
+
+
+@media (max-width: 480px) {
+  /* #art {
+    top: 60px;
+  } */
+  header {
+    font-size: 1.5rem;
+    /* transform: translateY(50%); */
+  }
+}
+
+/* @media (max-width: 800px) {
+  header {
+    transform: translateY(50%);
+  }
+} */
+
+@media (min-width: 960px) {
+  #art {
+    --content-to-art-width-ratio: 0.75;
+    top: 100px;
+  }
 }

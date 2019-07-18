@@ -1,33 +1,14 @@
 (function() {
-  const $art = document.getElementById('art');
-  const $rvContainer = document.getElementById('rv-squirrel-container');
-  const $content = document.getElementById('content');
-
-
-  // const getNumFromString = str => Number( str.match(/\d+/)[0] );
-  // const convertPercentageToRatio = perc =>  getNumFromString(perc) / 100;
-
-  // const udpateRvArtWidth = () => {
-  
-  //   const {width, maxWidth} = getComputedStyle($art);
-  //   const maxWidthRatio = convertPercentageToRatio(maxWidth);
-  //   const maxArtWidth = $content.offsetWidth * maxWidthRatio;
-  //   const artWidth = Math.min( getNumFromString(width), maxArtWidth );
-  
-  //   // update css variable in pixels, since percentage (max-width 
-  //   // is set in percentage) wouldn't work
-  //   $art.setAttribute('style', `--art-width: ${artWidth}px;`)
-  //   // make rv and squirrel visible after updating art-width variable 
-  //   // (since it's dependent on it)
-  //   $rvContainer.classList.remove('hide');
-  // };
-
-  const updateArtWidth = () => {
-    $art.setAttribute( 'style', `--content-width: ${$content.offsetWidth}px;`);
-  }
-  
   window.initHome = () => {
+    
+    const $art = document.getElementById('art');
+    const $rvContainer = document.getElementById('rv-squirrel-container');
+    const $content = document.getElementById('content');
   
+    const updateArtWidth = () => {
+      $art.setAttribute( 'style', `--content-width: ${$content.offsetWidth}px;`);
+    }
+    
   
     updateArtWidth();
     $rvContainer.classList.remove('hide');
@@ -37,6 +18,7 @@
   
   
     // HI
+    document.querySelector(".ml8").classList.remove('hide');
     anime.timeline({loop: false})
       .add({
         targets: '.ml8 .circle-white',
