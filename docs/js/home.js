@@ -1,21 +1,18 @@
 (function() {
-  window.initHome = () => {
-    
-    const $art = document.getElementById('art');
-    const $rvContainer = document.getElementById('rv-squirrel-container');
-    const $content = document.getElementById('content');
   
-    const updateArtWidth = () => {
-      $art.setAttribute( 'style', `--content-width: ${$content.offsetWidth}px;`);
-    }
-    
+  const $art = document.getElementById('art');
+  const $rvContainer = document.getElementById('rv-squirrel-container');
+  const $content = document.getElementById('content');
+
+  const updateArtWidth = () => {
+    $art.setAttribute( 'style', `--content-width: ${$content.offsetWidth}px;`);
+  };
+
+  window.initHome = () => {
   
     updateArtWidth();
     $rvContainer.classList.remove('hide');
     window.addEventListener('resize', updateArtWidth);
-  
-  
-  
   
     // HI
     document.querySelector(".ml8").classList.remove('hide');

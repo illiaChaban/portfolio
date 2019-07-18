@@ -5,7 +5,7 @@
       const el = e.target;
       // console.log( el.parentElement.tagName)
       let link = el.tagName === 'A' ? el : el.closest("#menu a");
-      console.log(link)
+      // console.log(link)
       if (link) {
         e.preventDefault();
         let href = link.getAttribute('href');
@@ -40,6 +40,10 @@
       lazy.updateContent('home.html');
       window.history.replaceState(null, "", 'home'); 
     }
+  }
+
+  function highlightActiveMenu() {
+
   }
 
 

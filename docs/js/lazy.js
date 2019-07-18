@@ -146,18 +146,28 @@ window.lazy = {};
   };
   l.updateContent = async (href) => {
     let requestedPage = l.getPageName(href);
-    if ( !(requestedPage in cachedContent)) cachedContent[requestedPage] = await l.loadContent(href);
-    document.getElementById('content').innerHTML = cachedContent[requestedPage];
+    let currContent = document.getElementById('content');
+
+    if ( !(requestedPage in cachedContent)) {
+      let doc = await l.loadParsedHtml(href);
+      l.cacheContent(requestedPage, doc);
+    }
+    currContent.innerHTML = ''; //remove current content
+    currContent.append( ...cachedContent[requestedPage])
     l.initPage(requestedPage);
   };
   l.getCurrPageName = () => l.getPageName(document.location.pathname);
-  l.cacheCurrContent = () => {
-    cachedContent[l.getCurrPageName()] = document.getElementById('content').innerHTML;
+  l.cacheContent = (page, doc) => {
+    // transforming from HTMLCollection to array to be able to cache elements
+    // HTMLCollection gets updated on .innerHTML = '' and elements get removed
+    cachedContent[page] = [ ...doc.getElementById('content').children];
   };
-  l.loadContent = async (href) => {
+  l.cacheCurrContent = () => l.cacheContent( l.getCurrPageName(), document );
+
+  l.loadParsedHtml = async (href) => {
     let html = await fetch(href).then( res => res.text() );    
     let doc = parser.parseFromString(html, "text/html");
-    return doc.getElementById('content').innerHTML;;
+    return doc;
   };
 
   // l.cachedContent = cachedContent; // REMOVE IT
