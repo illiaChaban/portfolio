@@ -150,7 +150,7 @@ window.lazy = {};
     document.getElementById('content').innerHTML = cachedContent[requestedPage];
     l.initPage(requestedPage);
   };
-  l.getCurrPageName = () => lazy.getPageName(document.location.pathname);
+  l.getCurrPageName = () => l.getPageName(document.location.pathname);
   l.cacheCurrContent = () => {
     cachedContent[l.getCurrPageName()] = document.getElementById('content').innerHTML;
   };
