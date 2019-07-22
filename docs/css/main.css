@@ -176,6 +176,9 @@ body {
   /* min-height: 600px; */
   /* min-height: calc( 100vh - var(--content-padding) * 2 ); */
   min-height: 100vh;
+  
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 480px) {
