@@ -27,7 +27,7 @@ window.lazy = {};
     fonts: {
       dependancies: [
         ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
-        ['js/projects/fonts.js', 'script'],
+        ['js/fonts/fonts.js', 'script'],
         ['css/fonts.css', 'css'],
         ['Sacramento', 'font'],
         ['Amatic SC', 'font']
@@ -37,9 +37,10 @@ window.lazy = {};
     home: {
       dependancies: [
         ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
-        ['js/home.js', 'script']
+        ['js/home/home.js', 'script'],
+        ['css/home.css', 'css'],
       ],
-      initializer: 'initHomeHiAnimation'
+      initializer: 'initHome'
     }
   };
   let loadedFonts = {};
@@ -139,8 +140,11 @@ window.lazy = {};
     return loadedCss[src];
   };
   l.updateContent = async (href) => {
-    let requestedPage = l.getPageName(href);
     let currContent = document.getElementById('content');
+    currContent.classList.add('hide');
+
+    l.showLoadingWindow();
+    let requestedPage = l.getPageName(href);
 
     if ( !(requestedPage in cachedContent)) {
       let doc = await l.loadParsedHtml(href);
@@ -148,13 +152,24 @@ window.lazy = {};
     }
     currContent.innerHTML = ''; //remove current content
     currContent.append( ...cachedContent[requestedPage])
-    l.initPage(requestedPage);
+    l.initPage(requestedPage).then( () => {
+      l.hideLoadingWindow();
+      currContent.classList.remove('hide');
+    });
   };
+
+  // caching values to avoid executing the function with the same
+  // arguments multiple times
+  let cachedPageNames = {}; 
   l.getPageName = (href) => {
-    let path = href.split("/");
-    let lastPath = path[path.length-1];
-    if (lastPath === '') return 'index';
-    return href.match( pageMatcher )[1];
+    if ( !(href in cachedPageNames)) {
+      let path = href.split("/");
+      let lastPath = path[path.length-1];
+      cachedPageNames[href] = lastPath === '' ? 
+        'index':
+        href.match( pageMatcher )[1];
+    }
+    return cachedPageNames[href];
   };
   l.getCurrPageName = () => l.getPageName(document.location.pathname);
   l.cacheContent = (page, doc) => {
@@ -170,6 +185,28 @@ window.lazy = {};
     return doc;
   };
 
-  l.cachedContent = cachedContent; // REMOVE IT
+  l.showLoadingWindow = () => document.getElementById('loading').classList.remove('hide');
+  l.hideLoadingWindow = () => document.getElementById('loading').classList.add('hide');
+
+  let activeLink = null;
+  l.highlightActiveMenu = (href=document.location.pathname) => {
+    const $nav = document.getElementById('nav');
+    let pageName = lazy.getPageName(href);
+    let currLink = $nav.querySelector(`a[href^=${pageName}]`);
+    if (activeLink) activeLink.classList.remove('active');
+    currLink.classList.add('active');
+    activeLink = currLink;
+  };
+
+  l.navigateToPage = (href) => {
+    l.updateContent(href);
+    // updating location.href without reloading
+    window.history.pushState(null, "", href); 
+    l.highlightActiveMenu(href);
+  };
+
+
+
+  // l.cachedContent = cachedContent; // REMOVE IT
 
 })(window.lazy);
