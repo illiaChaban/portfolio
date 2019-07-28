@@ -117,8 +117,6 @@
   --font-size-header: 16px;
   --car-color: var( --color-main, white);
 
-  /* border-radius: var( --border-radius-big );
-  border: 3px solid var( --car-color ); */
   color: var( --car-color );
   height: 200px;
   left: 50%;

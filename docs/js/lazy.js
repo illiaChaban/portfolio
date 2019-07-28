@@ -41,6 +41,13 @@ window.lazy = {};
         ['css/home.css', 'css'],
       ],
       initializer: 'initHome'
+    },
+    contact: {
+      dependancies: [
+        ['js/contact/contact.js', 'script'],
+        ['css/contact.css', 'css'],
+      ],
+      // initializer: 'initContact'
     }
   };
   let loadedFonts = {};

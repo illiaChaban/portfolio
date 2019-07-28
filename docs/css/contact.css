@@ -1,0 +1,195 @@
+#contact {
+  /* flex-direction: row-reverse; */
+  /* justify-content: space-between; */
+  font-family: 'Inconsolata', monospace;
+  /* font-family: 'Amatic SC', cursive; */
+}
+
+/* #contact > div {
+  flex-basis: 50%;
+  flex-grow: 1;
+} */
+
+#contact-info {
+  justify-content: center;
+  align-items: center;
+  color: var(--color-bright);
+  /* font-size: 2rem; */
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: start; */
+  z-index: 1;
+}
+
+/* #contact-info a {
+  color: var(--color-orange);
+}
+
+#contact-info a:hover {
+  color: var(--color-bright);
+} */
+
+#contact-info h2 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#contact-info .links {
+  justify-content: space-between;
+  font-size: 2rem;
+  padding-top: 15px;
+}
+
+/* adding CV sign to file icon for resume */
+/* .fas.fa-file {
+  position: relative;
+}
+.fas.fa-file::after {
+  content: "CV";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--body-background-color, black);
+  font-size: .5em;
+  font-family: 'Inconsolata', monospace;
+} */
+
+
+/* #contact-art {
+  position: relative;
+  opacity: 0.6;
+}
+
+#contact-art img {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+} */
+
+/* @media (max-width: 960px) {
+  #contact {
+    flex-direction: column;
+  }
+
+  #contact-info {
+    flex-direction: row;
+  }
+
+  #contact-art {
+    display: flex;
+    justify-content: center;
+  }
+
+  #contact-art img {
+    height: 100%;
+    width: auto;
+  }
+} */
+
+
+
+.scramble-text {
+  color: var(--color-orange);
+}
+
+.scramble-text .doodle {
+  color: var(--color-subtle, grey);
+}
+
+.fa-file-pdf {
+  position: relative;
+  top: -2px;
+}
+
+
+.links a {
+  /* background: white; */
+  position: relative;
+  transform: rotate(-35deg) skew(20deg);
+  display: block;
+  width: 40px; 
+  height: 40px;
+}
+
+.links a span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: yellow;
+  transition: 0.5s;
+}
+
+.links a span:nth-child(5) {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  /* display: block; */
+}
+
+.links a:hover span:nth-child(5) {
+  transform: translate(20px, -20px);
+  opacity: 1;
+}
+.links a:hover span:nth-child(4) {
+  transform: translate(15px, -15px);
+  opacity: .8;
+}
+.links a:hover span:nth-child(3) {
+  transform: translate(10px, -10px);
+  opacity: .6;
+}
+.links a:hover span:nth-child(2) {
+  transform: translate(5px, -5px);
+  opacity: .4;
+}
+.links a:hover span:nth-child(1) {
+  opacity: .2;
+}
+
+.links a span {
+  /* background: var(--color-orange);
+  color: var(--color-bright); */
+
+  background: var(--color-bright);
+  color: var(--color-orange);
+}
+
+#contact-info a {
+  color: var(--color-bright);
+}
+  /* linkedin */
+  /* github */
+  /* facebook */
+
+/* .links a:nth-child(1) span {
+  background: #0077b5;
+}
+
+.links a:nth-child(2) span {
+  background: black;
+}
+.links a:nth-child(3) span {
+  background: #3b5999;
+  color: var(--color-bright);
+} */
+
+
+
+#copy-email {
+  /* position: relative;
+  transition: all .3s; */
+  display: inline-block;
+  padding-left: 10px;
+  width: 20px;
+  height: 1em;
+  line-height: 1em;
+}
+
+#copy-email::after {
+  content: 'COPY'
+}

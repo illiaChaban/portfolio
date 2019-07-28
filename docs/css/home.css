@@ -1,16 +1,10 @@
 
 .home-text {
-  /* --margin-left: 29px; */
-  /* margin-left: var(--margin-left); */
-  /* transform: translateY( calc(50% - var(--content-padding) * 2) ); */
   color: var(--color-bright);
   font-size: 2rem;
   font-family: 'Special Elite', cursive;
   /* font-family: serif; */
   font-weight:900;
-  /* padding-left: 30px; */
-  /* padding-top: 150px; */
-  /* margin-top: 100px; */
   margin-left: 30px;
 
   min-height: 400px;
@@ -36,16 +30,10 @@
 }
 
 h1.header {
-  /* background: url("https://i.imgur.com/jGIGWOA.jpg"); */
-  /* -webkit-background-clip: text; */
-  /* background-clip: text; */
-  /* -webkit-text-fill-color: transparent; */
-  text-align:left;
-  letter-spacing:2px;
-  /* margin-top:100px; */
+  text-align: left;
+  letter-spacing: 2px;
   line-height: 1.2em;
   margin: 0;
-  /* margin-left: 29px; */
 }
 
 /* ********************************************************** */
@@ -92,13 +80,6 @@ h1.header {
 }
 
 
-
-/* .relative-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-} */
-
 #rv, #mountain {
   position: absolute;
 }
@@ -112,28 +93,14 @@ h1.header {
 #mountain {
   width: 100%;
   right: 0px;
+  opacity: 0.8;
 }
-
-/* #mountain::after {
-  content: '';
-  width: 100%;
-  height: 100%;
-} */
-
 
 
 .squirrel {
   position: absolute;
-  /* top: 48%;
-  right: 55%; */
-  /* top: 31%;
-  right: 49%; */
   top: 28%;
   right: 48%;
-  /* top: calc( var(--rv-top) + 3%); */
-  /* right: calc( var(--rv-width) / 7 * 4 + var(--rv-right) ); */
-
-  /* --squirrel-box-height: 60px; */
 
   /* determines how long is squirrel's jump */
   width: var(--squirrel-width);
@@ -238,14 +205,11 @@ h1.header {
 /* HI! */
 .ml8 {
   font-weight: 900;
-  /* font-size: 4.5em; */
-  /* color: white; */
   width: 3em;
   height: 3em;
   position: relative;
   margin: 0;
   /* aligning HI to the rest of the header */
-  /* margin-left: -20px;  */
   transform: translate( -25px, 15px);
   z-index: -1;
 
