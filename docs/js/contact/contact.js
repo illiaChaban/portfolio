@@ -68,14 +68,17 @@ const el = document.querySelector('.scramble-text');
 const fx = new TextScramble(el);
 
 let counter = 0;
-const next = () => {
-  fx.setText(phrases[counter]).then(() => {
-    setTimeout(next, 1500)
-  })
-  counter = (counter + 1) % phrases.length
+const nextScramble = (config = {infinite: true, timeout: 2500}) => {
+  if (counter < phrases.length) {
+    fx.setText(phrases[counter]).then(() => {
+      setTimeout( () => nextScramble(config), config.timeout)
+    })
+  }
+  counter++;
+  if (config.infinite) counter %= phrases.length;
 }
 
-// next() 
+nextScramble({infinite: false, timeout: 2000});
 
 
 

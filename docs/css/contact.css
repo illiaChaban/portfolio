@@ -21,6 +21,10 @@
   z-index: 1;
 }
 
+#contact-info a {
+  color: var(--color-bright);
+}
+
 /* #contact-info a {
   color: var(--color-orange);
 }
@@ -90,11 +94,19 @@
 
 
 .scramble-text {
+  font-family: 'Amatic SC', 'Inconsolata', monospace;
+  /* font-family: 'Inconsolata'; */
   color: var(--color-orange);
+  color: var(--color-bright);
+  color: var(--color-subtle);
+  font-size: 1.5rem;
 }
 
 .scramble-text .doodle {
-  color: var(--color-subtle, grey);
+  /* color: var(--color-subtle, grey); */
+  color: var(--color-bright);
+  color: var(--color-orange);
+  opacity: .7;
 }
 
 .fa-file-pdf {
@@ -103,39 +115,45 @@
 }
 
 
+
+
+
+/* ****************** */
+/* PREVENTING FLICKERING ON HOVER BECAUSE OF ROTAING AND SKEW TRANSFORMATIONS*/
 #contact-info .links a {
-  position: relative;
-  /* transform: rotate(-35deg) skew(20deg); */
   display: block;
-  width: 55px; 
-  height: 55px;
-  transition: transform .3s;
-  /* color: var(--color-orange); */
-  /* border: 1px solid white; */
-  /* border-radius: 2px; */
-
-  /* display: flex;
-  justify-content: center; */
+  position: relative;
 }
-
-/* #contact-info .links a::after {
+#contact-info .links a::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: 1px solid yellow;
+  border: 1px solid transparent;
+  transition: all .3s;
 }
 #contact-info .links a:hover::after {
-  transform: rotate(35deg) skew(-20deg);
-} */
+  /* transform: rotate(35deg) skew(-20deg); */
+  --transformed-box-diagonal-length: 164%;
+  width: var(--transformed-box-diagonal-length);
+  left: calc( (100% - var(--transformed-box-diagonal-length)) / 2 );
+}
+/* ****************** */
 
 
-#contact-info .links a:hover {
-  /* border-color: transparent; */
+#contact-info .links a div {
+  position: relative;
+  display: block;
+  width: 55px; 
+  height: 55px;
+  transition: transform .3s;
+}
+
+
+#contact-info .links a:hover div {
   transform: rotate(-35deg) skew(20deg);
-
 }
 
 .links a span {
@@ -145,8 +163,10 @@
   width: 100%;
   height: 100%;
   transition: 0.5s;
+  /* transition-property: opacity, transform;
+  transition-duration: 0.5s; */
   border: 1px solid var(--color-orange);
-  /* border: 1px solid var(--color-bright); */
+  border-color: var(--color-bright);
   border-radius: 5px;
 }
 
@@ -157,13 +177,7 @@
 
   position: relative;
   border-color: var(--color-bright);
-
-  /* display: block; */
 }
-
-/* .links a span {
-  border: 1px solid var(--color-orange);
-} */
 
 .links a:hover span:nth-child(5) {
   transform: translate(20px, -20px);
@@ -186,59 +200,18 @@
   opacity: .2;
 }
 
-/* .links a:hover span:nth-child(5) {
-  transform: translate(8px, -20px);
-  opacity: 1;
-}
-.links a:hover span:nth-child(4) {
-  transform: translate(6px, -15px);
-  opacity: .8;
-}
-.links a:hover span:nth-child(3) {
-  transform: translate(4px, -10px);
-  opacity: .6;
-}
-.links a:hover span:nth-child(2) {
-  transform: translate(2px, -5px);
-  opacity: .4;
-}
-.links a:hover span:nth-child(1) {
-  opacity: .2;
-} */
-
-.links a:hover span {
-  /* background: var(--color-orange); */
-  color: var(--color-bright);
-
+/* orange spans */
+/* .links a span {
+  background: var(--color-orange);
+  border-color: var(--color-bright);
 }
 .links a span:nth-child(5) {
-  /* background: var(--body-background-color); */
-}
-
-#contact-info a {
-  color: var(--color-bright);
-}
-  /* linkedin */
-  /* github */
-  /* facebook */
-
-/* .links a:nth-child(1) span {
-  background: #0077b5;
-}
-
-.links a:nth-child(2) span {
-  background: black;
-}
-.links a:nth-child(3) span {
-  background: #3b5999;
-  color: var(--color-bright);
+  background: var(--body-background-color);
 } */
 
 
 
-#copy-email {
-  /* position: relative;
-  transition: all .3s; */
+/* #copy-email {
   display: inline-block;
   padding-left: 10px;
   width: 20px;
@@ -248,4 +221,4 @@
 
 #copy-email::after {
   content: 'COPY';
-}
+} */
