@@ -81,9 +81,19 @@ const next = () => {
 
 
 // ADD COPY FUNCTIONALITY TO EMAIL LINK
-let emailLink = document.querySelector('#contact-info [href^="mailto"]');
-console.log(emailLink)
-emailLink.insertAdjacentHTML('afterend', '<span id="copy-email" class="c-subtle pointer icon-explanation-on-hover"> <i class="fas fa-copy"></i></span>');
+// let emailLink = document.querySelector('#contact-info [href^="mailto"]');
+// console.log(emailLink);
+// emailLink.insertAdjacentHTML(
+//   'afterend', 
+//   `<span id="copy-email" class="c-subtle pointer icon-explanation-on-hover">
+//     <i class="fas fa-copy"></i>
+//   </span>`
+// );
+
+// let emailCopier = document.getElementById('copy-email');
+// emailCopier.addEventListener('click', e => {
+
+// });
 // let copyNode = 
 
 
