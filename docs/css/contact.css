@@ -23,6 +23,8 @@
 
 #contact-info a {
   color: var(--color-bright);
+  font-family: 'Inconsolata', 'Saira', monospace;
+
 }
 
 /* #contact-info a {
@@ -79,7 +81,6 @@
 
 
 .scramble-text {
-  font-family: 'Inconsolata', monospace;
   /* color: var(--color-orange);
   color: var(--color-bright); */
   color: var(--color-subtle);
