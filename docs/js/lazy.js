@@ -47,7 +47,7 @@ window.lazy = {};
         ['js/contact/contact.js', 'script'],
         ['css/contact.css', 'css'],
       ],
-      // initializer: 'initContact'
+      initializer: 'initContact'
     }
   };
   let loadedFonts = {};

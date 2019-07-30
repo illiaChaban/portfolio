@@ -67,20 +67,21 @@ const phrases = [
 const el = document.querySelector('.scramble-text');
 const fx = new TextScramble(el);
 
-let counter = 0;
-const nextScramble = (config = {infinite: true, timeout: 2500}) => {
-  if (counter < phrases.length) {
-    fx.setText(phrases[counter]).then(() => {
-      setTimeout( () => nextScramble(config), config.timeout)
+const animateScramble = (c = {infinite: true, interval: 2500}) => {
+  if (c.currIndex === undefined) c.currIndex = 0;
+
+  if (c.currIndex < phrases.length) {
+    fx.setText(phrases[c.currIndex]).then(() => {
+      c.currIndex++;
+      if (c.infinite) c.currIndex %= phrases.length;
+      setTimeout( () => animateScramble(c), c.interval)
     })
   }
-  counter++;
-  if (config.infinite) counter %= phrases.length;
 }
 
-nextScramble({infinite: false, timeout: 2000});
 
 
+// animateScramble({infinite: false, interval: 2000});
 
 
 // ADD COPY FUNCTIONALITY TO EMAIL LINK
@@ -99,6 +100,8 @@ nextScramble({infinite: false, timeout: 2000});
 // });
 // let copyNode = 
 
-
+  window.initContact = () => {
+    animateScramble({infinite: false, interval: 2000});
+  }
 
 })();

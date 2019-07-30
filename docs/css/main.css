@@ -277,9 +277,9 @@ a {
   position: absolute;
   top: 100%;
   left: 0;
-  height: 2px;
+  height: 1px;
   width: 0;
-  background: var(--color-orange);
+  background: var(--color-bright);
   transition: width .5s;
 }
 .hover-underline:hover::after {

@@ -44,21 +44,6 @@
   padding-top: 15px;
 }
 
-/* adding CV sign to file icon for resume */
-/* .fas.fa-file {
-  position: relative;
-}
-.fas.fa-file::after {
-  content: "CV";
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--body-background-color, black);
-  font-size: .5em;
-  font-family: 'Inconsolata', monospace;
-} */
-
 
 /* #contact-art {
   position: relative;
@@ -94,21 +79,21 @@
 
 
 .scramble-text {
-  font-family: 'Amatic SC', 'Inconsolata', monospace;
-  /* font-family: 'Inconsolata'; */
-  color: var(--color-orange);
-  color: var(--color-bright);
+  font-family: 'Inconsolata', monospace;
+  /* color: var(--color-orange);
+  color: var(--color-bright); */
   color: var(--color-subtle);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 100;
+  text-transform: uppercase;
 }
 
 .scramble-text .doodle {
-  /* color: var(--color-subtle, grey); */
-  color: var(--color-bright);
   color: var(--color-orange);
   opacity: .7;
 }
 
+/* moving pdf icon 2px up for it to look more aligned with other icons */
 .fa-file-pdf {
   position: relative;
   top: -2px;
@@ -119,7 +104,7 @@
 
 
 /* ****************** */
-/* PREVENTING FLICKERING ON HOVER BECAUSE OF ROTAING AND SKEW TRANSFORMATIONS*/
+/* PREVENTING FLICKERING ON HOVER BECAUSE OF ROTATING AND SKEW TRANSFORMATIONS*/
 #contact-info .links a {
   display: block;
   position: relative;
@@ -165,8 +150,8 @@
   transition: 0.5s;
   /* transition-property: opacity, transform;
   transition-duration: 0.5s; */
-  border: 1px solid var(--color-orange);
-  border-color: var(--color-bright);
+  border: 1px solid var(--color-bright);
+  /* border-color: var(--color-bright); */
   border-radius: 5px;
 }
 
@@ -176,7 +161,7 @@
   align-items: center;
 
   position: relative;
-  border-color: var(--color-bright);
+  /* border-color: var(--color-bright); */
 }
 
 .links a:hover span:nth-child(5) {
@@ -200,6 +185,11 @@
   opacity: .2;
 }
 
+/* orange shadow */
+/* .links a:hover span {
+  box-shadow: -1px 1px 3px var(--color-orange);
+} */
+
 /* orange spans */
 /* .links a span {
   background: var(--color-orange);
@@ -207,6 +197,14 @@
 }
 .links a span:nth-child(5) {
   background: var(--body-background-color);
+} */
+
+/* orange border */
+/* .links a span {
+  border-color: var(--color-orange);
+}
+.links a span:nth-child(5) {
+  border-color: var(--color-bright);
 } */
 
 
