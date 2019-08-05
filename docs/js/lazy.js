@@ -213,6 +213,17 @@ window.lazy = {};
   };
 
 
+  l.loadImg = src => {
+    let img = new Image();
+    let promise = new Promise( (resolve, reject) => {
+      img.onload = () => resolve(img);
+      img.onerror = reject;
+    })
+    img.src = src;
+    return promise;
+  };
+
+
 
   // l.cachedContent = cachedContent; // REMOVE IT
 

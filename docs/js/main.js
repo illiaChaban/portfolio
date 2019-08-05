@@ -58,7 +58,9 @@
       let btn = e.target;
       if (btn.matches('.btn') ) {
         // initiating gradient movement on hover
-        btn.setAttribute('style', `--mouse-pos-x: ${e.offsetX}px; --mouse-pos-y: ${e.offsetY}px;`)
+        // btn.setAttribute('style', `--mouse-pos-x: ${e.offsetX}px; --mouse-pos-y: ${e.offsetY}px;`);
+        btn.style.setProperty('--mouse-pos-x', `${e.offsetX}px`);
+        btn.style.setProperty('--mouse-pos-y', `${e.offsetY}px`);
       }
     })
   }

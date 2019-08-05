@@ -72,7 +72,7 @@ body {
 
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 
@@ -298,14 +298,15 @@ a {
 .btn {
   --mouse-pos-x: 0px;
   --mouse-pos-y: 0px;
+  --btn-color: var(--color-orange);
 
   text-decoration: none;
-  color: var(--color-orange);
+  color: var(--btn-color);
   background: transparent;
 
   padding: 8px 12px;
   border-radius: 5px;
-  border: 1px solid var(--color-orange);
+  border: 1px solid var(--btn-color);
   
   font-family: 'Saira', sans-serif; 
   font-size: 1.5rem;
@@ -327,7 +328,11 @@ a {
 .btn:hover {
   color: var(--body-background-color);
   background: orange;
-  background: radial-gradient(circle at var(--mouse-pos-x) var(--mouse-pos-y), var(--color-orange) 50%,rgba(0,0,0,0) 100%);
+  background: radial-gradient(circle at var(--mouse-pos-x) var(--mouse-pos-y), var(--btn-color) 50%,rgba(0,0,0,0) 100%);
+}
+
+.btn-bright {
+  --btn-color: var(--color-bright);
 }
 
 .flex {
@@ -360,4 +365,34 @@ a {
 
 .padding-15 {
   padding: 15px;
+}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+.text-cursor::after {
+  content: '|';
+  color: var(--color-bright);
+  /* color: black; */
+  font-family: sans-serif; 
+  opacity: 1;
+  animation: blinkTextCursor 1s infinite;
+}
+
+.text-cursor.typing::after {
+  animation: none;
+}
+
+@keyframes blinkTextCursor {
+  0%, 25%, 80%, 100% {
+    opacity: 1;
+  }
+  30%, 75% {
+    opacity: 0;
+  }
 }
