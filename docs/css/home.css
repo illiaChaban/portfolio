@@ -295,3 +295,20 @@ h1.header {
 #contact-me {
   margin-top: 20px;
 }
+
+
+.quote {
+  color: var(--color-subtle);
+  font-family: 'Inconsolata';
+  font-size: .8rem;
+  text-align: center;
+  width: 100%;
+  padding-top: 20px;
+  transition: all .3s;
+
+  /* opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards; */
+}

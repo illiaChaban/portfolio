@@ -48,39 +48,6 @@
 }
 
 
-/* #contact-art {
-  position: relative;
-  opacity: 0.6;
-}
-
-#contact-art img {
-  height: 100%;
-  position: absolute;
-  bottom: 0;
-} */
-
-/* @media (max-width: 960px) {
-  #contact {
-    flex-direction: column;
-  }
-
-  #contact-info {
-    flex-direction: row;
-  }
-
-  #contact-art {
-    display: flex;
-    justify-content: center;
-  }
-
-  #contact-art img {
-    height: 100%;
-    width: auto;
-  }
-} */
-
-
-
 .scramble-text {
   /* color: var(--color-orange);
   color: var(--color-bright); */
@@ -210,51 +177,22 @@
 } */
 
 
-
-/* #copy-email {
-  display: inline-block;
-  padding-left: 10px;
-  width: 20px;
-  height: 1em;
-  line-height: 1em;
-}
-
-#copy-email::after {
-  content: 'COPY';
-} */
-
 #contact {
   justify-content: space-around;
-
 }
 
 #contact-art {
-  min-width: 200px;
-  max-width: 95vh;
-  /* min-height: 200px; */
+
   width: 300px;
-  /* height: 300px; */
+  height: 300px;
   align-self: center;
   /* opacity: .5; */
   /* transition: all 1s; */
   position: relative;
 }
 
-#contact-art svg, #contact-art img{
-  opacity: .5;
-  width: 100%;
-  height: auto;
-  /* margin: 0 auto; */
-}
 
-#contact-art .btn {
-  font-size: 1.2rem;
-}
-/* #contact-art:hover {
-  opacity: 1;
-} */
-
-/* .loading-wave {
+.loading-wave {
   width: 100%;
   height: 100%;
   position: relative;
@@ -273,7 +211,7 @@
   border-radius: 50%;
   transform: translateZ(-100px);
   animation: wave 3s ease-in-out infinite;
-  opacity: .6;
+  /* opacity: .6; */
 }
 
 @keyframes wave {
@@ -283,67 +221,4 @@
   50% {
     transform: translateZ(100px);
   }
-} */
-
-#quote {
-  color: var(--color-bright);
-  font-family: 'Special Elite', 'Inconsolata', sans-serif;
-  font-size: .8rem;
-  line-height: 1rem;
-  /* color: var(--color-subtle); */
-  position: relative;
-  min-height: 4rem;
-  padding: 10px 0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-#quote .quotation::before {
-  content: "<<";
-  color: var(--color-subtle);
-}
-
-#quote .quotation::after {
-  content: ">>";
-  color: var(--color-subtle);
-}
-
-#quote .author {
-  color: var(--color-orange);
-  opacity: .6;
-}
-
-
-#contact-art .btn {
-  border-radius: 20px;
-  position: absolute;
-  top: 5px;
-  z-index: 1;
-  left: 5px;
-
-  width: 100px;
-  height: 50px;
-
-}
-
-#contact-art .btn::before,
-#contact-art .btn::after {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#contact-art .btn::before {
-  content: 'more'
-}
-
-#contact-art .btn:hover::before {
-  content: ''
-}
-
-#contact-art .btn:hover::after {
-  content: 'wisdom'
 }

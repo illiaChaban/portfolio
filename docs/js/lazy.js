@@ -48,6 +48,13 @@ window.lazy = {};
         ['css/contact.css', 'css'],
       ],
       initializer: 'initContact'
+    },
+    about: {
+      dependancies: [
+        ['js/about/about.js', 'script'],
+        ['css/about.css', 'css']
+      ],
+      initializer: 'initAbout'
     }
   };
   let loadedFonts = {};
@@ -213,6 +220,7 @@ window.lazy = {};
   };
 
 
+  
   l.loadImg = src => {
     let img = new Image();
     let promise = new Promise( (resolve, reject) => {
@@ -223,6 +231,20 @@ window.lazy = {};
     return promise;
   };
 
+  const loadedImgs = {};
+  l.loadSvg = src => new Promise( async (resolve, reject) => {
+    try {
+      if ( !(src in loadedImgs) ) {
+        let svgText = await fetch(src).then( res => res.text() );
+        const parsed = parser.parseFromString(svgText, 'image/svg+xml');
+        const svgEl = parsed.querySelector('svg');
+        loadedImgs[src] = svgEl;
+      };
+      resolve( loadedImgs[src] );
+    } catch(e) {
+      reject(e);
+    }
+  });
 
 
   // l.cachedContent = cachedContent; // REMOVE IT
