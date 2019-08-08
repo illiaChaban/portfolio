@@ -110,45 +110,45 @@
 
 // ****************************************************
 
+  const colorSvg = (svgEl, colors) => {
+    colors.forEach( (color,i) => {
+      svgEl.style.setProperty(`--color-${i}`, `${color}`);
+    });
+
+    svgEl.querySelectorAll('path').forEach( (path, i) => {
+      path.setAttribute('fill', `var(--color-${i})`);
+    })
+  }
+
+
+  const artMap = [
+    {
+      imgUrl: 'imgs/quotes/feynman.svg',
+      // colors: ['var(--color-subtle)', '#afadad', 'var(--color-bright)', 'var(--color-orange)'],
+      colors: ['var(--color-bright)', '#afadad'/* 'var(--color-subtle)' */, 'black'],
+      // quote: ["I'm smart enough to know that I'm dumb.", "- Richard Feynman"],
+      quote: ["The first principle is that you must not fool yourself and you are the easiest person to fool.", "- Richard Feynman"]
+    },
+    {
+      imgUrl: 'imgs/quotes/gandhi1.svg', 
+      // imgUrl: 'imgs/quotes/lee3.svg',
+      colors: [/* 'var(--color-subtle)' */ 'black', 'var(--color-bright)', '#afadad'], 
+      quote: ["A man is but the product of his thoughts. What he thinks, he becomes.", "- Mahatma Gandhi"]
+    },
+    {
+      imgUrl: 'imgs/quotes/lee4.svg',
+      imgUrl: 'imgs/quotes/lee5.svg',
+      // imgUrl: 'imgs/quotes/lee6.svg',
+      // colors: ['var(--color-subtle)', '#afadad', 'var(--color-bright)', 'var(--color-orange)'],
+      colors: ['#afadad', 'var(--color-bright)', 'black'/* 'var(--color-subtle)' */],
+      colors: ['black', 'var(--color-bright)', '#afadad' /* 'var(--color-subtle)' */],
+      quote: ["Knowing is not enough, we must apply. Willing is not enough, we must do.", "- Bruce Lee"],
+    },
+  ]
+
+  lazy.onDocumentReady( () => {
     const $art = document.querySelector('.art');
     const $imgContainer = $art.querySelector('#img');
-
-    const colorSvg = (svgEl, colors) => {
-      colors.forEach( (color,i) => {
-        svgEl.style.setProperty(`--color-${i}`, `${color}`);
-      });
-
-      svgEl.querySelectorAll('path').forEach( (path, i) => {
-        path.setAttribute('fill', `var(--color-${i})`);
-      })
-    }
-
-
-    const artMap = [
-      {
-        imgUrl: 'imgs/quotes/feynman.svg',
-        // colors: ['var(--color-subtle)', '#afadad', 'var(--color-bright)', 'var(--color-orange)'],
-        colors: ['var(--color-bright)', '#afadad'/* 'var(--color-subtle)' */, 'black'],
-        // quote: ["I'm smart enough to know that I'm dumb.", "- Richard Feynman"],
-        quote: ["The first principle is that you must not fool yourself and you are the easiest person to fool.", "- Richard Feynman"]
-      },
-      {
-        imgUrl: 'imgs/quotes/gandhi1.svg', 
-        // imgUrl: 'imgs/quotes/lee3.svg',
-        colors: [/* 'var(--color-subtle)' */ 'black', 'var(--color-bright)', '#afadad'], 
-        quote: ["A man is but the product of his thoughts. What he thinks, he becomes.", "- Mahatma Gandhi"]
-      },
-      {
-        imgUrl: 'imgs/quotes/lee4.svg',
-        imgUrl: 'imgs/quotes/lee5.svg',
-        // imgUrl: 'imgs/quotes/lee6.svg',
-        // colors: ['var(--color-subtle)', '#afadad', 'var(--color-bright)', 'var(--color-orange)'],
-        colors: ['#afadad', 'var(--color-bright)', 'black'/* 'var(--color-subtle)' */],
-        colors: ['black', 'var(--color-bright)', '#afadad' /* 'var(--color-subtle)' */],
-        quote: ["Knowing is not enough, we must apply. Willing is not enough, we must do.", "- Bruce Lee"],
-      },
-    ]
-
 
     const $quote = document.getElementById('quote');
     const $quotation = $quote.querySelector('.quotation > span');
@@ -156,6 +156,7 @@
     const speed = [20, 80];
     const typer1 = new TextTyper($quotation, ...speed);
     const typer2 = new TextTyper($author, ...speed);
+
     const typeQuote = ([quotation, author]) => {
       // $quote.querySelectorAll('.text-cursor').forEach( x => x.classList.remove('text-cursor'));
 
@@ -197,6 +198,8 @@
     window.initAbout = () => {
       updateArt( artCount );
     }
+
+  });
 
 })();
 

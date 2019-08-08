@@ -68,7 +68,7 @@
 
 
 
-  utils.onDocumentReady( () => {
+  lazy.onDocumentReady( () => {
     redirectToHomeFromIndex();
     lazy.highlightActiveMenu();
     bindMenu();

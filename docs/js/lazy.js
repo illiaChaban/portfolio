@@ -9,6 +9,7 @@ window.lazy = {};
       dependancies: [
         ["js/skills/tagcanvas.min.js", 'script'],
         ["js/skills/skillsCloud.js", 'script'],
+        ['css/about.css', 'css'],
         [skillCloudFont, 'font']
       ],
       initializer: 'initSkillsCloud', // add arguments !!!! (text font),
@@ -55,7 +56,7 @@ window.lazy = {};
         ['css/about.css', 'css']
       ],
       initializer: 'initAbout'
-    }
+    },
   };
   let loadedFonts = {};
   let loadedScripts = {};
@@ -246,7 +247,24 @@ window.lazy = {};
     }
   });
 
+  l.onDocumentReady = ( callback ) => {
+    // console.log("ON DOCUMENT READY CALLED", document.readyState, {cb: callback.toString()})
+    document.readyState === 'loading' ? 
+      window.addEventListener('DOMContentLoaded', callback ) :
+      callback();
+  };
 
-  // l.cachedContent = cachedContent; // REMOVE IT
+
+  // vanilla JS window width and height
+	// l.getWindowWidthHeight = () => {
+	// 	var w=window,
+	// 	d=document,
+	// 	e=d.documentElement,
+	// 	g=d.getElementsByTagName('body')[0],
+	// 	x=w.innerWidth||e.clientWidth||g.clientWidth,
+	// 	y=w.innerHeight||e.clientHeight||g.clientHeight;
+	// 	return [x,y];
+	// };
+
 
 })(window.lazy);

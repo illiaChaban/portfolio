@@ -58,30 +58,6 @@ class TextScramble {
   }
 }
 
-
-const phrases = [
-  'Hello friend,',
-  "Let's build something great!"
-]
-
-const el = document.querySelector('.scramble-text');
-const fx = new TextScramble(el);
-
-const animateScramble = (c = {infinite: true, interval: 2500}) => {
-  if (c.currIndex === undefined) c.currIndex = 0;
-
-  if (c.currIndex < phrases.length) {
-    fx.setText(phrases[c.currIndex]).then(() => {
-      c.currIndex++;
-      if (c.infinite) c.currIndex %= phrases.length;
-      setTimeout( () => animateScramble(c), c.interval)
-    })
-  }
-}
-
-
-
-
 const buildWaveLoader = (waveElement, colors, spanNum) => {
   let spans = '';
   for( let i=0; i<spanNum; i++ ) {
@@ -103,19 +79,41 @@ const buildWaveLoader = (waveElement, colors, spanNum) => {
   waveElement.innerHTML = spans;
 }
 
-const wave = document.querySelector('.loading-wave');
-const colors = [  '#FF6138', '#f2f1c6'/* , '#8e2890' */];
-buildWaveLoader(wave, colors, 15);
-
-
-  // const enableTransitions = () => document.querySelector('.preload').classList.remove('preload');
-
+lazy.onDocumentReady( () => {
+  const phrases = [
+    'Hello friend,',
+    "Let's build something great!"
+  ]
+  
+  const el = document.querySelector('.scramble-text');
+  const fx = new TextScramble(el);
+  
+  const animateScramble = (c = {infinite: true, interval: 2500}) => {
+    if (c.currIndex === undefined) c.currIndex = 0;
+  
+    if (c.currIndex < phrases.length) {
+      fx.setText(phrases[c.currIndex]).then(() => {
+        c.currIndex++;
+        if (c.infinite) c.currIndex %= phrases.length;
+        setTimeout( () => animateScramble(c), c.interval)
+      })
+    }
+  }
+  
+  
+  
+  
+  const wave = document.querySelector('.loading-wave');
+  const colors = [  '#FF6138', '#f2f1c6'/* , '#8e2890' */];
+  buildWaveLoader(wave, colors, 15);
+  
+  
+    // const enableTransitions = () => document.querySelector('.preload').classList.remove('preload');
+  
   window.initContact = () => {
     // enableTransitions();
     animateScramble({infinite: false, interval: 2000});
-
-
-
   }
+})
 
 })();

@@ -365,7 +365,8 @@ a {
 } */
 
 .h1-tags,
-.body-tags 
+.body-tags,
+.div-tags
 {
   position: relative;
 }
@@ -373,7 +374,9 @@ a {
 .h1-tags::after,
 .h1-tags::before,
 .body-tags::after,
-.body-tags::before 
+.body-tags::before,
+.div-tags::after,
+.div-tags::before 
 {
   color: var(--color-subtle);
   position: absolute;
@@ -407,3 +410,18 @@ a {
   content: '</body>';
   bottom: 20px;
 }
+
+.div-tags::before {
+  content: '<div>';
+  bottom: 100%;
+}
+.div-tags::after {
+  content: '</div>';
+  top: 100%;
+}
+/* .content .div-tags::before {
+  content: '<div class="content">'
+}
+.art .div-tags::before {
+  content: '<div class="art">'
+} */
