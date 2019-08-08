@@ -17,7 +17,7 @@
 }
 
 .home-text .text-container {
-  margin-left: 30px;
+  margin-left: 5%;
 }
 
 @media (max-width: 960px) {
@@ -298,7 +298,7 @@ h1.header {
 
 #contact-me {
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 45px;
 }
 
 

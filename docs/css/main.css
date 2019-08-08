@@ -70,6 +70,7 @@ body {
   font-family: 'Inconsolata', monospace;
   font-weight: 100;
   margin: 0;
+  letter-spacing: -1px;
 }
 
 
@@ -275,7 +276,7 @@ a {
   left: 0;
   height: 1px;
   width: 0;
-  background: var(--color-bright);
+  background: currentColor;
   transition: width .5s;
 }
 .hover-underline:hover::after {
@@ -372,6 +373,14 @@ a {
   position: relative;
 }
 
+.content .div-tags-end {
+  padding-bottom: 25px;
+}
+
+.body-tags {
+  padding: 45px 0;
+}
+
 .h1-tags::after,
 .h1-tags::before,
 .body-tags::after,
@@ -389,21 +398,6 @@ a {
   text-transform: none;
 }
 
-.h1-tags::after {
-  content: "</h1>";
-  top: calc( 100% + .4rem);
-}
-.h1-tags::before {
-  content: "<h1>";
-  bottom: 100%;
-}
-
-.body-tags::before,
-.body-tags::after
-{
-  left: 2%;
-}
-
 .body-tags::before {
   content: '<body>';
   top: 20px;
@@ -412,16 +406,42 @@ a {
   content: '</body>';
   bottom: 20px;
 }
+.body-tags::before,
+.body-tags::after
+{
+  left: 2%;
+}
+
+
+.h1-tags::before {
+  content: "<h1>";
+  bottom: 100%;
+}
+.h1-tags::after {
+  content: "</h1>";
+  top: calc( 100% + .4rem);
+}
 
 .div-tags::before {
   content: '<div>';
-  bottom: 100%;
+  /* bottom: 100%; */
+  top: 0;
 }
 .div-tags::after,
 .div-tags-end::after {
   content: '</div>';
-  top: calc( 100% + .5rem );
+  /* top: calc( 100% + .5rem ); */
+  bottom: 0px;
 }
+
+/* .h1-tags::before,
+.div-tags::before {
+  top: 2px;
+}
+.h1-tags::after,
+.div-tags::after {
+  bottom: 2px;
+} */
 
 /* .content .div-tags::before {
   content: '<div class="content">'

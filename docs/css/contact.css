@@ -19,7 +19,12 @@
   /* justify-content: center; */
   /* align-items: start; */
   z-index: 1;
-  padding: 25px;
+  /* padding: 40px 25px; */
+  padding-left: 25px;
+}
+
+#contact-info .div-tags {
+  padding: 35px 0 43px;
 }
 
 #contact-info a {
@@ -45,7 +50,13 @@
   justify-content: space-between;
   font-size: 2rem;
   padding-top: 15px;
-  padding-bottom: 20px;
+  /* aligning for border 1px */
+  padding-bottom: 2px;
+  width: calc( 100% - 2px );
+}
+
+#contact-info .scramble-text {
+  margin-top: 0;
 }
 
 
@@ -184,26 +195,58 @@
 
 #contact-art {
 
-  width: 300px;
+  width: 324px;
+  height: 346px;
   /* making sure content and art are the same height */
-  height: 306px;
   align-self: center;
   position: relative;
   /* aligning for content padding */
-  margin: 25px;
+  margin: 0 25px;
 }
 
 
 .loading-wave {
-  width: 100%;
+  width: 90%;
   height: 95%;
   position: relative;
   transform-style: preserve-3d;
-  transform: perspective(500px) rotateX(60deg);
+  transform: perspective(500px) translate( 10px, -20px ) rotateX(60deg);
   display: flex;
   justify-content: center;
   align-items: center;
+  /* margin: 0 auto; */
 }
+
+/* *************** */
+/* skew the art  to the right*/
+
+/* #contact-art {
+  overflow: hidden;
+}
+
+#contact-art .loading-wave {
+  width: 72%;
+  left: -150px;
+  transform: perspective(500px) translate( 150px, -25px ) rotateX(60deg);
+  margin-left: 20px;
+  margin-bottom: 5px;
+} */
+
+/* skew to the art to the left */
+#contact-art {
+  overflow: hidden;
+}
+
+#contact-art .loading-wave {
+  width: 72%;
+  left: 150px;
+  transform: perspective(500px) translate( -150px, -25px ) rotateX(60deg);
+  margin-right: 20px;
+  margin-left: auto;
+  margin-bottom: 5px;
+}
+/* *************** */
+
 
 .loading-wave span {
   position: absolute;

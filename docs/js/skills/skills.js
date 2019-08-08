@@ -22,7 +22,7 @@
     zoom: 0.9,
     noSelect: true,
   
-    // textFont: null, 
+    textFont: null, 
     
     pinchZoom: true,
     freezeDecel: true,
@@ -35,18 +35,23 @@
     // weightSize: 2,
   };
 
-  window.initSkillsCloud = (textFont=null) => {
-    try {
-      // update text font
-      // is done this way so the font can be async preloaded before initialization
-      skillsCloudOptions.textFont = textFont; //'Special Elite' ,'Orbitron'
+  // preload
+  lazy.loadScript("js/skills/tagcanvas.min.js");
+
+  const initSkillsCloud = () => {
+    lazy.loadScript("js/skills/tagcanvas.min.js").then( () => {
+      skillsCloudOptions.textFont = 'Courier';
       TagCanvas.Start('skills-canvas', 'skills-cloud', skillsCloudOptions );
       document.getElementById('skills-container').classList.remove('hide');
-    } catch(e) {
-      console.error("Skills canvas has error", e);
-    }
+    }).catch( (e) => console.error("Skills canvas has error", e) );
   }
-  
-  // window.initSkills = () => utils.loadFont( 'Special Elite' ).finally( () => initSkillsCloud('Special Elite') );
-  // utils.onDocumentReady(init);
+
+
+
+
+
+  window.initSkills = () => {
+    lazy.onDocumentReady( initSkillsCloud );
+  };
+
 })();

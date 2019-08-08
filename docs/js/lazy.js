@@ -4,17 +4,18 @@ window.lazy = {};
   const pageMatcher = /([a-z]+)(?:\.html)?$/;;
   const parser = new DOMParser();
   // const skillCloudFont = 'Special Elite';
-  const skillCloudFont = 'Courier';
+  // const skillCloudFont = 'Courier';
   const pageConfig = {
     skills: {
       dependancies: [
-        ["js/skills/tagcanvas.min.js", 'script'],
-        ["js/skills/skillsCloud.js", 'script'],
+        // ["js/skills/tagcanvas.min.js", 'script'],
+        ["js/skills/skills.js", 'script'],
         ['css/about.css', 'css'],
         // [skillCloudFont, 'font']
       ],
-      initializer: 'initSkillsCloud', // add arguments !!!! (text font),
-      args: [skillCloudFont]
+      initializer: 'initSkills', // add arguments !!!! (text font),
+      // initializer: 'initSkillsCloud', // add arguments !!!! (text font),
+      // args: [skillCloudFont]
     },
     // projects: {
     //   dependancies: [
