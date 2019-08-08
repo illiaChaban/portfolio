@@ -366,7 +366,8 @@ a {
 
 .h1-tags,
 .body-tags,
-.div-tags
+.div-tags,
+.div-tags-end
 {
   position: relative;
 }
@@ -376,12 +377,13 @@ a {
 .body-tags::after,
 .body-tags::before,
 .div-tags::after,
-.div-tags::before 
+.div-tags::before,
+.div-tags-end::after
 {
   color: var(--color-subtle);
   position: absolute;
   left: 0;
-  font-family: 'League Script', cursive;
+  font-family: 'League Script', 'Courier New', 'Inconsolata', cursive;
   font-weight: 900;
   font-size: .8rem;
   text-transform: none;
@@ -389,7 +391,7 @@ a {
 
 .h1-tags::after {
   content: "</h1>";
-  top: 100%;
+  top: calc( 100% + .4rem);
 }
 .h1-tags::before {
   content: "<h1>";
@@ -415,10 +417,12 @@ a {
   content: '<div>';
   bottom: 100%;
 }
-.div-tags::after {
+.div-tags::after,
+.div-tags-end::after {
   content: '</div>';
-  top: 100%;
+  top: calc( 100% + .5rem );
 }
+
 /* .content .div-tags::before {
   content: '<div class="content">'
 }

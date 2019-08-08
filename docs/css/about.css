@@ -23,6 +23,23 @@
   /* font-family: 'Saira', inherit; */
 }
 
+/* #content .content div {
+  display: flex;
+  flex-direction: column;
+} */
+
+#content .content p {
+  margin: 18px 0;
+}
+#content .content p:first-child {
+  margin-top: 8px;
+}
+#content .content p:last-child {
+  margin-bottom: 8px;
+}
+
+
+
 #content .content h1 {
   font-family: Courier;
   font-size: 3rem;

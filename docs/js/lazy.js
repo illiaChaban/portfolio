@@ -3,14 +3,15 @@ window.lazy = {};
 (function(l) {
   const pageMatcher = /([a-z]+)(?:\.html)?$/;;
   const parser = new DOMParser();
-  const skillCloudFont = 'Special Elite';
+  // const skillCloudFont = 'Special Elite';
+  const skillCloudFont = 'Courier';
   const pageConfig = {
     skills: {
       dependancies: [
         ["js/skills/tagcanvas.min.js", 'script'],
         ["js/skills/skillsCloud.js", 'script'],
         ['css/about.css', 'css'],
-        [skillCloudFont, 'font']
+        // [skillCloudFont, 'font']
       ],
       initializer: 'initSkillsCloud', // add arguments !!!! (text font),
       args: [skillCloudFont]
@@ -233,19 +234,22 @@ window.lazy = {};
   };
 
   const loadedImgs = {};
-  l.loadSvg = src => new Promise( async (resolve, reject) => {
-    try {
-      if ( !(src in loadedImgs) ) {
-        let svgText = await fetch(src).then( res => res.text() );
-        const parsed = parser.parseFromString(svgText, 'image/svg+xml');
-        const svgEl = parsed.querySelector('svg');
-        loadedImgs[src] = svgEl;
-      };
-      resolve( loadedImgs[src] );
-    } catch(e) {
-      reject(e);
+  l.loadSvg = src => {
+    if ( !(src in loadedImgs) ) {
+      loadedImgs[src] = new Promise( async (resolve, reject) => {
+        try {
+          let svgText = await fetch(src).then( res => res.text() );
+          const parsed = parser.parseFromString(svgText, 'image/svg+xml');
+          const svgEl = parsed.querySelector('svg');
+          resolve(svgEl);
+        } catch(e) {
+          console.warn(e);
+          reject();
+        }
+      })
     }
-  });
+    return loadedImgs[src];
+};
 
   l.onDocumentReady = ( callback ) => {
     // console.log("ON DOCUMENT READY CALLED", document.readyState, {cb: callback.toString()})
