@@ -32,8 +32,8 @@ window.lazy = {};
         ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
         ['js/fonts/fonts.js', 'script'],
         ['css/fonts.css', 'css'],
-        ['Sacramento', 'font'],
-        ['Amatic SC', 'font']
+        // ['Amatic SC', 'font'],
+        // ['Sacramento', 'font'],
       ],
       initializer: 'initFonts'
     },
@@ -87,6 +87,8 @@ window.lazy = {};
               console.log("Lazy loading, initialized " + pageName);
             }).catch( console.error );
   };
+
+  // has a bug. If loading 2 fonts asynchronously in a row the second promise isn't being resolved
   l.loadFont = (familyName) => {
     // starting to load the font and returning a promise
     if ( !(familyName in loadedFonts) ) {

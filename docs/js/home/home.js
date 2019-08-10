@@ -21,7 +21,7 @@
       // in case content was hidden to rerender css animations etc. use body as a fallback
       let contentWidth = $content.offsetWidth || document.body.offsetWidth;
       // set content width in pixels instead of percentage
-      $art.setAttribute( 'style', `--content-width: ${contentWidth}px;`);
+      $art.style.setProperty( '--content-width', `${contentWidth}px`);
     };
     updateArtWidth();
     window.addEventListener('resize', updateArtWidth);

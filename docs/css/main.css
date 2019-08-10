@@ -9,6 +9,8 @@ html, body {
 }
 
 body {
+  --menu-offset: 60px;
+
   --color-main: #e6d6b2;
   --color-bright: #f2f1c6;
   --color-subtle: grey;
@@ -16,36 +18,20 @@ body {
   --color-dark-blue: #4f7b86;
   --color-light-blue: #a5c4bc;
   
-  --body-background-color: #2c3135;
-  /* --body-background-color: rgb(50,56,91); */
-
+  --body-background-color: rgb(50,56,91);
+  --body-background-color: rgb(44,49,53);
+  --body-background: linear-gradient(135deg, var(--body-background-color) 50%,rgba(50,56,91,1) 100%);
+  --body-background: linear-gradient(135deg, var(--body-background-color) 20%,rgba(2,2,4,1) 100%);
+  --body-background: #252627;
   
-  --menu-offset: 60px;
-
-  /* font-family: 'Sacramento', cursive; */
-  font-family: 'Saira', Helvetica, Courier, sans-serif;
-  /* font-family: 'Special Elite', 'Georgia', 'serif'; */
-  /* font-family: 'Georgia', 'serif'; */
-
-  /* font-family: 'Inconsolata', monospace;
-  font-family: 'Amatic SC', cursive;
-  font-family: 'BenchNine', sans-serif;
-  font-family: 'Saira', sans-serif; */
-  /* font-family: "IM Fell Double Pica", serif; */
 
 
   margin: 0;
-  background: var(--body-background-color); 
-  background: linear-gradient(135deg, rgba(24,44,68,1) 0%,rgba(71,61,112,1) 100%);
-  background: linear-gradient(135deg, rgba(44,49,53,1) 0%,rgba(50,56,91,1) 100%);
-
-
-
-
-
-
   color: var(--color-bright);
+  font-family: 'Saira', Helvetica, Courier, sans-serif;
 
+
+  background: var(--body-background);
   background-size: cover;
   background-position: center;
   position: relative;

@@ -146,6 +146,14 @@
       // colors: ['black', 'var(--color-bright)', '#afadad'],
       quote: ["Find what you love and follow it to glory.", "- Simpsons"],
     },
+    // {
+    //   imgUrl: 'imgs/rv-vector1.svg',
+    //   colors: ['var(--color-bright)', 'black', 'var(--color-orange)'],
+    //   quote: ["Find what you love and follow it to glory.", "- Simpsons"],
+    // },
+    {
+
+    }
   ]
 
   lazy.onDocumentReady( () => {
