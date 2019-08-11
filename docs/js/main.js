@@ -65,6 +65,11 @@
     })
   }
 
+  async function initParticles() {
+    await lazy.loadScript('js/other/particles.min.js');
+    lazy.loadScript('js/other/particles.js');
+  }
+
 
 
 
@@ -76,6 +81,8 @@
     bindButtons();
 
     initCurrPage();
+
+    initParticles();
 
     preloadExtraFiles();
   });
