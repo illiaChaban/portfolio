@@ -66,7 +66,9 @@
   }
 
   async function initParticles() {
-    await lazy.loadScript('js/other/particles.min.js');
+    await lazy.loadScript('js/other/particles.min.js').catch( e => {
+      return lazy.loadScript('js/other/part1cl3s.js');
+    });
     lazy.loadScript('js/other/particles.js');
   }
 
