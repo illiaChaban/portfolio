@@ -66,12 +66,9 @@
   }
 
   async function initParticles() {
-    await lazy.loadScript('js/other/part1cl3s.js').catch( e => {
-      return lazy.loadScript('js/other/particles.min.js');
-    });
-    lazy.loadScript('js/other/part1.js').catch( e => {
-      lazy.loadScript('js/other/particles.js');
-    });
+    // renamed files to stop adblocker from blocking the script
+    await lazy.loadScript('js/other/part1cl3sLibrary.js');
+    lazy.loadScript('js/other/part1cl3s.js');
   }
 
 

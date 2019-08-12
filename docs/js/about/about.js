@@ -151,9 +151,6 @@
     //   colors: ['var(--color-bright)', 'black', 'var(--color-orange)'],
     //   quote: ["Find what you love and follow it to glory.", "- Simpsons"],
     // },
-    {
-
-    }
   ]
 
   lazy.onDocumentReady( () => {
