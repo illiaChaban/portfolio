@@ -8,13 +8,12 @@ window.lazy = {};
   const pageConfig = {
     skills: {
       dependancies: [
-        // ["js/skills/tagcanvas.min.js", 'script'],
+        ["js/skills/tagcanvas.min.js", 'script'],
         ["js/skills/skills.js", 'script'],
         ['css/about.css', 'css'],
         // [skillCloudFont, 'font']
       ],
-      initializer: 'initSkills', // add arguments !!!! (text font),
-      // initializer: 'initSkillsCloud', // add arguments !!!! (text font),
+      initializer: 'initSkills', 
       // args: [skillCloudFont]
     },
     // projects: {
@@ -217,11 +216,12 @@ window.lazy = {};
     activeLink = currLink;
   };
 
-  l.navigateToPage = (href) => {
+  l.navigateToPage = (href, updateUrl=true) => {
     l.updateContent(href);
-    // updating location.href without reloading
-    window.history.pushState(null, "", href); 
     l.highlightActiveMenu(href);
+
+    // updating location.href without reloading
+    updateUrl && window.history.pushState(null, "", href); 
   };
 
 
@@ -259,6 +259,12 @@ window.lazy = {};
     document.readyState === 'loading' ? 
       window.addEventListener('DOMContentLoaded', callback ) :
       callback();
+  };
+
+  l.navigateToPageFromLink = (e) => {
+    e.preventDefault();
+    let href = e.target.getAttribute('href');
+    lazy.navigateToPage(href);
   };
 
 

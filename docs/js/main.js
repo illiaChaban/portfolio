@@ -1,26 +1,21 @@
 (function() {
   function bindMenu() {
     document.getElementById("menu").addEventListener('click', async (e) => {
-      // console.log(e)
       const el = e.target;
-      // console.log( el.parentElement.tagName)
       let link = el.tagName === 'A' ? el : el.closest("#menu a");
       if (!link) return;
-      // console.log(link)
       e.preventDefault();
       let href = link.getAttribute('href');
       // don't update if user clicks on the active menu link
       if (lazy.getCurrPageName() === lazy.getPageName(href)) return;
       lazy.navigateToPage(href);
 
-      // ADD --> If curr location is the same, no update needed
-      // ADD --> reuse loaded html ?
     });
   };
   
   function bindHistoryNavigation() {
     window.onpopstate = () => 
-      lazy.updateContent(document.location.pathname);
+      lazy.navigateToPage(document.location.pathname, false /* dont update url */);
   };
 
   function preloadExtraFiles() {
@@ -33,7 +28,7 @@
     let pageHref = path[path.length-1];
     let indexPathes = ['', 'index.html', 'index'];
     if (indexPathes.includes( pageHref )) {
-      lazy.updateContent('home.html');
+      lazy.navigateToPage('home.html', false);
       window.history.replaceState(null, "", 'home'); 
     }
   };
@@ -77,13 +72,14 @@
   lazy.onDocumentReady( () => {
     redirectToHomeFromIndex();
     lazy.highlightActiveMenu();
+
     bindMenu();
     bindHistoryNavigation();
     bindButtons();
 
     initCurrPage();
 
-    initParticles();
+    // initParticles();
 
     preloadExtraFiles();
   });

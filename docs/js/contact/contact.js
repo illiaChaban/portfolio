@@ -58,7 +58,8 @@ class TextScramble {
   }
 }
 
-const buildWaveLoader = (waveElement, colors, spanNum) => {
+const buildWaveLoader = (selector, colors, spanNum) => {
+  const waveElement = document.querySelector(selector);
   let spans = '';
   for( let i=0; i<spanNum; i++ ) {
     // const opacity = 1 - i / spanNum; // descending opacity 
@@ -79,40 +80,62 @@ const buildWaveLoader = (waveElement, colors, spanNum) => {
   waveElement.innerHTML = spans;
 }
 
-lazy.onDocumentReady( () => {
-  const phrases = [
-    'Hello friend,',
-    "Let's build something great!"
-  ]
-  
-  const el = document.querySelector('.scramble-text');
+const udpateConfig = (config, defaultConfig) => {
+  for( let name in defaultConfig ) {
+    if (name in config) continue;
+    config[name] = defaultConfig[name];
+  } 
+  return config;
+}
+
+const getScrambleAnimator = (selector, config) => {
+  const el = document.querySelector(selector);
   const fx = new TextScramble(el);
+
+  const defaultConfig = {
+    phrases:[], 
+    infinite: true, 
+    interval: 2500,
+    currIndex: 0
+  }
+
+  config = udpateConfig(config, defaultConfig);
+  let {phrases, infinite, interval, currIndex} = config;
   
-  const animateScramble = (c = {infinite: true, interval: 2500}) => {
-    if (c.currIndex === undefined) c.currIndex = 0;
-  
-    if (c.currIndex < phrases.length) {
-      fx.setText(phrases[c.currIndex]).then(() => {
-        c.currIndex++;
-        if (c.infinite) c.currIndex %= phrases.length;
-        setTimeout( () => animateScramble(c), c.interval)
+  const animateScramble = () => {
+    if (currIndex < phrases.length) {
+      fx.setText(phrases[currIndex]).then(() => {
+        currIndex++;
+        if (infinite) currIndex %= phrases.length;
+        setTimeout( animateScramble, interval)
       })
+    } else {
+      // reset animator till next call
+      currIndex = 0;
     }
   }
+
+  return animateScramble;
+}
+
+lazy.onDocumentReady( () => {
+  
+  const animateScramble = getScrambleAnimator('.scramble-text', {
+    phrases: [
+      'Hello friend,',
+      "Let's build something great!"
+    ],
+    infinite: false, 
+    interval: 2000
+  });
   
   
-  
-  
-  const wave = document.querySelector('.loading-wave');
   const colors = [  '#FF6138', '#f2f1c6'/* , '#8e2890' */];
-  buildWaveLoader(wave, colors, 15);
+  buildWaveLoader('.loading-wave', colors, 15);
   
-  
-    // const enableTransitions = () => document.querySelector('.preload').classList.remove('preload');
   
   window.initContact = () => {
-    // enableTransitions();
-    animateScramble({infinite: false, interval: 2000});
+    animateScramble();
   }
 })
 

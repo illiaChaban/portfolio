@@ -35,23 +35,23 @@
     // weightSize: 2,
   };
 
-  // preload
-  lazy.loadScript("js/skills/tagcanvas.min.js");
 
   const initSkillsCloud = () => {
-    lazy.loadScript("js/skills/tagcanvas.min.js").then( () => {
-      skillsCloudOptions.textFont = 'Courier';
-      TagCanvas.Start('skills-canvas', 'skills-cloud', skillsCloudOptions );
-      document.getElementById('skills-container').classList.remove('hide');
-    }).catch( (e) => console.error("Skills canvas has error", e) );
+    // should be called after tagcanvas.min.js is loaded
+    skillsCloudOptions.textFont = 'Courier';
+    TagCanvas.Start('skills-canvas', 'skills-cloud', skillsCloudOptions );
+    document.getElementById('skills-container').classList.remove('hide');
   }
 
+  const bindContactLink = () => {
+    document
+      .getElementById('contact-me2')
+      .addEventListener('click', lazy.navigateToPageFromLink );
+  }
 
+  lazy.onDocumentReady( () => {
+    bindContactLink();
+  });
 
-
-
-  window.initSkills = () => {
-    lazy.onDocumentReady( initSkillsCloud );
-  };
-
+  window.initSkills = initSkillsCloud;
 })();

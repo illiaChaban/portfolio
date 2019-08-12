@@ -334,7 +334,7 @@
   
   // createBtns().forEach( btn => btn.addEventListener('click', () => activateConfig(btn.id) ));
   
-  activateConfig("none")
+  activateConfig("grab2")
   
   console.log('particles initialized');
 
