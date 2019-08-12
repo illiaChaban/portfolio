@@ -170,7 +170,7 @@ window.lazy = {};
       l.cacheContent(requestedPage, doc);
     }
     currContent.innerHTML = ''; //remove current content
-    currContent.append( ...cachedContent[requestedPage])
+    currContent.append( ...cachedContent[requestedPage]);
     l.initPage(requestedPage).then( () => {
       l.hideLoadingWindow();
       currContent.classList.remove('hide');
