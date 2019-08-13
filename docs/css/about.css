@@ -161,11 +161,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: .9rem;
+}
 
+@media (mim-width: 1100px) {
+  #skills-container {
+    font-size: .8rem;
+  }
 }
 
 #skills-container canvas {
-  width: 100%;
+  width: 90%;
   max-width: 650px;
   height: auto;
 }
