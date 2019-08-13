@@ -79,7 +79,7 @@
 
     initCurrPage();
 
-    // initParticles();
+    initParticles();
 
     preloadExtraFiles();
   });

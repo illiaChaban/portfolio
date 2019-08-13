@@ -3,7 +3,7 @@
   const colorBright = '#f2f1c6';
   const colorSubtle = '#808080';
   
-  const grab2 = {
+  const orange = {
     "particles": {
       "number": {
         "value": 80,
@@ -83,7 +83,6 @@
     },
     "retina_detect": true,
   };
-  
   
   
   const grab = {
@@ -178,71 +177,56 @@
     },
     "retina_detect": true,
   };
-  
-  
-  
-  const starsHover = {
+
+  const subtle = {
     "particles": {
       "number": {
-        "value": 500,
+        "value": 80,
         "density": {
           "enable": true,
-          "value_area": 1000
+          "value_area": 1026
         }
       },
       "color": {
-        "value": colorOrange
+        "value": colorSubtle
       },
       "shape": {
         "type": "circle",
-        "stroke": {
-          "width": 0,
-          "color": "#000000"
-        },
-        "polygon": {
-          "nb_sides": 5
-        },
-        "image": {
-          "src": "img/github.svg",
-          "width": 100,
-          "height": 100
-        }
       },
       "opacity": {
-        "value": 0.48,
+        "value": 0.3,
         "random": false,
         "anim": {
-          "enable": true,
-          "speed": 0.2,
-          "opacity_min": 0,
+          "enable": false,
+          "speed": 1,
+          "opacity_min": 0.1,
           "sync": false
         }
       },
       "size": {
-        "value": 0,
-        "random": true,
+        "value": 1.5, //circle size
+        "random": false,
         "anim": {
-          "enable": true,
-          "speed": 2,
-          "size_min": 0,
-          "sync": false
+          "enable": false,
+          "speed": 20,
+          "size_min": 0.1,
+          "sync": true
         }
       },
       "line_linked": {
-        "enable": false,
-        "distance": 150,
-        "color": "#ffffff",
-        "opacity": 0.4,
+        "enable": true,
+        "distance": 120,
+        "color": colorSubtle, // subtle / orange
+        "opacity": 0.5, // .4
         "width": 1
       },
       "move": {
         "enable": true,
-        "speed": 3,
+        "speed": 0.5, // .4 - .8
         "direction": "none",
-        "random": true,
+        "random": false,
         "straight": false,
-        "out_mode": "out",
-        "bounce": false,
+        "out_mode": "bounce",
         "attract": {
           "enable": false,
           "rotateX": 600,
@@ -255,47 +239,31 @@
       "events": {
         "onhover": {
           "enable": true,
-          "mode": "bubble"
+          "mode": "grab"
         },
         "onclick": {
-          "enable": true,
+          "enable": false,
           "mode": "push"
         },
         "resize": true
       },
       "modes": {
         "grab": {
-          "distance": 400,
+          "distance": 130,
           "line_linked": {
-            "opacity": 1
+            "opacity": 1 //.7
           }
         },
-        "bubble": {
-          "distance": 90,
-          "size": 4,
-          "duration": 3,
-          "opacity": 1,
-          "speed": 3
-        },
-        "repulse": {
-          "distance": 200,
-          "duration": 0.4
-        },
-        "push": {
-          "particles_nb": 4
-        },
-        "remove": {
-          "particles_nb": 2
-        }
       }
     },
-    "retina_detect": true
-  }
+    "retina_detect": true,
+  };
+  
   
   const none = true;
   
   
-  const switcher = {grab, grab2, starsHover, none};
+  const switcher = { orange, subtle, none};
   
   
   const getCanvas = () => document.querySelector('#particles canvas');
@@ -324,17 +292,17 @@
     }
   
     // show active config by color
-    // let prevActive = document.querySelector("#particles-buttons .active");
-    // let curr = document.getElementById(id);
-    // prevActive && prevActive.classList.remove('active');
-    // curr && curr.classList.add('active');
+    let prevActive = document.querySelector("#particles-buttons .active");
+    let curr = document.getElementById(id);
+    prevActive && prevActive.classList.remove('active');
+    curr && curr.classList.add('active');
   }
   
   
   
-  // createBtns().forEach( btn => btn.addEventListener('click', () => activateConfig(btn.id) ));
+  createBtns().forEach( btn => btn.addEventListener('click', () => activateConfig(btn.id) ));
   
-  activateConfig("grab2")
+  activateConfig("none")
   
   console.log('particles initialized');
 
