@@ -153,6 +153,8 @@
     // },
   ]
 
+
+
   lazy.onDocumentReady( () => {
     const $art = document.querySelector('.art');
     const $imgContainer = $art.querySelector('#img');
@@ -160,9 +162,9 @@
     const $quote = document.getElementById('quote');
     const $quotation = $quote.querySelector('.quotation > span');
     const $author = $quote.querySelector('.author');
-    const speed = [20, 80];
-    const typer1 = new TextTyper($quotation, ...speed);
-    const typer2 = new TextTyper($author, ...speed);
+    // const speed = [15, 70]; // 20, 80
+    const typer1 = new TextTyper($quotation, 15, 70);
+    const typer2 = new TextTyper($author, 20, 80);
 
     const typeQuote = ([quotation, author]) => {
       // $quote.querySelectorAll('.text-cursor').forEach( x => x.classList.remove('text-cursor'));
@@ -202,8 +204,11 @@
       updateArt( artCount );
     });
 
+    const scramble = new TextScramble('.h1-tags');
+
     window.initAbout = () => {
       updateArt( artCount );
+      scramble.animate();
     }
 
   });

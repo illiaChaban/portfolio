@@ -212,8 +212,10 @@ window.lazy = {};
     let pageName = lazy.getPageName(href);
     let currLink = $nav.querySelector(`a[href^=${pageName}]`);
     if (activeLink) activeLink.classList.remove('active');
-    currLink.classList.add('active');
-    activeLink = currLink;
+    if (currLink) {
+      currLink.classList.add('active');
+      activeLink = currLink;
+    }
   };
 
   l.navigateToPage = (href, updateUrl=true) => {

@@ -292,17 +292,17 @@
     }
   
     // show active config by color
-    let prevActive = document.querySelector("#particles-buttons .active");
-    let curr = document.getElementById(id);
-    prevActive && prevActive.classList.remove('active');
-    curr && curr.classList.add('active');
+    // let prevActive = document.querySelector("#particles-buttons .active");
+    // let curr = document.getElementById(id);
+    // prevActive && prevActive.classList.remove('active');
+    // curr && curr.classList.add('active');
   }
   
   
   
-  createBtns().forEach( btn => btn.addEventListener('click', () => activateConfig(btn.id) ));
+  // createBtns().forEach( btn => btn.addEventListener('click', () => activateConfig(btn.id) ));
   
-  activateConfig("none")
+  activateConfig("subtle")
   
   console.log('particles initialized');
 

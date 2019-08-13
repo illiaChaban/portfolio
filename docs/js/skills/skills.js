@@ -49,9 +49,14 @@
       .addEventListener('click', lazy.navigateToPageFromLink );
   }
 
+  const scramble = new TextScramble('.h1-tags');
+
   lazy.onDocumentReady( () => {
     bindContactLink();
   });
 
-  window.initSkills = initSkillsCloud;
+  window.initSkills = () => {
+    initSkillsCloud();
+    scramble.animate();
+  }
 })();

@@ -8,6 +8,12 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
+@media (min-width: 1150px) {
+  html {
+    font-size: 18px;
+  }
+}
+
 body {
   --menu-offset: 60px;
 

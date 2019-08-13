@@ -112,8 +112,8 @@
 #contact-info .links a div {
   position: relative;
   display: block;
-  width: 55px; 
-  height: 55px;
+  width: 3.5rem; 
+  height: 3.5rem;
   transition: transform .3s;
 }
 
