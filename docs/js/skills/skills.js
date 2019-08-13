@@ -33,6 +33,7 @@
     weight: true,
     // weightFrom: 'data-weight',
     // weightSize: 2,
+    wheelZoom: false,
   };
 
 

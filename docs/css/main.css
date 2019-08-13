@@ -14,6 +14,12 @@ html, body {
   }
 }
 
+@media (max-width: 320px) {
+  html {
+    font-size: 14px;
+  }
+}
+
 body {
   --menu-offset: 60px;
 
@@ -85,10 +91,14 @@ body {
   color: var(--color-subtle);
   width: var(--menu-offset);
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 3;
   /* min-height: 500px; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #nav {
@@ -99,10 +109,10 @@ body {
 
 
   text-align: center;
-  position: absolute;
+  /* position: absolute; */
   height: 210px;
-  top: 50%;
-  margin-top: -120px;
+  /* top: 50%; */
+  /* margin-top: -120px; */
   width: 100%;
 
   font-family: 'Inconsolata', monospace;
@@ -226,27 +236,29 @@ i {
   #menu {
       width: 100%;
       height: var(--menu-offset);
-      left: 0;
       min-height: 0;
+      bottom: 0;
+      top: auto;
   }
   #nav {
     flex-direction: row;
+    min-width: 250px;
     width: 42%;
-    left: 50%;
-    margin-left: -19%;
-    float: left;
+    /* left: 50%; */
+    /* margin-left: -19%; */
+    /* float: left; */
     overflow: hidden;
     text-align: center;
     height: 60px;
-    top: 0;
-    margin-top: 0;
+    /* top: 0; */
+    /* margin-top: 0; */
   }
 
   #content
   /* ,#particles  */
   {
     padding-left: 0;
-    padding-top: var(--menu-offset);
+    padding-bottom: var(--menu-offset);
   }
 }
 
