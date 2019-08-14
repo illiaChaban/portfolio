@@ -28,7 +28,7 @@
 
 @media (max-width: 480px) {
   .home-text {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     /* margin-top: 100px; */
   }
 }
@@ -45,13 +45,13 @@ h1.header {
 /* ************************** art *************************** */
 
 #art-container {
-  --top-offset: 30px;
+  /* --top-offset: 30px; */
 
   position: absolute;
-  top: var(--top-offset);
+  /* top: var(--top-offset); */
   right: 0;
   z-index: -2;
-  height: calc( 100% - var(--top-offset) );
+  height: calc( 100% - var(--top-offset, 0px) );
 
   opacity: .8;
 }
@@ -174,7 +174,7 @@ h1.header {
 
 @media (min-width: 850px) {
   #art-container {
-    --top-offset: 0px;
+    /* --top-offset: 0px; */
   }
 
   #art {
@@ -201,6 +201,20 @@ h1.header {
 @media (min-width: 1320px) {
   #art {
     top: 0px;
+  }
+}
+
+@media (max-width: 660px) {
+  #art-container {
+    /* --top-offset: 0px; */
+  }
+
+  #art {
+    top: 0px;
+  }
+
+  .home-text .text-container {
+    margin-top: 70px;
   }
 }
 

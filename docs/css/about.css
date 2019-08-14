@@ -8,6 +8,7 @@
   width: 40%;
 }
 
+
 #skills .content {
   width: 35%;
 }
@@ -16,6 +17,37 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+}
+
+
+@media (max-width: 780px) {
+  #content .main-container {
+    flex-direction: column;
+  }
+
+  #content .content,
+  #content #skills .content
+  {
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 0;
+  }
+
+  #content .main-container .art .art-container {
+    min-width: auto;
+  }
+
+  #about .art-container {
+    padding: 10px;
+  }
+
+  #about .art-container #img {
+    height: 320px;
+  }
+
+  #about .art-container #img svg {
+    max-height: 100%;
+  }
 
 }
 
