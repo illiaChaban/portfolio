@@ -157,23 +157,29 @@ window.lazy = {};
     }
     return loadedCss[src];
   };
-  l.updateContent = async (href) => {
-    let currContent = document.getElementById('content');
-    currContent.classList.add('hide');
 
+  const found = {};
+  l.find = (selector) => {
+    if ( !(selector in found) ) {
+      found[selector] = document.querySelector(selector);
+    }
+    return found[selector];
+  }
+
+  l.updateContent = async (href) => {
     l.showLoadingWindow();
+
+    let $content = l.find('#content');
+
     let requestedPage = l.getPageName(href);
 
     if ( !(requestedPage in cachedContent)) {
       let doc = await l.loadParsedHtml(href);
       l.cacheContent(requestedPage, doc);
     }
-    currContent.innerHTML = ''; //remove current content
-    currContent.append( ...cachedContent[requestedPage]);
-    l.initPage(requestedPage).then( () => {
-      l.hideLoadingWindow();
-      currContent.classList.remove('hide');
-    });
+    $content.innerHTML = ''; //remove current content
+    $content.append( ...cachedContent[requestedPage]);
+    l.initPage(requestedPage).then( l.hideLoadingWindow );
   };
 
   // caching values to avoid executing the function with the same
@@ -203,8 +209,14 @@ window.lazy = {};
     return doc;
   };
 
-  l.showLoadingWindow = () => document.getElementById('loading').classList.remove('hide');
-  l.hideLoadingWindow = () => document.getElementById('loading').classList.add('hide');
+  l.showLoadingWindow = () => {
+    l.find('#loading').classList.remove('hide');
+    l.find('#content').classList.add('hide');
+  };
+  l.hideLoadingWindow = () => {
+    l.find('#loading').classList.add('hide');
+    l.find('#content').classList.remove('hide');
+  };
 
   let activeLink = null;
   l.highlightActiveMenu = (href=document.location.pathname) => {

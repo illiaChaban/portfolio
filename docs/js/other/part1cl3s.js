@@ -226,7 +226,7 @@
         "direction": "none",
         "random": false,
         "straight": false,
-        "out_mode": "bounce",
+        "out_mode": "out",
         "attract": {
           "enable": false,
           "rotateX": 600,
@@ -302,7 +302,7 @@
   
   // createBtns().forEach( btn => btn.addEventListener('click', () => activateConfig(btn.id) ));
   
-  activateConfig("subtle")
+  activateConfig("orange"); // subtle / orange
   
   console.log('particles initialized');
 
