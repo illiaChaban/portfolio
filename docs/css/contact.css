@@ -52,7 +52,7 @@
   padding-top: 15px;
   /* aligning for border 1px */
   padding-bottom: 2px;
-  width: calc( 100% - 2px );
+  width: 100%;
 }
 
 #contact-info .scramble-text {
@@ -134,6 +134,7 @@
   border: 1px solid var(--color-bright);
   /* border-color: var(--color-bright); */
   border-radius: 5px;
+  box-sizing: border-box;
 }
 
 .links a span:nth-child(5) {

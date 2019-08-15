@@ -16,16 +16,14 @@ window.lazy = {};
       initializer: 'initSkills', 
       // args: [skillCloudFont]
     },
-    // projects: {
-    //   dependancies: [
-    //     ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
-    //     ['js/projects/projects.js', 'script'],
-    //     ['css/projects.css', 'css'],
-    //     ['Sacramento', 'font'],
-    //     ['Amatic SC', 'font']
-    //   ],
-    //   initializer: 'initProjects'
-    // },
+    projects: {
+      dependancies: [
+        ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js', 'script'],
+        ['js/projects/projects.js', 'script'],
+        ['css/projects.css', 'css'],
+      ],
+      initializer: 'initProjects'
+    },
     fonts: {
       dependancies: [
         ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
