@@ -36,9 +36,11 @@ body {
   
   --body-background-color: rgb(50,56,91);
   --body-background-color: rgb(44,49,53);
+  --body-background-color: #252627;
+
   --body-background: linear-gradient(135deg, var(--body-background-color) 50%,rgba(50,56,91,1) 100%);
   --body-background: linear-gradient(135deg, var(--body-background-color) 20%,rgba(2,2,4,1) 100%);
-  --body-background: #252627;
+  --body-background: var(--body-background-color);
   
 
 
@@ -318,12 +320,8 @@ a {
   outline: none;
 }
 
-.pointer {
-  cursor: pointer;
-}
-
-.border-round {
-  border-radius: 50%;
+.btn-bright {
+  --btn-color: var(--color-bright);
 }
 
 .btn:hover {
@@ -333,9 +331,16 @@ a {
   background: radial-gradient(circle at var(--mouse-pos-x) var(--mouse-pos-y), var(--btn-color) 50%,rgba(0,0,0,0) 100%);
 }
 
-.btn-bright {
-  --btn-color: var(--color-bright);
+
+.pointer {
+  cursor: pointer;
 }
+
+.border-round {
+  border-radius: 50%;
+}
+
+
 
 .flex {
   display: flex;

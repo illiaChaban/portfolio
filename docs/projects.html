@@ -95,17 +95,50 @@
 
 
 <section class='project'>
-  <div class="active" id="wrap-cta">
-    <button id="cta">Click here, please!</button>
+  <div class="container-closed" >
+    <!-- <button class='open'>Learn more</button> -->
+    <h1>Planted <i class="fas fa-seedling"></i></h1>
+    <p>
+      A mobile app that helps you keep your plants happy.
+      Raspberry Pi collects data from a variety of sensors 
+      <!-- ex. humidity, temperature, sunlight, and soil moister -->
+      and sends it to the server.
+      Our React Native app visulizes the data.
+    </p>
+    <button class='open'>Learn more <i class="fas fa-angle-double-right"></i></button>
   </div>
   <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-    <polygon class="polymorph" points="100,100 0,100 0,0 100,0"></polygon>
+    <!-- <polygon class="polymorph" points="0,0 0,100 100,100 100,0"></polygon> -->
+    <polygon class="border polymorph" points="94,90 0,100 100,100 100,0"></polygon>
+    <!-- <polygon class='border' points="0,0 0,100 2,2 100,0"></polygon> -->
   </svg>
-  <div class="container">
+  <div class="container-open">
     <div class='content'>
-      <h1>Lorem ipsum dolor sit amet</h1>
-      <p>Dolor sit amet et consectquo lorem ipsum dolor sit amet</p>
-      <button id="close">Ok, close me</button>
+      <!-- <h1>Lorem ipsum dolor sit amet</h1> -->
+      <p>
+        <span class='highlight'>Technologies:</span>
+        React Native, React, Redux, D3, Node,
+        GraphQL, PostgreSQL, Javascript, Heroku, Python
+      </p>
+      <p>
+        <span class='highlight'>Hardware:</span>
+        Raspberry Pi 3 model B,
+        Arduino Uno,
+        OSEPP Humidity and Temperature Sensor - HUMI-01,
+        Generic photo resistor
+      </p>
+      <!-- <p><span class='highlight'>Links</span></p> -->
+      <!-- <ul>
+        <li><a href='#' class='hover-underline'><i class="fab fa-github"></i></a></li>
+        <li><a href='#' class='hover-underline'><i class="fab fa-youtube"></i></a></li>
+      </ul> -->
+      <div class='links'>
+        <a href='#' class='hover-underline'><i class="fab fa-github"></i></a>
+        <a href='#' class='hover-underline'><i class="fab fa-youtube"></i></a>
+      </div>
+      
+      
+      <button class='close'>Close <i class="fas fa-angle-right"></i></button>
     </div>
   </div>
 </section>
