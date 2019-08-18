@@ -4,6 +4,12 @@
   flex-wrap: wrap;
 }
 
+#projects .row {
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .project {
   --project-color: var(--color-orange);
   position: relative;
