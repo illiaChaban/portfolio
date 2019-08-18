@@ -1,15 +1,5 @@
-
-let initialized = false;
-
-window.initProjects = () => {
-  if (initialized) return;
-  // Refs
-  const project = document.querySelector('.project'),
-        containerClosed = project.querySelector('.container-closed'),
-        containerOpen = project.querySelector('.container-open');
-        // btnOpen   = project.querySelector('button.open'),
-        // btnClose = project.querySelector('button.close');
-  
+(function(){
+  let initialized = false;
   
   // Anime.js Commons Values for SVG Morph
   const common = {
@@ -18,68 +8,71 @@ window.initProjects = () => {
     duration: 600,
     loop: false
   };
+  
+  window.initProjects = () => {
+    // call after animeJS was loaded
+    if (initialized) return;
+  
+    // should be equal for all projects
+    const openingSvgPoints = document.querySelector('.project .polymorph').getAttribute('points');
 
-
-
-
-
-  let initialPoints = project.querySelector('.polymorph').getAttribute('points');
-  console.log(initialPoints)
-
-
-  // console.log(openSvg)
-  // console.log(openSvg.pause());
-
-  let openSvg, closeSvg; //saving animations to be able to stop them
-
-  const showContent = () => {
-    // Elements apparence
-    project.classList.add('active');
-
-    if (closeSvg) closeSvg.pause();
-
-    // Morph SVG
-    openSvg = anime({
-      ...common,
-      points: [
-        // { value: '100,100 0,100 98,98 100,0' }
-        // { value: '98,98 0,100 100,100 100,0' }
-        // { value: '98,98 0,100 100,100 100,0' }
-        { value: '0,0 0,100 100,100 100,0' }
-      ],
+    document.querySelectorAll('.project').forEach( project => {
+      
+        const btnToggle = project.querySelector('.toggle');
+      
+      
+        let openSvg, closeSvg; //saving animations to be able to stop them
+      
+        const showContent = () => {
+          // Elements apparence
+          project.classList.add('active');
+      
+          // stop closing animation if active
+          if (closeSvg) closeSvg.pause();
+      
+          // Morph SVG
+          openSvg = anime({
+            ...common,
+            points: [
+              { value: '0,0 0,100 100,100 100,0' }
+            ],
+          });
+        };
+      
+        const hideContent = () => {
+          // Elements apparence
+          project.classList.remove('active');
+          
+          // stop opening animation if active
+          if (openSvg) openSvg.pause();
+      
+          // Morph SVG
+          closeSvg = anime({
+            ...common,
+            points: [
+              { value: openingSvgPoints }
+            ]
+          }); 
+        }
+      
+        const toggleContent = () => {
+          project.classList.contains('active') ?
+            hideContent():
+            showContent();
+        }
+        
+        
+        // containerClosed.addEventListener('click', showContent);
+        // containerOpen.addEventListener('click', hideContent);
+      
+        btnToggle.addEventListener('click', toggleContent);
+      
+        // project.addEventListener('mouseenter', showContent);
+        // project.addEventListener('mouseleave', hideContent);
     });
-
-    // openSvg.restart();
-  };
-
-  const hideContent = () => {
-    // Elements apparence
-    project.classList.remove('active');
     
-    if (openSvg) openSvg.pause();
-
-    // Morph SVG
-    closeSvg = anime({
-      ...common,
-      points: [
-        // { value: '100,100 0,100 0,0 100,0' }
-        // { value: '0,0 0,100 100,100 100,0' }
-        { value: initialPoints }
-      ]
-    }); 
-
+  
+    initialized = true;
   }
-  
-  
-  // Show content
-  containerClosed.addEventListener('click', showContent);
-  containerOpen.addEventListener('click', hideContent);
+})();
 
-  // project.addEventListener('mouseenter', showContent);
-  // project.addEventListener('mouseleave', hideContent);
-  
-  
-  // Hide content  
-
-  initialized = true;
-}
