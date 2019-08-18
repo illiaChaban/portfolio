@@ -172,8 +172,8 @@ body {
 .icon-to-text-on-hover i::before,
 .icon-to-text-on-hover i::after
 {
-  -webkit-transition: opacity .2s;
-  transition: opacity .2s;
+  -webkit-transition: opacity .2s ease-out;
+  transition: opacity .2s ease-out;
 }
 
 

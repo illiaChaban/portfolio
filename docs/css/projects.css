@@ -1,5 +1,5 @@
 #projects {
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -7,11 +7,10 @@
 .project {
   --project-color: var(--color-orange);
   position: relative;
-  width: 220px;
-  height: 300px;
+  width: 14rem;
+  height: 19rem;
   margin: 20px;
-
-
+  background: var(--body-background);
 }
 
 .project .shadow {
@@ -24,7 +23,7 @@
   z-index: -1;
 }
 
-.project .content {
+.project .project-content {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -176,7 +175,7 @@
   color: black;
 }
 
-.project .container-open .links {
+.project .links {
   display: flex;
   justify-content: space-evenly;
   font-size: 2rem;
@@ -184,14 +183,11 @@
 /* *** */
 
 
-
+/* ICONS */
 .project i.fa-running {
   position: relative;
   top: 2px;
 }
-
-
-
 
 .project .icon-to-text-on-hover i::after {
   color: black;
@@ -206,4 +202,15 @@
 }
 .project .icon-to-text-on-hover i.fa-globe::after {
   content: 'website';
+}
+/* *** */
+
+
+.project ul {
+  padding-left: 15px;
+  font-size: .8rem;
+  line-height: 1.3rem;
+
+  /* list-style-position: inside;
+  padding-left: 0px; */
 }

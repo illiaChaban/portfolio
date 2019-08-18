@@ -19,6 +19,8 @@
       
         const btnToggle = project.querySelector('.toggle');
         const svgAnimationTarget = project.querySelector('.polymorph');
+
+        if (!btnToggle) return;
       
       
         let openSvg, closeSvg; //saving animations to be able to stop them
@@ -62,15 +64,10 @@
             hideContent():
             showContent();
         }
-        
-        
-        // containerClosed.addEventListener('click', showContent);
-        // containerOpen.addEventListener('click', hideContent);
-      
+
         btnToggle.addEventListener('click', toggleContent);
-      
-        // project.addEventListener('mouseenter', showContent);
-        // project.addEventListener('mouseleave', hideContent);
+        project.addEventListener('mouseenter', showContent);
+        project.addEventListener('mouseleave', hideContent);
     });
     
   
