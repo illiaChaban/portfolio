@@ -27,22 +27,22 @@
 <body>
   <div id='menu'>
     <div id='nav'>
-      <a href="home" class='icon-explanation-on-hover'>
+      <a href="home" class='icon-to-text-on-hover'>
           <i class="fas fa-home"></i>
           <!-- <i class="fas fa-igloo"></i> -->
       </a>
-      <a href='about' class='icon-explanation-on-hover'>
+      <a href='about' class='icon-to-text-on-hover'>
         <!-- <i class="far fa-user-circle"></i> -->
         <i class="fas fa-user-circle"></i>
         <!-- <i class="far fa-user"></i> -->
       </a>
-      <a href="skills" class='icon-explanation-on-hover'>
+      <a href="skills" class='icon-to-text-on-hover'>
           <i class="fas fa-cog"></i>
       </a>
-      <a href="projects" class='icon-explanation-on-hover'>
+      <a href="projects" class='icon-to-text-on-hover'>
         <i class="fas fa-laptop-code"></i>
       </a>
-      <a href='contact' class='icon-explanation-on-hover'>
+      <a href='contact' class='icon-to-text-on-hover'>
         <i class="fas fa-envelope"></i>
       </a>
       <!-- <a href="fonts">
@@ -66,78 +66,119 @@
   <div class='flex flex-1' id='projects'>
     <!-- PROJECTS -->
     <!-- <p>PROJECTS PAGE IS UNDER CONSTRUCTION</p> -->
-    <!-- <p>
-      You can check out my 
-      <a href='https://github.com/illiaChaban' target='_blank' class='hover-underline'>GitHub</a>
-      for now
-    </p> -->
 
+  <section class='project'>
+    <div class="shadow"></div>
 
-    <!-- <figure class="project red">
-      <img src="https://i.pinimg.com/originals/d2/db/f8/d2dbf8d7b79e4efcbd0a0e9310bcc1ae.png" alt="sample33"/>
-      <figcaption>
-        <h2>Planted</span></h2>
-      </figcaption>
-      <a href="#"></a>
-    </figure> -->
-    <!-- <figure class="snip1104 blue hover"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample34.jpg" alt="sample34" />
-      <figcaption>
-        <h2>Lynn  <span> Reyes</span></h2>
-      </figcaption>
-      <a href="#"></a>
-    </figure>
-    <figure class="snip1104"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample35.jpg" alt="sample35" />
-      <figcaption>
-        <h2>Tracy <span> Logan</span></h2>
-      </figcaption>
-      <a href="#"></a>
-    </figure> -->
+    <div class="content">
 
-
-<section class='project'>
-  <button class='toggle'>
-    <span class='open'>More</span>
-    <span class='close'>Close</span> <i class="fas fa-angle-right"></i>
-  </button>
-
-  <div class="container-closed" >
-    <h1>Planted <i class="fas fa-seedling"></i></h1>
-    <p>
-      A mobile app that helps you keep your plants happy.
-      Raspberry Pi collects data from a variety of sensors 
-      <!-- ex. humidity, temperature, sunlight, and soil moister -->
-      and sends it to the server.
-      Our React Native app visulizes the data.
-    </p>
-  </div>
-
-  <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-    <!-- <polygon class="polymorph" points="0,0 0,100 100,100 100,0"></polygon> -->
-    <polygon class="border polymorph" points="94,90 0,100 100,100 100,0"></polygon>
-    <!-- <polygon class='border' points="0,0 0,100 2,2 100,0"></polygon> -->
-  </svg>
+      <button class='toggle'>
+        <span class='open'>More</span>
+        <span class='close'>Close</span> <i class="fas fa-angle-right"></i>
+      </button>
   
-  <div class="container-open">
-      <p>
-        <span class='highlight'>Technologies:</span>
-        React Native, React, Redux, D3, Node,
-        GraphQL, PostgreSQL, Javascript, Heroku, Python
-      </p>
-      <p>
-        <span class='highlight'>Hardware:</span>
-        Raspberry Pi 3 model B,
-        Arduino Uno,
-        OSEPP Humidity and Temperature Sensor - HUMI-01,
-        Generic photo resistor
-      </p>
-
-      <div class='links'>
-        <a href='https://github.com/PlantedDC' target='_blank'><i class="fab fa-github"></i></a>
-        <a href='https://www.youtube.com/watch?v=lKG6Cvn-An0' target='_blank'><i class="fab fa-youtube"></i></a>
+      <div class="container-closed" >
+        <h1>Planted <i class="fas fa-seedling"></i></h1>
+        <p>
+          A mobile app that helps you keep your plants happy.
+          Raspberry Pi collects data from a variety of sensors 
+          <!-- ex. humidity, temperature, sunlight, and soil moister -->
+          and sends it to the server.
+          Our React Native app visulizes the data.
+        </p>
       </div>
+  
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon class="border polymorph" points="94,90 0,100 100,100 100,0"></polygon>
+      </svg>
       
-  </div>
-</section>
+      <div class="container-open">
+          <p>
+            <span class='highlight'>Technologies:</span>
+            <br>
+            React Native, React, Redux, D3, Node,
+            GraphQL, PostgreSQL, Javascript, Heroku, Python
+          </p>
+          <p>
+            <span class='highlight'>Hardware:</span>
+            <br>
+            Raspberry Pi 3 model B,
+            Arduino Uno,
+            OSEPP Humidity and Temperature Sensor - HUMI-01,
+            Generic photo resistor
+          </p>
+          <div class='links'>
+            <a href='https://github.com/PlantedDC' target='_blank' class='icon-to-text-on-hover'><i class="fab fa-github"></i></a>
+            <a href='https://www.youtube.com/watch?v=lKG6Cvn-An0' target='_blank' class='icon-to-text-on-hover'><i class="fab fa-youtube"></i></a>
+          </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class='project'>
+      <div class="shadow"></div>
+  
+      <div class="content">
+  
+        <button class='toggle'>
+          <span class='open'>More</span>
+          <span class='close'>Close</span> <i class="fas fa-angle-right"></i>
+        </button>
+    
+        <div class="container-closed" >
+          <h1>Catalyst <i class="fas fa-running"></i></h1>
+          <p>
+            A social network for people that are lacking that extra push to achieve their goals. 
+          </p>
+          <p>
+            Post your goals. Your friends choose a punishment for you in case you don’t follow through. 
+            Do the work or get punished!
+          </p>
+        </div>
+    
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <polygon class="border polymorph" points="94,90 0,100 100,100 100,0"></polygon>
+        </svg>
+        
+        <div class="container-open">
+            <!-- <p>
+              <span class='highlight'>Technologies:</span>
+
+            </p> -->
+            <!-- <h5 class="highlight">
+                Technologies:
+            </h5> -->
+            <p>Was built for mobile</p>
+            <p>
+              <span class='highlight'>Technologies:</span>
+              <br>
+              Amazon EC2, React, Redux, 
+              PostgreSQL, Node.js, Express.js, 
+              JavaScript, CSS, HTML
+            </p>
+            <!-- <p>
+              <span class='highlight'>Hardware:</span>
+              Raspberry Pi 3 model B,
+              Arduino Uno,
+              OSEPP Humidity and Temperature Sensor - HUMI-01,
+              Generic photo resistor
+            </p> -->
+            <div class='links'>
+              <a href='http://ec2-18-204-21-178.compute-1.amazonaws.com/' target='_blank' class='icon-to-text-on-hover'><i class="fas fa-globe"></i></a>
+              <a href='https://github.com/illiaChaban/Catalyst' target='_blank' class='icon-to-text-on-hover'><i class="fab fa-github"></i></a>
+              <a href='https://www.youtube.com/watch?v=hNMJl7z7fHQ&t=0s' target='_blank' class='icon-to-text-on-hover'><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+  
+      </div>
+    </section>
+
+
+
+
+
+
 
 
   </div>

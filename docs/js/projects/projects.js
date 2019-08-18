@@ -3,7 +3,6 @@
   
   // Anime.js Commons Values for SVG Morph
   const common = {
-    targets: '.polymorph',
     easing: 'easeOutQuad',
     duration: 600,
     loop: false
@@ -19,6 +18,7 @@
     document.querySelectorAll('.project').forEach( project => {
       
         const btnToggle = project.querySelector('.toggle');
+        const svgAnimationTarget = project.querySelector('.polymorph');
       
       
         let openSvg, closeSvg; //saving animations to be able to stop them
@@ -33,6 +33,7 @@
           // Morph SVG
           openSvg = anime({
             ...common,
+            targets: svgAnimationTarget,
             points: [
               { value: '0,0 0,100 100,100 100,0' }
             ],
@@ -49,6 +50,7 @@
           // Morph SVG
           closeSvg = anime({
             ...common,
+            targets: svgAnimationTarget,
             points: [
               { value: openingSvgPoints }
             ]
