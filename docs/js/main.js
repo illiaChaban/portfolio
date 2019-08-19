@@ -30,22 +30,19 @@
     if (indexPathes.includes( pageHref )) {
       lazy.navigateToPage('home.html', false);
       window.history.replaceState(null, "", 'home'); 
+      return true;
     }
+    return false;
   };
 
 
 
   function initCurrPage() {
-    const $content = document.getElementById('content');
-    $content.classList.add('hide');
-    lazy.showLoadingWindow();
-
+    lazy.highlightActiveMenu();
     lazy.cacheCurrContent();
     const currPage = lazy.getCurrPageName();
-    lazy.initPage( currPage ).then( () => {
-      lazy.hideLoadingWindow();
-      $content.classList.remove('hide');
-    });
+    lazy.showLoadingWindow();
+    lazy.initPage( currPage ).then( lazy.hideLoadingWindow );
   };
 
   function bindButtons() {
@@ -147,14 +144,11 @@
 
 
   lazy.onDocumentReady( () => {
-    redirectToHomeFromIndex();
-    lazy.highlightActiveMenu();
+    redirectToHomeFromIndex() || initCurrPage();
 
     bindMenu();
     bindHistoryNavigation();
     bindButtons();
-
-    initCurrPage();
 
     initParticles();
 
