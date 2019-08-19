@@ -11,7 +11,6 @@
 }
 
 .project {
-  --project-color: var(--color-orange);
   position: relative;
   width: 14rem;
   height: 19rem;
@@ -47,10 +46,10 @@
 }
 
 /* .project .container-open a:hover, */
-.project button.toggle:hover 
+/* .project button.toggle:hover 
 {
   color: var(--color-bright) ;
-}
+} */
 
 .project svg {
   display: block;
@@ -58,7 +57,7 @@
   height: 100%;
 }
 .project svg .border {
-  fill: var(--project-color);
+  fill: var(--color-orange);
 }
 
 .project .highlight {
@@ -76,7 +75,7 @@
   position: absolute;
   font-size: .8rem;
   font-family: 'Saira', Courier, monospace;
-  cursor: pointer;
+  /* cursor: pointer; */
   color: black;
   bottom: 0px;
   right: 0px;

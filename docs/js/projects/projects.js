@@ -65,7 +65,7 @@
             showContent();
         }
 
-        btnToggle.addEventListener('click', toggleContent);
+        btnToggle.addEventListener('touchend', toggleContent);
         project.addEventListener('mouseenter', showContent);
         project.addEventListener('mouseleave', hideContent);
     });
