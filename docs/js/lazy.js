@@ -8,8 +8,8 @@ window.lazy = {};
   const pageConfig = {
     skills: {
       dependancies: [
-        ["js/skills/tagcanvas.min.js", 'script'],
-        ["js/skills/skills.js", 'script'],
+        ["js/other/tagcanvas.min.js", 'script'],
+        ["js/skills.js", 'script'],
         ['css/about.css', 'css'],
         // [skillCloudFont, 'font']
       ],
@@ -19,39 +19,29 @@ window.lazy = {};
     projects: {
       dependancies: [
         ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
-        ['js/projects/projects.js', 'script'],
+        ['js/projects.js', 'script'],
         ['css/projects.css', 'css'],
       ],
       initializer: 'initProjects'
     },
-    fonts: {
-      dependancies: [
-        ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
-        ['js/fonts/fonts.js', 'script'],
-        ['css/fonts.css', 'css'],
-        // ['Amatic SC', 'font'],
-        // ['Sacramento', 'font'],
-      ],
-      initializer: 'initFonts'
-    },
     home: {
       dependancies: [
         ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
-        ['js/home/home.js', 'script'],
+        ['js/home.js', 'script'],
         ['css/home.css', 'css'],
       ],
       initializer: 'initHome'
     },
     contact: {
       dependancies: [
-        ['js/contact/contact.js', 'script'],
+        ['js/contact.js', 'script'],
         ['css/contact.css', 'css'],
       ],
       initializer: 'initContact'
     },
     about: {
       dependancies: [
-        ['js/about/about.js', 'script'],
+        ['js/about.js', 'script'],
         ['css/about.css', 'css']
       ],
       initializer: 'initAbout'
