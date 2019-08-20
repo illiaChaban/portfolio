@@ -1,9 +1,9 @@
 (function() {
-  const colorOrange = lazy.getCssVariable('--color-highlight');
+  const colorHighlight = lazy.getCssVariable('--color-highlight');
   // const colorBright = bodyStyle.getPropertyValue('--color-main');
   // const colorSubtle = bodyStyle.getPropertyValue('--color-subtle');
 
-  // const colorOrange = '#ff6138';
+  // const colorHighlight = '#ff6138';
   // const colorBright = '#f2f1c6';
   // const colorSubtle = 'grey';
   
@@ -17,13 +17,13 @@
         }
       },
       "color": {
-        "value": colorOrange
+        "value": colorHighlight
       },
       "shape": {
         "type": "circle",
       },
       "opacity": {
-        "value": 0.3,
+        "value": 0.3, //.3
         "random": false,
         "anim": {
           "enable": false,
@@ -45,8 +45,8 @@
       "line_linked": {
         "enable": true,
         "distance": 120,
-        "color": colorOrange, // subtle / orange
-        "opacity": 0.4, // .4
+        "color": colorHighlight, 
+        "opacity": 0.6, // .4
         "width": 1
       },
       "move": {
@@ -99,7 +99,7 @@
   //       }
   //     },
   //     "color": {
-  //       "value": colorOrange
+  //       "value": colorHighlight
   //     },
   //     "shape": {
   //       "type": "circle",
@@ -139,7 +139,7 @@
   //     "line_linked": {
   //       "enable": true,
   //       "distance": 120,
-  //       "color": colorOrange, // subtle / orange
+  //       "color": colorHighlight, // subtle / orange
   //       "opacity": 0.25,
   //       "width": 1
   //     },

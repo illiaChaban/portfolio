@@ -35,9 +35,6 @@ body {
   --body-background-color: rgb(44,49,53);
   --body-background-color: #252627;
 
-  --body-background: linear-gradient(135deg, var(--body-background-color) 50%,rgba(50,56,91,1) 100%);
-  --body-background: linear-gradient(135deg, var(--body-background-color) 20%,rgba(2,2,4,1) 100%);
-  --body-background: var(--body-background-color);
 
 
   margin: 0;
@@ -45,7 +42,7 @@ body {
   font-family: 'Saira', Helvetica, Courier, sans-serif;
 
 
-  background: var(--body-background);
+  background: var(--body-background-color);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -503,14 +500,12 @@ body.modern-theme {
   --color-highlight: #ff4639;
 
   --body-background-color: #122438;
-  --body-background: linear-gradient(135deg, var(--body-background-color) 34%,rgb(10, 4, 23) 100%);
-  
 
 
   background: var(--body-background-color);
-  background: -moz-linear-gradient(100deg, var(--body-background-color) 34%, rgba(10,4,23,1) 100%);
-  background: -webkit-linear-gradient(100deg, var(--body-background-color) 34%, rgba(10,4,23,1) 100%);
-  background: linear-gradient(100deg, var(--body-background-color) 34%, rgba(10,4,23,1) 100%);
+  background: -moz-linear-gradient(135deg, var(--body-background-color) 34%, rgba(10,4,23,1) 100%);
+  background: -webkit-linear-gradient(135deg, var(--body-background-color) 34%, rgba(10,4,23,1) 100%);
+  background: linear-gradient(135deg, var(--body-background-color) 34%, rgba(10,4,23,1) 100%);
 }
 
 .modern-theme #menu {
