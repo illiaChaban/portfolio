@@ -27,12 +27,9 @@ html {
 body {
   --menu-offset: 60px;
 
-  --color-main: #e6d6b2;
-  --color-bright: #f2f1c6;
+  --color-main: #f2f1c6;
   --color-subtle: grey;
-  --color-orange: #FF6138;
-  --color-dark-blue: #4f7b86;
-  --color-light-blue: #a5c4bc;
+  --color-highlight: #FF6138;
   
   --body-background-color: rgb(50,56,91);
   --body-background-color: rgb(44,49,53);
@@ -41,11 +38,10 @@ body {
   --body-background: linear-gradient(135deg, var(--body-background-color) 50%,rgba(50,56,91,1) 100%);
   --body-background: linear-gradient(135deg, var(--body-background-color) 20%,rgba(2,2,4,1) 100%);
   --body-background: var(--body-background-color);
-  
 
 
   margin: 0;
-  color: var(--color-bright);
+  color: var(--color-main);
   font-family: 'Saira', Helvetica, Courier, sans-serif;
 
 
@@ -57,11 +53,11 @@ body {
 
 
 .c-orange {
-  color: var(--color-orange);
+  color: var(--color-highlight);
 }
 
 .c-bright {
-  color: var(--color-bright);
+  color: var(--color-main);
 }
 
 .c-subtle {
@@ -139,7 +135,7 @@ body {
 }
 
 #nav a.active {
-  color: var(--color-orange, orange);
+  color: var(--color-highlight, orange);
 }
 
 .icon-to-text-on-hover {
@@ -157,7 +153,7 @@ body {
   transform: translate(-50%, -50%);
 
   opacity: 0;
-  color: var(--color-orange);
+  color: var(--color-highlight);
   text-transform: uppercase;
   font-family: 'Inconsolata', monospace;
   font-weight: 100;
@@ -254,11 +250,11 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--color-orange);
+  color: var(--color-highlight);
 }
 
 /* a:hover {
-  color: var(--color-bright);
+  color: var(--color-main);
 } */
 
 .hover-underline {
@@ -282,7 +278,7 @@ a {
 .btn {
   --mouse-pos-x: 0px;
   --mouse-pos-y: 0px;
-  --btn-color: var(--color-orange);
+  --btn-color: var(--color-highlight);
 
   text-decoration: none;
   color: var(--btn-color);
@@ -303,7 +299,7 @@ a {
 }
 
 .btn-bright {
-  --btn-color: var(--color-bright);
+  --btn-color: var(--color-main);
 }
 
 .btn:hover {
@@ -483,9 +479,32 @@ a {
 }
 
 #particles-buttons button.active {
-  background: var(--color-orange);
+  background: var(--color-highlight);
 }
 
 
 
 
+/* COLOR EXPERIMENTS */
+body.modern-theme {
+  --color-main: #fffedc;
+  --color-subtle: #6f7886;
+  --color-highlight: #ff4639;
+
+  --body-background-color: #122438;
+  --body-background: linear-gradient(135deg, var(--body-background-color) 34%,rgb(10, 4, 23) 100%);
+  
+}
+.modern-theme #art-container {
+  filter: hue-rotate(180deg);
+}
+
+.modern-theme #menu {
+  background: #050215; 
+}
+.modern-theme #art {
+  opacity: .8;
+}
+.modern-theme .ml8 .circle.circle-dark {
+  background: #316673;
+}

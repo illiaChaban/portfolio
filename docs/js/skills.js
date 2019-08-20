@@ -10,7 +10,8 @@
     // textColour: '#08FDD8', //blue
     // textColour: '#00000', //black
     // textColour: '#ffffc2', // yellow 
-    textColour: '#FF6138', // 
+    // textColour: '#FF6138', 
+    textColour: lazy.getCssVariable('--color-highlight'), 
     
     // outlineThickness: 0.5,
     // outlineColour: '#fe0853',

@@ -34,7 +34,7 @@
     });
     
     
-    const colors = [  '#FF6138', '#f2f1c6'/* , '#8e2890' */];
+    const colors = [  'var(--color-highlight)', 'var(--color-main)'/* , '#8e2890' */];
     buildWaveLoader('.loading-wave', colors, 15);
     
     

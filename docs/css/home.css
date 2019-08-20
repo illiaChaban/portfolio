@@ -1,6 +1,6 @@
 
 .home-text {
-  color: var(--color-bright);
+  color: var(--color-main);
   font-size: 2rem;
   font-family: 'Special Elite', cursive;
   /* font-family: serif; */
@@ -291,7 +291,7 @@ h1.header {
   border-radius: 2.4em;
   background-color: transparent;
   /* border: 2px dashed #a5c4bc; */
-  border: 2px dashed var(--color-orange);
+  border: 2px dashed var(--color-highlight);
   /* border: 2px dashed #4f7b86; */
   width: 2.3em;
   height: 2.3em;

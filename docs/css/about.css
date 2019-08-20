@@ -80,7 +80,7 @@
   font-family: Courier;
   font-size: 3rem;
   position: relative;
-  color: var(--color-orange);
+  color: var(--color-highlight);
 }
 
 
@@ -131,7 +131,7 @@
 } */
 
 #quote {
-  color: var(--color-bright);
+  color: var(--color-main);
   font-family: 'Inconsolata', sans-serif; /* 'Special Elite',  */
   font-size: .9rem;
   line-height: 1.2rem;
@@ -156,14 +156,14 @@
 }
 
 #quote .author {
-  color: var(--color-orange);
+  color: var(--color-highlight);
   opacity: .8;
 }
 
 
 .text-cursor::after {
   content: '|';
-  color: var(--color-bright);
+  color: var(--color-main);
   font-family: Helvetica, sans-serif; 
   opacity: 1;
   animation: blinkTextCursor 1s infinite;

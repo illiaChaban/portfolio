@@ -13,7 +13,7 @@
 #contact-info {
   justify-content: center;
   align-items: center;
-  color: var(--color-bright);
+  color: var(--color-main);
   /* font-size: 2rem; */
   flex-direction: column;
   /* justify-content: center; */
@@ -28,17 +28,17 @@
 }
 
 #contact-info a {
-  color: var(--color-bright);
+  color: var(--color-main);
   font-family: 'Inconsolata', 'Saira', monospace;
 
 }
 
 /* #contact-info a {
-  color: var(--color-orange);
+  color: var(--color-highlight);
 }
 
 #contact-info a:hover {
-  color: var(--color-bright);
+  color: var(--color-main);
 } */
 
 #contact-info h2 {
@@ -61,8 +61,8 @@
 
 
 .scramble-text {
-  /* color: var(--color-orange);
-  color: var(--color-bright); */
+  /* color: var(--color-highlight);
+  color: var(--color-main); */
   color: var(--color-subtle);
   font-size: 1.3rem;
   font-weight: 100;
@@ -70,7 +70,7 @@
 }
 
 .scramble-text .doodle {
-  color: var(--color-orange);
+  color: var(--color-highlight);
   opacity: .7;
 }
 
@@ -131,8 +131,8 @@
   transition: 0.5s;
   /* transition-property: opacity, transform;
   transition-duration: 0.5s; */
-  border: 1px solid var(--color-bright);
-  /* border-color: var(--color-bright); */
+  border: 1px solid var(--color-main);
+  /* border-color: var(--color-main); */
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -143,7 +143,7 @@
   align-items: center;
 
   position: relative;
-  /* border-color: var(--color-bright); */
+  /* border-color: var(--color-main); */
 }
 
 .links a:hover span:nth-child(5) {
@@ -169,13 +169,13 @@
 
 /* orange shadow */
 /* .links a:hover span {
-  box-shadow: -1px 1px 3px var(--color-orange);
+  box-shadow: -1px 1px 3px var(--color-highlight);
 } */
 
 /* orange spans */
 /* .links a span {
-  background: var(--color-orange);
-  border-color: var(--color-bright);
+  background: var(--color-highlight);
+  border-color: var(--color-main);
 }
 .links a span:nth-child(5) {
   background: var(--body-background-color);
@@ -183,10 +183,10 @@
 
 /* orange border */
 /* .links a span {
-  border-color: var(--color-orange);
+  border-color: var(--color-highlight);
 }
 .links a span:nth-child(5) {
-  border-color: var(--color-bright);
+  border-color: var(--color-main);
 } */
 
 

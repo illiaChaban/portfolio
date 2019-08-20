@@ -124,31 +124,31 @@
   const artMap = [
     {
       imgUrl: 'imgs/quotes/feynman.svg',
-      colors: ['var(--color-bright)', '#afadad', 'black'],
+      colors: ['var(--color-main)', '#afadad', 'black'],
       // quote: ["I'm smart enough to know that I'm dumb.", "- Richard Feynman"],
       quote: ["The first principle is that you must not fool yourself and you are the easiest person to fool.", "- Richard Feynman"]
     },
     {
       imgUrl: 'imgs/quotes/gandhi1.svg', 
-      colors: ['black', 'var(--color-bright)', '#afadad'], 
+      colors: ['black', 'var(--color-main)', '#afadad'], 
       quote: ["A man is but the product of his thoughts. What he thinks, he becomes.", "- Mahatma Gandhi"]
     },
     {
       imgUrl: 'imgs/quotes/lee7.svg',
-      colors: ['black', 'var(--color-bright)', '#afadad'],
+      colors: ['black', 'var(--color-main)', '#afadad'],
       quote: ["Knowing is not enough, we must apply. Willing is not enough, we must do.", "- Bruce Lee"],
     },
     {
       imgUrl: 'imgs/quotes/simpsons.svg',
-      colors: ['var(--color-bright)', 'black', '#afadad'],
+      colors: ['var(--color-main)', 'black', '#afadad'],
       
       // imgUrl: 'imgs/quotes/simpsons1.svg',
-      // colors: ['black', 'var(--color-bright)', '#afadad'],
+      // colors: ['black', 'var(--color-main)', '#afadad'],
       quote: ["Find what you love and follow it to glory.", "- Simpsons"],
     },
     // {
     //   imgUrl: 'imgs/rv-vector1.svg',
-    //   colors: ['var(--color-bright)', 'black', 'var(--color-orange)'],
+    //   colors: ['var(--color-main)', 'black', 'var(--color-highlight)'],
     //   quote: ["Find what you love and follow it to glory.", "- Simpsons"],
     // },
   ]
