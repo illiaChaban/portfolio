@@ -68,7 +68,7 @@ window.lazy = {};
     return Promise.all( loadedDependacies )
             .then( () => {
               window[initializer] && window[initializer](...args);
-              console.log("Lazy loading, initialized " + pageName);
+              // console.log("Lazy loading, initialized " + pageName);
             }).catch( console.error );
   };
 
@@ -80,7 +80,7 @@ window.lazy = {};
       let fontSyncLoaded = document.querySelector(`link[href*="fonts.googleapis.com"][href*="${escapedSpaceFont}"]`);
       if (fontSyncLoaded) {
         loadedFonts[familyName] = Promise.resolve();
-        console.log("Font was sync loaded -- " + familyName);
+        // console.log("Font was sync loaded -- " + familyName);
       } else {
         loadedFonts[familyName] = new Promise( async (resolve,reject) => {
           // adjustment for slow network or not existing font family
@@ -94,7 +94,7 @@ window.lazy = {};
             active() {
               resolve();
               // clearTimeout(timeout);
-              console.log("Font was async loaded -- " + familyName);
+              // console.log("Font was async loaded -- " + familyName);
             },
             inactive: () => reject("inactive")
           });
@@ -110,7 +110,7 @@ window.lazy = {};
         s.setAttribute('src', src);
         s.setAttribute('type', 'text/javascript');
         s.onload = () => {
-          console.log("LOADED SCRIPT src = " + src)
+          // console.log("LOADED SCRIPT src = " + src)
           resolve()
         };
         s.onerror = reject;
@@ -123,7 +123,7 @@ window.lazy = {};
     if ( !(src in loadedCss) ) {
       if (document.querySelector(`link[href='${src}']`)) {
         loadedCss[src] = Promise.resolve();
-        console.log("CSS src = " + src + " was sync loaded");
+        // console.log("CSS src = " + src + " was sync loaded");
       } else {
         loadedCss[src] = new Promise( (resolve,reject) => {
           let s = document.createElement('link');
@@ -131,7 +131,7 @@ window.lazy = {};
           s.setAttribute('rel', 'stylesheet');
           s.setAttribute('type', 'text/css')
           s.onload = () => {
-            console.log("LOADED CSS src = " + src);
+            // console.log("LOADED CSS src = " + src);
             // console.log(s.sheet.cssRules[0].cssText)
             resolve()
           };
