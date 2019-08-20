@@ -3,9 +3,7 @@
   color: var(--color-main);
   font-size: 2rem;
   font-family: 'Special Elite', cursive;
-  /* font-family: serif; */
   font-weight:900;
-  /* margin-left: 30px; */
 
   min-height: 400px;
   position: relative;
@@ -47,10 +45,7 @@ h1.header {
 /* ************************** art *************************** */
 
 #art-container {
-  /* --top-offset: 30px; */
-
   position: absolute;
-  /* top: var(--top-offset); */
   right: 0;
   z-index: -2;
   height: calc( 100% - var(--top-offset, 0px) );
@@ -121,6 +116,33 @@ h1.header {
   transform: scaleX(-1); /* "mirror" effect on squirrel */
 }
 
+
+@-webkit-keyframes animatedSquirrel {
+  0% {
+    background-position: left top;
+  }
+
+  15% {
+    top: 29%;
+  }
+
+  30% {
+    top: 32%;
+  }
+
+  75% {
+    top: 46%;
+    right: 55%;
+    background-position-x: 100%;
+  }
+
+  100% {
+    background-position: 100% bottom;
+    top: 46%;
+    right: 55%;
+  }
+}
+
 @keyframes animatedSquirrel {
   0% {
     background-position: left top;
@@ -147,38 +169,19 @@ h1.header {
   }
 }
 
-/* @-webkit-keyframes animatedSquirrel {
-  from {
-    background-position: left top;
-  }
-
-  to {
-    background-position: right bottom;
-  }
-} */
-
 .animate-squirrel {
-  animation-name: animatedSquirrel;
+  /* animation-name: animatedSquirrel;
   animation-duration: 1s;
   animation-delay: 2s;
   animation-timing-function: steps(9);
-  animation-fill-mode: forwards;
-  /* animation-iteration-count: infinite; */
-  /* animation-direction: normal; */
-  /* animation: animatedSquirrel 1s 5s steps(9) forwards;
-  -ms-animation: animatedSquirrel 1s 1s steps(9) forwards;
-  -webkit-animation: animatedSquirrel 1s 1s steps(9) forwards;
-  -moz-animation: animatedSquirrel 1s 1s steps(9) forwards; */
+  animation-fill-mode: forwards; */
 
-  /* -o-animation-fill-mode: forwards; */
+  -webkit-animation: animatedSquirrel 1s steps(9) 2s forwards;
+          animation: animatedSquirrel 1s steps(9) 2s forwards;
 
 }
 
 @media (min-width: 850px) {
-  #art-container {
-    /* --top-offset: 0px; */
-  }
-
   #art {
     --content-to-art-width-ratio: 0.9;
     top: 80px;
@@ -207,10 +210,6 @@ h1.header {
 }
 
 @media (max-width: 660px) {
-  #art-container {
-    /* --top-offset: 0px; */
-  }
-
   #art {
     top: 0px;
   }
@@ -290,15 +289,27 @@ h1.header {
 .ml8 .circle-dark-dashed {
   border-radius: 2.4em;
   background-color: transparent;
-  /* border: 2px dashed #a5c4bc; */
   border: 2px dashed var(--color-highlight);
-  /* border: 2px dashed #4f7b86; */
   width: 2.3em;
   height: 2.3em;
-  animation-name: rotate360;
+  /* animation-name: rotate360;
   animation-duration: 8s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  animation-timing-function: linear; */
+
+  -webkit-animation: rotate360 8s linear infinite;
+          animation: rotate360 8s linear infinite;
+}
+
+
+@-webkit-keyframes rotate360 {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
 }
 
 @keyframes rotate360 {
@@ -312,26 +323,7 @@ h1.header {
 }
 
 
-
-
 #contact-me {
   margin-top: 20px;
   margin-bottom: 45px;
-}
-
-
-.quote {
-  color: var(--color-subtle);
-  font-family: 'Inconsolata';
-  font-size: .8rem;
-  text-align: center;
-  width: 100%;
-  padding-top: 20px;
-  transition: all .3s;
-
-  /* opacity: 0;
-  animation-name: fadeIn;
-  animation-duration: 2s;
-  animation-delay: 3s;
-  animation-fill-mode: forwards; */
 }

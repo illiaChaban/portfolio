@@ -150,7 +150,9 @@ body {
 
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 
   opacity: 0;
   color: var(--color-highlight);
@@ -206,6 +208,15 @@ body {
   position: relative;
 }
 
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 
 @keyframes fadeIn {
   0% {
@@ -495,15 +506,14 @@ body.modern-theme {
   --body-background: linear-gradient(135deg, var(--body-background-color) 34%,rgb(10, 4, 23) 100%);
   
 }
-.modern-theme #art-container {
-  filter: hue-rotate(180deg);
-}
 
 .modern-theme #menu {
   background: #050215; 
 }
 .modern-theme #art {
   opacity: .8;
+  -webkit-filter: hue-rotate(180deg);
+  filter: hue-rotate(180deg);
 }
 .modern-theme .ml8 .circle.circle-dark {
   background: #316673;

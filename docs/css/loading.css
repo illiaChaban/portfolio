@@ -1,71 +1,196 @@
-@keyframes spin {
+@-webkit-keyframes spin {
   0% {
-    transform: translate(2px, 1px) rotate(0deg);
+    -webkit-transform: translate(2px, 1px) rotate(0deg);
+            transform: translate(2px, 1px) rotate(0deg);
   }
   10% {
-    transform: translate(-1px, -3px) rotate(36deg);
+    -webkit-transform: translate(-1px, -3px) rotate(36deg);
+            transform: translate(-1px, -3px) rotate(36deg);
   }
   20% {
-    transform: translate(-2px, 0px) rotate(72deg);
+    -webkit-transform: translate(-2px, 0px) rotate(72deg);
+            transform: translate(-2px, 0px) rotate(72deg);
   }
   30% {
-    transform: translate(1px, 2px) rotate(108deg);
+    -webkit-transform: translate(1px, 2px) rotate(108deg);
+            transform: translate(1px, 2px) rotate(108deg);
   }
   40% {
-    transform: translate(1px, -1px) rotate(144deg);
+    -webkit-transform: translate(1px, -1px) rotate(144deg);
+            transform: translate(1px, -1px) rotate(144deg);
   }
   50% {
-    transform: translate(-1px, 3px) rotate(180deg);
+    -webkit-transform: translate(-1px, 3px) rotate(180deg);
+            transform: translate(-1px, 3px) rotate(180deg);
   }
   60% {
-    transform: translate(-1px, 1px) rotate(216deg);
+    -webkit-transform: translate(-1px, 1px) rotate(216deg);
+            transform: translate(-1px, 1px) rotate(216deg);
   }
   70% {
-    transform: translate(3px, 1px) rotate(252deg);
+    -webkit-transform: translate(3px, 1px) rotate(252deg);
+            transform: translate(3px, 1px) rotate(252deg);
   }
   80% {
-    transform: translate(-2px, -1px) rotate(288deg);
+    -webkit-transform: translate(-2px, -1px) rotate(288deg);
+            transform: translate(-2px, -1px) rotate(288deg);
   }
   90% {
-    transform: translate(2px, 1px) rotate(324deg);
+    -webkit-transform: translate(2px, 1px) rotate(324deg);
+            transform: translate(2px, 1px) rotate(324deg);
   }
   100% {
-    transform: translate(1px, -2px) rotate(360deg);
+    -webkit-transform: translate(1px, -2px) rotate(360deg);
+            transform: translate(1px, -2px) rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: translate(2px, 1px) rotate(0deg);
+            transform: translate(2px, 1px) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: translate(-1px, -3px) rotate(36deg);
+            transform: translate(-1px, -3px) rotate(36deg);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 0px) rotate(72deg);
+            transform: translate(-2px, 0px) rotate(72deg);
+  }
+  30% {
+    -webkit-transform: translate(1px, 2px) rotate(108deg);
+            transform: translate(1px, 2px) rotate(108deg);
+  }
+  40% {
+    -webkit-transform: translate(1px, -1px) rotate(144deg);
+            transform: translate(1px, -1px) rotate(144deg);
+  }
+  50% {
+    -webkit-transform: translate(-1px, 3px) rotate(180deg);
+            transform: translate(-1px, 3px) rotate(180deg);
+  }
+  60% {
+    -webkit-transform: translate(-1px, 1px) rotate(216deg);
+            transform: translate(-1px, 1px) rotate(216deg);
+  }
+  70% {
+    -webkit-transform: translate(3px, 1px) rotate(252deg);
+            transform: translate(3px, 1px) rotate(252deg);
+  }
+  80% {
+    -webkit-transform: translate(-2px, -1px) rotate(288deg);
+            transform: translate(-2px, -1px) rotate(288deg);
+  }
+  90% {
+    -webkit-transform: translate(2px, 1px) rotate(324deg);
+            transform: translate(2px, 1px) rotate(324deg);
+  }
+  100% {
+    -webkit-transform: translate(1px, -2px) rotate(360deg);
+            transform: translate(1px, -2px) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes speed {
+  0% {
+    -webkit-transform: translate(2px, 1px) rotate(0deg);
+            transform: translate(2px, 1px) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: translate(-1px, -3px) rotate(-1deg);
+            transform: translate(-1px, -3px) rotate(-1deg);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 0px) rotate(1deg);
+            transform: translate(-2px, 0px) rotate(1deg);
+  }
+  30% {
+    -webkit-transform: translate(1px, 2px) rotate(0deg);
+            transform: translate(1px, 2px) rotate(0deg);
+  }
+  40% {
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
+            transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    -webkit-transform: translate(-1px, 3px) rotate(-1deg);
+            transform: translate(-1px, 3px) rotate(-1deg);
+  }
+  60% {
+    -webkit-transform: translate(-1px, 1px) rotate(0deg);
+            transform: translate(-1px, 1px) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate(3px, 1px) rotate(-1deg);
+            transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    -webkit-transform: translate(-2px, -1px) rotate(1deg);
+            transform: translate(-2px, -1px) rotate(1deg);
+  }
+  90% {
+    -webkit-transform: translate(2px, 1px) rotate(0deg);
+            transform: translate(2px, 1px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(1px, -2px) rotate(-1deg);
+            transform: translate(1px, -2px) rotate(-1deg);
   }
 }
 @keyframes speed {
   0% {
-    transform: translate(2px, 1px) rotate(0deg);
+    -webkit-transform: translate(2px, 1px) rotate(0deg);
+            transform: translate(2px, 1px) rotate(0deg);
   }
   10% {
-    transform: translate(-1px, -3px) rotate(-1deg);
+    -webkit-transform: translate(-1px, -3px) rotate(-1deg);
+            transform: translate(-1px, -3px) rotate(-1deg);
   }
   20% {
-    transform: translate(-2px, 0px) rotate(1deg);
+    -webkit-transform: translate(-2px, 0px) rotate(1deg);
+            transform: translate(-2px, 0px) rotate(1deg);
   }
   30% {
-    transform: translate(1px, 2px) rotate(0deg);
+    -webkit-transform: translate(1px, 2px) rotate(0deg);
+            transform: translate(1px, 2px) rotate(0deg);
   }
   40% {
-    transform: translate(1px, -1px) rotate(1deg);
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
+            transform: translate(1px, -1px) rotate(1deg);
   }
   50% {
-    transform: translate(-1px, 3px) rotate(-1deg);
+    -webkit-transform: translate(-1px, 3px) rotate(-1deg);
+            transform: translate(-1px, 3px) rotate(-1deg);
   }
   60% {
-    transform: translate(-1px, 1px) rotate(0deg);
+    -webkit-transform: translate(-1px, 1px) rotate(0deg);
+            transform: translate(-1px, 1px) rotate(0deg);
   }
   70% {
-    transform: translate(3px, 1px) rotate(-1deg);
+    -webkit-transform: translate(3px, 1px) rotate(-1deg);
+            transform: translate(3px, 1px) rotate(-1deg);
   }
   80% {
-    transform: translate(-2px, -1px) rotate(1deg);
+    -webkit-transform: translate(-2px, -1px) rotate(1deg);
+            transform: translate(-2px, -1px) rotate(1deg);
   }
   90% {
-    transform: translate(2px, 1px) rotate(0deg);
+    -webkit-transform: translate(2px, 1px) rotate(0deg);
+            transform: translate(2px, 1px) rotate(0deg);
   }
   100% {
-    transform: translate(1px, -2px) rotate(-1deg);
+    -webkit-transform: translate(1px, -2px) rotate(-1deg);
+            transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@-webkit-keyframes strikes {
+  from {
+    left: 25px;
+  }
+  to {
+    left: -80px;
+    opacity: 0;
   }
 }
 @keyframes strikes {
@@ -77,12 +202,30 @@
     opacity: 0;
   }
 }
+
+@-webkit-keyframes dots {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 15px;
+  }
+}
 @keyframes dots {
   from {
     width: 0px;
   }
   to {
     width: 15px;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 @keyframes fadeIn {
@@ -97,20 +240,20 @@
 
 
 .fadeIn, .loading-window {
-  animation: fadeIn 0.4s both;
+  -webkit-animation: fadeIn 0.4s both;
+          animation: fadeIn 0.4s both;
 }
 
 #loading {
   z-index: 1;
-  /* background: var( --body-background ); */
-  /* background: transparent; */
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
 
-  animation: fadeIn .5s;
+  -webkit-animation: fadeIn .5s;
+          animation: fadeIn .5s;
 }
 
 .loading-window {
@@ -143,8 +286,10 @@
   width: 5px;
   overflow: hidden;
   vertical-align: bottom;
-  animation: dots 1.5s linear infinite;
   transition: 1;
+
+  -webkit-animation: dots 1.5s linear infinite;
+          animation: dots 1.5s linear infinite;
 }
 
 .car {
@@ -159,29 +304,36 @@
   width: 11px;
   height: 1px;
   background: var( --car-color );
-  animation: strikes 0.2s linear infinite;
+
+  -webkit-animation: strikes 0.2s linear infinite;
+          animation: strikes 0.2s linear infinite;
 }
 .car .strike2 {
   top: 11px;
-  animation-delay: 0.05s;
+  -webkit-animation-delay: 0.05s;
+          animation-delay: 0.05s;
 }
 .car .strike3 {
   top: 22px;
-  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
 }
 .car .strike4 {
   top: 33px;
-  animation-delay: 0.15s;
+  -webkit-animation-delay: 0.15s;
+          animation-delay: 0.15s;
 }
 .car .strike5 {
   top: 44px;
-  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
 }
 .car-detail {
   position: absolute;
   display: block;
   background: var( --car-color );
-  animation: speed 0.5s linear infinite;
+  -webkit-animation: speed 0.5s linear infinite;
+          animation: speed 0.5s linear infinite;
 }
 .car-detail.spoiler {
   width: 0;
@@ -230,7 +382,8 @@
   left: 12px;
   border: 3px solid var( --background-color );
   background: linear-gradient(45deg, transparent 45%, var( --car-color ) 46%, var( --car-color ) 54%, transparent 55%), linear-gradient(-45deg, transparent 45%, var( --car-color ) 46%, var( --car-color ) 54%, transparent 55%), linear-gradient(90deg, transparent 45%, var( --car-color ) 46%, var( --car-color ) 54%, transparent 55%), linear-gradient(0deg, transparent 45%, var( --car-color ) 46%, var( --car-color ) 54%, transparent 55%), radial-gradient(var( --car-color ) 29%, transparent 30%, transparent 50%, var( --car-color ) 51%), var( --background-color );
-  animation-name: spin;
+  -webkit-animation-name: spin;
+          animation-name: spin;
 }
 .car-detail.wheel2 {
   left: 82px;

@@ -166,13 +166,22 @@
   color: var(--color-main);
   font-family: Helvetica, sans-serif; 
   opacity: 1;
-  animation: blinkTextCursor 1s infinite;
+  -webkit-animation: blinkTextCursor 1s infinite;
+          animation: blinkTextCursor 1s infinite;
 }
 
 .text-cursor.typing::after {
   animation: none;
 }
 
+@-webkit-keyframes blinkTextCursor {
+  0%, 25%, 80%, 100% {
+    opacity: 1;
+  }
+  30%, 75% {
+    opacity: 0;
+  }
+}
 @keyframes blinkTextCursor {
   0%, 25%, 80%, 100% {
     opacity: 1;
