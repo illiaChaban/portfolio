@@ -198,7 +198,7 @@
     }
 
 
-    let artCount = 4;
+    let artCount = 0;
     $art.querySelector('.btn').addEventListener('click', () => {
       artCount = (artCount + 1) % artMap.length;
       updateArt( artCount );
