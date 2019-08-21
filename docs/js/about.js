@@ -144,13 +144,13 @@
       
       // imgUrl: 'imgs/quotes/simpsons1.svg',
       // colors: ['black', 'var(--color-main)', '#afadad'],
-      quote: ["Find what you love and follow it to glory.", "- Simpsons"],
+      quote: ["Find what you love and follow it to glory.", "- The Simpsons"],
     },
-    // {
-    //   imgUrl: 'imgs/rv-vector1.svg',
-    //   colors: ['var(--color-main)', 'black', 'var(--color-highlight)'],
-    //   quote: ["Find what you love and follow it to glory.", "- Simpsons"],
-    // },
+    {
+      imgUrl: 'imgs/quotes/todd.svg',
+      colors: ['black', 'var(--color-main)', 'var(--color-subtle)', 'var(--color-highlight)'],
+      quote: ["I never know if I can handle anything! That’s what makes my life so exciting.”", "- Todd from Bojack Horseman"],
+    },
   ]
 
 
@@ -198,7 +198,7 @@
     }
 
 
-    let artCount = 0;
+    let artCount = 4;
     $art.querySelector('.btn').addEventListener('click', () => {
       artCount = (artCount + 1) % artMap.length;
       updateArt( artCount );
