@@ -149,7 +149,7 @@
     {
       imgUrl: 'imgs/quotes/todd.svg',
       colors: ['black', 'var(--color-main)', 'var(--color-subtle)', 'var(--color-highlight)'],
-      quote: ["I never know if I can handle anything! That’s what makes my life so exciting.”", "- Todd from Bojack Horseman"],
+      quote: ["I never know if I can handle anything! That’s what makes my life so exciting.", "- Todd from BoJack Horseman"],
     },
   ]
 
