@@ -109,9 +109,6 @@
   }
 
 // ****************************************************
-
-
-
   const artMap = [
     {
       imgUrl: 'imgs/quotes/feynman.svg',
@@ -147,23 +144,25 @@
   class WisdomArt {
     constructor() {
       this.currentArtCount = 0;
-
       this.$art = document.querySelector('.art');
-      this.$imgContainer = this.$art.querySelector('#img');
-  
-      this.$quote = document.getElementById('quote');
-
+      
       // initializing typers
-      const $quotation = this.$quote.querySelector('.quotation > span');
-      const $author = this.$quote.querySelector('.author');
+      const $quote = this.$art.querySelector('#quote');
+      const $quotation = $quote.querySelector('.quotation > span');
+      const $author = $quote.querySelector('.author');
       this.typer1 = new TextTyper($quotation, 15, 70);
       this.typer2 = new TextTyper($author, 20, 80);
+
+      // img updater
+      this.$imgContainer = this.$art.querySelector('#img');
+      // this.img = new SvgUpdater($imgContainer);
   
       this.updateArt();
       this.bindArtButton();
     }
 
-    typeQuote = ([quotation, author]) => {
+    typeQuote = () => {
+      const [quotation, author] = artMap[this.currentArtCount].quote;
 
       this.typer1.clearNow();
       this.typer2.clearNow().removeCursor();
@@ -180,27 +179,38 @@
     };
 
 
-    colorSvg = (svgEl, colors) => {
+    colorSvgOnce = (svgEl, colors) => {
+      if (svgEl.getAttribute('colored')) return;
+
+      // svg colors are saved in css variables at svg element levet
+      // to make it easy to update & experiment with colors
       colors.forEach( (color,i) => {
         svgEl.style.setProperty(`--color-${i}`, `${color}`);
       });
 
       svgEl.querySelectorAll('path').forEach( (path, i) => {
         path.setAttribute('fill', `var(--color-${i})`);
-      })
-    }
+      });
 
-    loadImg = async (url, colors) => {
-      let svgEl = await lazy.loadSvg(url);
+      svgEl.setAttribute('colored', true); // flag
+    };
+
+    updateImg = async () => {
+      const artCount = this.currentArtCount;
+      const {imgUrl, colors} = artMap[artCount];
+      lazy.showSpinner(this.$imgContainer);
+      let svgEl = await lazy.loadSvg(imgUrl);
+      this.colorSvgOnce( svgEl, colors );
+      // if user clicked through the art before it's loaded, skip
+      if (this.currentArtCount !== artCount) return;
       this.$imgContainer.innerHTML = '';
       this.$imgContainer.append( svgEl );
-      this.colorSvg( svgEl, colors );
     }
 
+
     updateArt = () => {
-      const {imgUrl, colors, quote} = artMap[this.currentArtCount];
-      this.loadImg( imgUrl, colors );
-      this.typeQuote( quote );
+      this.updateImg();
+      this.typeQuote();
     }
 
     bindArtButton = () => {
