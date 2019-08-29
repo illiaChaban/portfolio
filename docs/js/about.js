@@ -110,15 +110,6 @@
 
 // ****************************************************
 
-  const colorSvg = (svgEl, colors) => {
-    colors.forEach( (color,i) => {
-      svgEl.style.setProperty(`--color-${i}`, `${color}`);
-    });
-
-    svgEl.querySelectorAll('path').forEach( (path, i) => {
-      path.setAttribute('fill', `var(--color-${i})`);
-    })
-  }
 
 
   const artMap = [
@@ -151,68 +142,88 @@
       colors: ['black', 'var(--color-main)', 'var(--color-subtle)', 'var(--color-highlight)'],
       quote: ["I never know if I can handle anything! That’s what makes my life so exciting.", "- Todd from BoJack Horseman"],
     },
-  ]
+  ];
 
+  class WisdomArt {
+    constructor() {
+      this.currentArtCount = 0;
 
+      this.$art = document.querySelector('.art');
+      this.$imgContainer = this.$art.querySelector('#img');
+  
+      this.$quote = document.getElementById('quote');
 
-  lazy.onDocumentReady( () => {
-    const $art = document.querySelector('.art');
-    const $imgContainer = $art.querySelector('#img');
+      // initializing typers
+      const $quotation = this.$quote.querySelector('.quotation > span');
+      const $author = this.$quote.querySelector('.author');
+      this.typer1 = new TextTyper($quotation, 15, 70);
+      this.typer2 = new TextTyper($author, 20, 80);
+  
+      this.updateArt();
+      this.bindArtButton();
+    }
 
-    const $quote = document.getElementById('quote');
-    const $quotation = $quote.querySelector('.quotation > span');
-    const $author = $quote.querySelector('.author');
-    // const speed = [15, 70]; // 20, 80
-    const typer1 = new TextTyper($quotation, 15, 70);
-    const typer2 = new TextTyper($author, 20, 80);
+    typeQuote = ([quotation, author]) => {
 
-    const typeQuote = ([quotation, author]) => {
-      // $quote.querySelectorAll('.text-cursor').forEach( x => x.classList.remove('text-cursor'));
+      this.typer1.clearNow();
+      this.typer2.clearNow().removeCursor();
 
-      typer1.clearNow();
-      typer2.clearNow().removeCursor();
-
-      typer1
+      this.typer1
         .addCursor()
         .type(quotation)
         .removeCursor()
         .chain( () => {
-          typer2
+          this.typer2
             .addCursor()
             .type(author)
         })
     };
 
 
-    const loadImg = async (url, colors) => {
+    colorSvg = (svgEl, colors) => {
+      colors.forEach( (color,i) => {
+        svgEl.style.setProperty(`--color-${i}`, `${color}`);
+      });
+
+      svgEl.querySelectorAll('path').forEach( (path, i) => {
+        path.setAttribute('fill', `var(--color-${i})`);
+      })
+    }
+
+    loadImg = async (url, colors) => {
       let svgEl = await lazy.loadSvg(url);
-      $imgContainer.innerHTML = '';
-      $imgContainer.append( svgEl );
-      colorSvg( svgEl, colors );
+      this.$imgContainer.innerHTML = '';
+      this.$imgContainer.append( svgEl );
+      this.colorSvg( svgEl, colors );
     }
 
-    const updateArt = (count) => {
-      const {imgUrl, colors, quote} = artMap[count];
-      loadImg( imgUrl, colors );
-      typeQuote( quote );
+    updateArt = () => {
+      const {imgUrl, colors, quote} = artMap[this.currentArtCount];
+      this.loadImg( imgUrl, colors );
+      this.typeQuote( quote );
     }
 
+    bindArtButton = () => {
+      this.$art.querySelector('.btn').addEventListener('click', () => {
+        this.currentArtCount = (this.currentArtCount + 1) % artMap.length;
+        this.updateArt();
+      });
+    };
+  }
 
-    let artCount = 0;
-    $art.querySelector('.btn').addEventListener('click', () => {
-      artCount = (artCount + 1) % artMap.length;
-      updateArt( artCount );
-    });
 
-    const scramble = new TextScramble('.h1-tags');
+  let scramble;
+  const getScramble = () => {
+    if (!scramble) scramble = new TextScramble('.h1-tags');
+    return scramble;
+  }
 
-    window.initAbout = () => {
-      updateArt( artCount );
-      scramble.animate();
-    }
+  const initiazeQuotes = () => new WisdomArt();
 
-  });
-
+  window.init.about = () => {
+    lazy.callOnce( initiazeQuotes );
+    getScramble().animate();
+  }
 })();
 
 

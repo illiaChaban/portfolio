@@ -49,16 +49,18 @@
     document
       .getElementById('contact-me2')
       .addEventListener('click', lazy.navigateToPageFromLink );
-  }
+  };
 
-  const scramble = new TextScramble('.h1-tags');
 
-  lazy.onDocumentReady( () => {
-    bindContactLink();
-  });
+  let scramble;
+  const getScramble = () => {
+    if (!scramble) scramble = new TextScramble('.h1-tags');
+    return scramble;
+  };
 
-  window.initSkills = () => {
+  window.init.skills = () => {
+    lazy.callOnce( bindContactLink );
     initSkillsCloud();
-    scramble.animate();
+    getScramble().animate();
   }
 })();

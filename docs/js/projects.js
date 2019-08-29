@@ -8,7 +8,7 @@
     loop: false
   };
   
-  window.initProjects = () => {
+  window.init.projects = () => {
     // call after animeJS was loaded
     if (initialized) return;
   

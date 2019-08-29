@@ -100,20 +100,22 @@
       .addEventListener('click', lazy.navigateToPageFromLink ); 
   }
 
-  lazy.onDocumentReady( () => {
-    bindContactLink();
-    prepareArt();
+ 
   
-    // should be called after anime.js was loaded
-    window.initHome = () => {
-      if (!animations.length) { 
-        prepareAnimations();
-      } else {
-        animations.forEach( a => a.restart() );
-      }
-    }   
+  window.init.home = () => {
+    lazy.callOnce(
+      bindContactLink,
+      prepareArt
+    );
 
-  })
+    // should be called after anime.js was loaded
+    if (!animations.length) { 
+      prepareAnimations();
+    } else {
+      animations.forEach( a => a.restart() );
+    }
+  }   
+
 
 
 })();

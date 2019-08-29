@@ -21,26 +21,30 @@
     }
     waveElement.innerHTML = spans;
   };
+
+  const buildWaves = () => {
+    const colors = [  'var(--color-highlight)', 'var(--color-main)'];
+    buildWaveLoader('.loading-wave', colors, 15);
+  };
+
+  let scramble;
+  const getScramble = () => {
+    if (!scramble) {
+      scramble = new TextScramble('.scramble-text', {
+        phrases: [
+          'Hello friend,',
+          "Let's build something great!"
+        ],
+        interval: 2000
+      });
+    }
+    return scramble;
+  }
   
 
-  lazy.onDocumentReady( () => {
-    
-    const scramble = new TextScramble('.scramble-text', {
-      phrases: [
-        'Hello friend,',
-        "Let's build something great!"
-      ],
-      interval: 2000
-    });
-    
-    
-    const colors = [  'var(--color-highlight)', 'var(--color-main)'/* , '#8e2890' */];
-    buildWaveLoader('.loading-wave', colors, 15);
-    
-    
-    window.initContact = () => {
-      scramble.animate();
-    }
-  })
+  window.init.contact = () => {
+    lazy.callOnce( buildWaves );
+    getScramble().animate();
+  }
 
 })();

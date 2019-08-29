@@ -1,48 +1,34 @@
 window.lazy = {};
+window.init = {};
 
 (function(l) {
   const pageMatcher = /([a-z]+)(?:\.html)?$/;;
   const parser = new DOMParser();
   
-  const pageConfig = {
-    skills: {
-      dependancies: [
-        ["js/other/tagcanvas.min.js", 'script'],
-        ["js/skills.js", 'script'],
-        ['css/about.css', 'css'],
-      ],
-      initializer: 'initSkills', 
-    },
-    projects: {
-      dependancies: [
-        ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
-        ['js/projects.js', 'script'],
-        ['css/projects.css', 'css'],
-      ],
-      initializer: 'initProjects'
-    },
-    home: {
-      dependancies: [
-        ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
-        ['js/home.js', 'script'],
-        ['css/home.css', 'css'],
-      ],
-      initializer: 'initHome'
-    },
-    contact: {
-      dependancies: [
-        ['js/contact.js', 'script'],
-        ['css/contact.css', 'css'],
-      ],
-      initializer: 'initContact'
-    },
-    about: {
-      dependancies: [
-        ['js/about.js', 'script'],
-        ['css/about.css', 'css']
-      ],
-      initializer: 'initAbout'
-    },
+  const dependancies = {
+    skills: [
+      ["js/other/tagcanvas.min.js", 'script'],
+      ["js/skills.js", 'script'],
+      ['css/about.css', 'css'],
+    ],
+    projects: [
+      ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
+      ['js/projects.js', 'script'],
+      ['css/projects.css', 'css'],
+    ],
+    home: [
+      ['https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', 'script'],
+      ['js/home.js', 'script'],
+      ['css/home.css', 'css'],
+    ],
+    contact: [
+      ['js/contact.js', 'script'],
+      ['css/contact.css', 'css'],
+    ],
+    about: [
+      ['js/about.js', 'script'],
+      ['css/about.css', 'css']
+    ]
   };
   let loadedFonts = {};
   let loadedScripts = {};
@@ -59,15 +45,16 @@ window.lazy = {};
     let loader = switcher[type];
     return loader(hrefOrName); 
   };
+  l.loadDependacies = (pageName) => {
+    if ( !(pageName in dependancies)) return Promise.resolve();
+    let deps = dependancies[pageName].map(([link, type]) => l.loadResource(link, type) );
+    return Promise.all( deps );
+  }
   l.initPage = (pageName) => {
-
-    if ( !(pageName in pageConfig)) return Promise.resolve();
-    let {dependancies, initializer, args=[]} = pageConfig[pageName];
-    let loadedDependacies = dependancies.map(([link, type]) => l.loadResource(link, type) );
-
-    return Promise.all( loadedDependacies )
+    return l.loadDependacies(pageName)
             .then( () => {
-              window[initializer] && window[initializer](...args);
+              let initialize = window.init[pageName];
+              initialize && initialize();
               // console.log("Lazy loading, initialized " + pageName);
             }).catch( console.error );
   };
@@ -158,6 +145,7 @@ window.lazy = {};
 
     let requestedPage = l.getPageName(href);
 
+    l.loadDependacies(requestedPage);
     if ( !(requestedPage in cachedContent)) {
       let doc = await l.loadParsedHtml(href);
       l.cacheContent(requestedPage, doc);
@@ -282,6 +270,15 @@ window.lazy = {};
     const bodyStyle = getComputedStyle(document.body);
     let value = bodyStyle.getPropertyValue(name).trim();
     return value;
+  };
+
+  const calledOnce = new Map();
+  l.callOnce = (...functions) => {
+    for( let func of functions) {
+      if (calledOnce.has(func)) continue;
+      func();
+      calledOnce.set(func, true);
+    }
   };
 
 })(window.lazy);
