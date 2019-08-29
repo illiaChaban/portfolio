@@ -146,12 +146,11 @@ window.init = {};
     let requestedPage = l.getPageName(href);
 
     l.loadDependacies(requestedPage);
-    if ( !(requestedPage in cachedContent)) {
-      let doc = await l.loadParsedHtml(href);
-      l.cacheContent(requestedPage, doc);
-    }
+
+    let content = await l.getContent(requestedPage);
     $content.innerHTML = ''; //remove current content
-    $content.append( ...cachedContent[requestedPage]);
+    $content.append( ...content);
+
     l.initPage(requestedPage).then( l.hideLoadingWindow );
   };
 
@@ -169,13 +168,29 @@ window.init = {};
     return cachedPageNames[href];
   };
   l.getCurrPageName = () => l.getPageName(document.location.pathname);
-  l.cacheContent = (page, doc) => {
-    // transforming from HTMLCollection to array to be able to cache elements
-    // HTMLCollection/NodeList gets updated on .innerHTML = '' and elements get removed
-    cachedContent[page] = [...doc.getElementById('content').childNodes];
+  l.cacheCurrContent = () => {
+    let page = l.getCurrPageName();
+    let contents = [...l.find('#content').childNodes];
+    cachedContent[page] = Promise.resolve(contents);
   };
-  l.cacheCurrContent = () => l.cacheContent( l.getCurrPageName(), document );
 
+  l.getContent = (pageName) => {
+    if ( !(pageName in cachedContent)) {
+      cachedContent[pageName] = new Promise( async (resolve, reject) => {
+        try {
+          let doc = await l.loadParsedHtml(pageName);
+          // transforming from HTMLCollection to array to be able to cache elements
+          // HTMLCollection/NodeList gets updated on .innerHTML = '' and elements get removed
+          let content = [...doc.getElementById('content').childNodes];
+          resolve(content);
+        } catch(e) {
+          reject(['network error']);
+          console.error(e);
+        }
+      })
+    }
+    return cachedContent[pageName];
+  };
   l.loadParsedHtml = async (href) => {
     let html = await fetch(href).then( res => res.text() );    
     let doc = parser.parseFromString(html, "text/html");
