@@ -98,14 +98,31 @@
     document
       .getElementById('contact-me')
       .addEventListener('click', lazy.navigateToPageFromLink ); 
-  }
+  };
 
- 
+  const loadQualityArt = () => {
+    document.querySelectorAll('#art img').forEach( img => {
+      const qualitySrc = img.getAttribute('data-src');
+      lazy.loadImgWithTimeout( qualitySrc, 5000 )
+        .then( blobUrl => {
+          img.src = blobUrl;
+          img.removeAttribute('data-src');
+        })
+        .catch(e => {
+          if (e.name === 'AbortError') {
+            // console.log('Fetch aborted', qualitySrc);
+          } else {
+            console.error(e);
+          }
+        });
+    })
+  }
   
   window.init.home = () => {
     lazy.callOnce(
       bindContactLink,
-      prepareArt
+      prepareArt,
+      loadQualityArt
     );
 
     // should be called after anime.js was loaded
