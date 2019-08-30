@@ -128,7 +128,7 @@
     },
     {
       imgUrl: 'imgs/quotes/simpsons.svg',
-      colors: ['var(--color-main)', 'black', '#afadad'],
+      colors: ['var(--color-main)', 'black', '#afadad', 'var(--color-highlight)'],
       
       // imgUrl: 'imgs/quotes/simpsons1.svg',
       // colors: ['black', 'var(--color-main)', '#afadad'],
@@ -180,7 +180,7 @@
 
 
     colorSvgOnce = (svgEl, colors) => {
-      if (svgEl.getAttribute('colored')) return;
+      if (svgEl.getAttribute('data-colored')) return;
 
       // svg colors are saved in css variables at svg element levet
       // to make it easy to update & experiment with colors
@@ -192,7 +192,7 @@
         path.setAttribute('fill', `var(--color-${i})`);
       });
 
-      svgEl.setAttribute('colored', true); // flag
+      svgEl.setAttribute('data-colored', true); // flag
     };
 
     updateImg = async () => {

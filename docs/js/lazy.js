@@ -184,7 +184,7 @@ window.init = {};
           let content = [...doc.getElementById('content').childNodes];
           resolve(content);
         } catch(e) {
-          reject(['network error']);
+          // resolve(['network error']);
           console.error(e);
         }
       })
