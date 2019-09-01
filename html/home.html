@@ -24,9 +24,19 @@
       <div class='container overflow-hidden'>
         <div id='art'>
           <div class='container'>
-            <img id='mountain' src='imgs/mountain-smallest.png' data-src='imgs/mountain.png' alt='mountain'>
+            <picture>
+              <source srcset="imgs/mountain-small.webp" type="image/webp">
+              <img id='mountain' src='imgs/mountain-smallest.png' data-src='imgs/mountain' alt='mountain'>
+            </picture>
             <div id='rv-squirrel-container' class='container hide'>
-              <img id='rv' src='imgs/rv4-smallest.png' data-src='imgs/rv4.png' alt='hippie van'>
+              <picture>
+                <!-- <source srcset="imgs/rv4.webp" type="image/webp" media="(min-width: 650px)"> -->
+                <source srcset="imgs/rv-small.webp" type="image/webp">
+                <img id='rv' src='imgs/rv-smallest.png' alt='hippie van' data-src='imgs/rv'>
+              </picture>
+              <!-- <img id='rv' src='imgs/rv4.webp' alt='hippie van'> -->
+
+              <!-- <img id='rv' src='imgs/rv4-smallest.png' data-src='imgs/rv4.png' alt='hippie van'> -->
               <div class="squirrel animate-squirrel"></div>
             </div>
           </div>

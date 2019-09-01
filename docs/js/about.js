@@ -161,7 +161,7 @@
       this.bindArtButton();
     }
 
-    typeQuote = () => {
+    typeQuote() {
       const [quotation, author] = artMap[this.currentArtCount].quote;
 
       this.typer1.clearNow();
@@ -179,7 +179,7 @@
     };
 
 
-    colorSvgOnce = (svgEl, colors) => {
+    colorSvgOnce(svgEl, colors) {
       if (svgEl.getAttribute('data-colored')) return;
 
       // svg colors are saved in css variables at svg element levet
@@ -195,7 +195,7 @@
       svgEl.setAttribute('data-colored', true); // flag
     };
 
-    updateImg = async () => {
+    async updateImg() {
       const artCount = this.currentArtCount;
       const {imgUrl, colors} = artMap[artCount];
       lazy.showSpinner(this.$imgContainer);
@@ -208,12 +208,12 @@
     }
 
 
-    updateArt = () => {
+    updateArt() {
       this.updateImg();
       this.typeQuote();
     }
 
-    bindArtButton = () => {
+    bindArtButton() {
       this.$art.querySelector('.btn').addEventListener('click', () => {
         this.currentArtCount = (this.currentArtCount + 1) % artMap.length;
         this.updateArt();

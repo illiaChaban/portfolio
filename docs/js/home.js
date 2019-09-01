@@ -72,6 +72,13 @@
     animations.push( headerFadeIn );
     animations.push( hiAnimation );
   };
+  const runTextAnimation = () => {
+    if (!animations.length) { 
+      prepareAnimations();
+    } else {
+      animations.forEach( a => a.restart() );
+    }
+  };
 
 
   const prepareArt = () => {
@@ -100,37 +107,66 @@
       .addEventListener('click', lazy.navigateToPageFromLink ); 
   };
 
-  const loadQualityArt = () => {
-    document.querySelectorAll('#art img').forEach( img => {
-      const qualitySrc = img.getAttribute('data-src');
-      lazy.loadImgWithTimeout( qualitySrc, 5000 )
-        .then( blobUrl => {
-          img.src = blobUrl;
-          img.removeAttribute('data-src');
-        })
-        .catch(e => {
-          if (e.name === 'AbortError') {
-            // console.log('Fetch aborted', qualitySrc);
-          } else {
-            console.error(e);
-          }
-        });
-    })
-  }
+  const webpIsSupported = currentImageSrc => {
+    const l = currentImageSrc.length;
+    const last4extension = currentImageSrc.slice(l-4, l);
+    return last4extension === 'webp';
+  };
+  const getImgCurrSrc = img => {
+    return img.complete ? 
+      img.currentSrc : 
+      new Promise( resolve => {
+        img.onload = () => resolve(img.currentSrc);
+      });
+  };
+  const getBetterQualityImgSrc = async (img) => {
+    const loadedSrc = await getImgCurrSrc(img);
+    const src1part = img.getAttribute('data-src');
+    let src;
+    // checking if .webp next gen image format is supported
+    if (webpIsSupported(loadedSrc)) {
+      src = src1part + '.webp';
+    } else {
+      const size = window.innerWidth > 650 ? '' : '-small';
+      src = src1part + size + '.png';
+    }
+    return src;
+  };
+  const loadBetterQualityImg = async (picture, timeout) => {
+    try {
+      const img = picture.querySelector('img');
+      const src = await getBetterQualityImgSrc(img);
+      const blobUrl = await lazy.loadImgWithTimeout(src, timeout);
+      // remove picture element, update img src
+      let container = picture.parentElement;
+      // rv should be removed from picture first to 
+      // prevent extra img request on picture.remove()
+      container.insertBefore(img, picture);
+      container.removeChild(picture);
+      img.src = blobUrl;
+    } catch(e) {
+      if (e.name === 'AbortError') {
+        // console.log('Fetch aborted');
+      } else {
+        console.error(e);
+      }
+    }
+  };
+  const loadBetterQualityArt = async () => {
+    const pictures = document.querySelectorAll("#art picture");
+    const timeout = 5000;
+    pictures.forEach( picture => loadBetterQualityImg(picture, timeout));
+  };
   
   window.init.home = () => {
     lazy.callOnce(
       bindContactLink,
       prepareArt,
-      loadQualityArt
+      loadBetterQualityArt
     );
 
     // should be called after anime.js was loaded
-    if (!animations.length) { 
-      prepareAnimations();
-    } else {
-      animations.forEach( a => a.restart() );
-    }
+    runTextAnimation();
   }   
 
 
