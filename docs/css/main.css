@@ -224,6 +224,22 @@ body {
     opacity: 1;
   }
 }
+@keyframes fadeIn2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn .6s;
+}
+.fadeIn2 {
+  animation: fadeIn2 .6s;
+}
 
 
 @media (max-width: 960px) {

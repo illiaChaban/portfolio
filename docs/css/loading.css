@@ -1,214 +1,46 @@
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
-            transform: translate(2px, 1px) rotate(0deg);
-  }
-  10% {
-    -webkit-transform: translate(-1px, -3px) rotate(36deg);
-            transform: translate(-1px, -3px) rotate(36deg);
-  }
-  20% {
-    -webkit-transform: translate(-2px, 0px) rotate(72deg);
-            transform: translate(-2px, 0px) rotate(72deg);
-  }
-  30% {
-    -webkit-transform: translate(1px, 2px) rotate(108deg);
-            transform: translate(1px, 2px) rotate(108deg);
-  }
-  40% {
-    -webkit-transform: translate(1px, -1px) rotate(144deg);
-            transform: translate(1px, -1px) rotate(144deg);
-  }
-  50% {
-    -webkit-transform: translate(-1px, 3px) rotate(180deg);
-            transform: translate(-1px, 3px) rotate(180deg);
-  }
-  60% {
-    -webkit-transform: translate(-1px, 1px) rotate(216deg);
-            transform: translate(-1px, 1px) rotate(216deg);
-  }
-  70% {
-    -webkit-transform: translate(3px, 1px) rotate(252deg);
-            transform: translate(3px, 1px) rotate(252deg);
-  }
-  80% {
-    -webkit-transform: translate(-2px, -1px) rotate(288deg);
-            transform: translate(-2px, -1px) rotate(288deg);
-  }
-  90% {
-    -webkit-transform: translate(2px, 1px) rotate(324deg);
-            transform: translate(2px, 1px) rotate(324deg);
-  }
-  100% {
-    -webkit-transform: translate(1px, -2px) rotate(360deg);
-            transform: translate(1px, -2px) rotate(360deg);
-  }
-}
-@keyframes spin {
-  0% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
-            transform: translate(2px, 1px) rotate(0deg);
-  }
-  10% {
-    -webkit-transform: translate(-1px, -3px) rotate(36deg);
-            transform: translate(-1px, -3px) rotate(36deg);
-  }
-  20% {
-    -webkit-transform: translate(-2px, 0px) rotate(72deg);
-            transform: translate(-2px, 0px) rotate(72deg);
-  }
-  30% {
-    -webkit-transform: translate(1px, 2px) rotate(108deg);
-            transform: translate(1px, 2px) rotate(108deg);
-  }
-  40% {
-    -webkit-transform: translate(1px, -1px) rotate(144deg);
-            transform: translate(1px, -1px) rotate(144deg);
-  }
-  50% {
-    -webkit-transform: translate(-1px, 3px) rotate(180deg);
-            transform: translate(-1px, 3px) rotate(180deg);
-  }
-  60% {
-    -webkit-transform: translate(-1px, 1px) rotate(216deg);
-            transform: translate(-1px, 1px) rotate(216deg);
-  }
-  70% {
-    -webkit-transform: translate(3px, 1px) rotate(252deg);
-            transform: translate(3px, 1px) rotate(252deg);
-  }
-  80% {
-    -webkit-transform: translate(-2px, -1px) rotate(288deg);
-            transform: translate(-2px, -1px) rotate(288deg);
-  }
-  90% {
-    -webkit-transform: translate(2px, 1px) rotate(324deg);
-            transform: translate(2px, 1px) rotate(324deg);
-  }
-  100% {
-    -webkit-transform: translate(1px, -2px) rotate(360deg);
-            transform: translate(1px, -2px) rotate(360deg);
-  }
-}
-
-@-webkit-keyframes speed {
-  0% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
-            transform: translate(2px, 1px) rotate(0deg);
-  }
-  10% {
-    -webkit-transform: translate(-1px, -3px) rotate(-1deg);
-            transform: translate(-1px, -3px) rotate(-1deg);
-  }
-  20% {
-    -webkit-transform: translate(-2px, 0px) rotate(1deg);
-            transform: translate(-2px, 0px) rotate(1deg);
-  }
-  30% {
-    -webkit-transform: translate(1px, 2px) rotate(0deg);
-            transform: translate(1px, 2px) rotate(0deg);
-  }
-  40% {
-    -webkit-transform: translate(1px, -1px) rotate(1deg);
-            transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    -webkit-transform: translate(-1px, 3px) rotate(-1deg);
-            transform: translate(-1px, 3px) rotate(-1deg);
-  }
-  60% {
-    -webkit-transform: translate(-1px, 1px) rotate(0deg);
-            transform: translate(-1px, 1px) rotate(0deg);
-  }
-  70% {
-    -webkit-transform: translate(3px, 1px) rotate(-1deg);
-            transform: translate(3px, 1px) rotate(-1deg);
-  }
-  80% {
-    -webkit-transform: translate(-2px, -1px) rotate(1deg);
-            transform: translate(-2px, -1px) rotate(1deg);
-  }
-  90% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
-            transform: translate(2px, 1px) rotate(0deg);
-  }
-  100% {
-    -webkit-transform: translate(1px, -2px) rotate(-1deg);
-            transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
 @keyframes speed {
   0% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
-            transform: translate(2px, 1px) rotate(0deg);
+    transform: translate(2px, 1px) rotate(0deg);
   }
   10% {
-    -webkit-transform: translate(-1px, -3px) rotate(-1deg);
-            transform: translate(-1px, -3px) rotate(-1deg);
+    transform: translate(-1px, -3px) rotate(-1deg);
   }
   20% {
-    -webkit-transform: translate(-2px, 0px) rotate(1deg);
-            transform: translate(-2px, 0px) rotate(1deg);
+    transform: translate(-2px, 0px) rotate(1deg);
   }
   30% {
-    -webkit-transform: translate(1px, 2px) rotate(0deg);
-            transform: translate(1px, 2px) rotate(0deg);
+    transform: translate(1px, 2px) rotate(0deg);
   }
   40% {
-    -webkit-transform: translate(1px, -1px) rotate(1deg);
-            transform: translate(1px, -1px) rotate(1deg);
+    transform: translate(1px, -1px) rotate(1deg);
   }
   50% {
-    -webkit-transform: translate(-1px, 3px) rotate(-1deg);
-            transform: translate(-1px, 3px) rotate(-1deg);
+    transform: translate(-1px, 3px) rotate(-1deg);
   }
   60% {
-    -webkit-transform: translate(-1px, 1px) rotate(0deg);
-            transform: translate(-1px, 1px) rotate(0deg);
+    transform: translate(-1px, 1px) rotate(0deg);
   }
   70% {
-    -webkit-transform: translate(3px, 1px) rotate(-1deg);
-            transform: translate(3px, 1px) rotate(-1deg);
+    transform: translate(3px, 1px) rotate(-1deg);
   }
   80% {
-    -webkit-transform: translate(-2px, -1px) rotate(1deg);
-            transform: translate(-2px, -1px) rotate(1deg);
+    transform: translate(-2px, -1px) rotate(1deg);
   }
   90% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
-            transform: translate(2px, 1px) rotate(0deg);
+    transform: translate(2px, 1px) rotate(0deg);
   }
   100% {
-    -webkit-transform: translate(1px, -2px) rotate(-1deg);
-            transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
-
-@-webkit-keyframes strikes {
-  from {
-    left: 25px;
-  }
-  to {
-    left: -80px;
-    opacity: 0;
+    transform: translate(1px, -2px) rotate(-1deg);
   }
 }
 @keyframes strikes {
   from {
-    left: 25px;
+    opacity: 1;
+    left: var(--left);
   }
   to {
-    left: -80px;
+    left: calc( var(--left) - 100px);
     opacity: 0;
-  }
-}
-
-@-webkit-keyframes dots {
-  from {
-    width: 0px;
-  }
-  to {
-    width: 15px;
   }
 }
 @keyframes dots {
@@ -219,51 +51,18 @@
     width: 15px;
   }
 }
-
-@-webkit-keyframes fadeIn {
+@keyframes rotate360 {
   from {
-    opacity: 0;
-  }
+    transform: rotate(0deg);
+  } 
   to {
-    opacity: 1;
+    transform: rotate(360deg);
   }
 }
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-
-
-.fadeIn, .loading-window {
-  -webkit-animation: fadeIn 0.4s both;
-          animation: fadeIn 0.4s both;
-}
-
-#loading {
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  -webkit-animation: fadeIn .5s;
-          animation: fadeIn .5s;
-}
-
 .loading-window {
+  --bus-color: var(--color-highlight);
 
-  --background-color: var( --body-background-color, grey);
-  --border-radius-big: 6px;
-  --font-size-header: 16px;
-  --car-color: var( --color-main, beige);
-
-  color: var( --car-color );
+  color: var( --bus-color );
   height: 200px;
   left: 50%;
   margin-left: -150px;
@@ -274,7 +73,7 @@
   z-index: 99;
 }
 .loading-window .text {
-  font-size: var( --font-size-header );
+  font-size: 16px;
   position: absolute;
   width: auto;
   top: 75%;
@@ -286,108 +85,171 @@
   width: 5px;
   overflow: hidden;
   vertical-align: bottom;
+  animation: dots 1.5s linear infinite;
   transition: 1;
-
-  -webkit-animation: dots 1.5s linear infinite;
-          animation: dots 1.5s linear infinite;
 }
-
-.car {
+.bus {
   position: absolute;
   width: 117px;
-  height: 42px;
-  left: 92px;
-  top: 70px;
+  height: 60px;
+  left: 85px;
+  top: 60px;
 }
-.car .strike {
+.bus .strike {
+  --left: -10px;
+  left: var(--left);
   position: absolute;
   width: 11px;
   height: 1px;
-  background: var( --car-color );
+  background: var( --bus-color );
+  animation: strikes 0.2s linear infinite;
+}
+.bus .strike:nth-of-type(6n+1)  {
+  top: 3%;
+}
+.bus .strike:nth-of-type(6n+2)  {
+  top: 22%;
+  animation-delay: -0.05s;
+}
+.bus .strike:nth-of-type(6n+3) {
+  top: 41%;
+  animation-delay: -0.1s;
+}
+.bus .strike:nth-of-type(6n+4) {
+  top: 60%;
+  animation-delay: -0.15s;
+}
+.bus .strike:nth-of-type(6n+5) {
+  top: 79%;
+  animation-delay: -0.2s;
+}
+.bus .strike:nth-of-type(6n) {
+  top: 98%;
+  animation-delay: -0.25s;
+}
 
-  -webkit-animation: strikes 0.2s linear infinite;
-          animation: strikes 0.2s linear infinite;
-}
-.car .strike2 {
-  top: 11px;
-  -webkit-animation-delay: 0.05s;
-          animation-delay: 0.05s;
-}
-.car .strike3 {
-  top: 22px;
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s;
-}
-.car .strike4 {
-  top: 33px;
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
-}
-.car .strike5 {
-  top: 44px;
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
-}
-.car-detail {
+.bus-detail {
   position: absolute;
   display: block;
-  background: var( --car-color );
-  -webkit-animation: speed 0.5s linear infinite;
-          animation: speed 0.5s linear infinite;
+  background: var( --bus-color );
 }
-.car-detail.spoiler {
-  width: 0;
-  height: 0;
-  top: 7px;
-  background: none;
-  border: 20px solid transparent;
-  border-bottom: 8px solid var( --car-color );
-  border-left: 20px solid var( --car-color );
+.bus .speed {
+  width: 117px;
+  height: 60px;
+  animation: speed 0.5s linear infinite;
 }
-.car-detail.back {
-  height: 20px;
-  width: 92px;
-  top: 15px;
-  left: 0px;
+.bus-detail.rear-bumper {
+  width: 10px;
+  height: 13px;
+  left: -2px;
+  bottom: 1px;
+  border-radius: 3px;
 }
-.car-detail.center {
-  height: 35px;
-  width: 75px;
-  left: 12px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 45px 40px;
-  border: 4px solid var( --car-color );
+
+.bus-detail.window {
+  width: 15%;
+  background: transparent;
+  border: 4px solid var(--bus-color);
+  height: 30%;
+  border-radius: 5px;
+  top: 5px;
+}
+.bus-detail.window:nth-of-type(5n) {
+  left: 64%;
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.bus-detail.window:nth-of-type(5n+1) {
+  left: 46%;
+
+}
+.bus-detail.window:nth-of-type(5n+2) {
+  left: 28%;
+
+}
+.bus-detail.window:nth-of-type(5n+3) {
+  left: 10%;
+
+}
+.bus-detail.window:nth-of-type(5n+4) {
+  left: 0%;
+  width: 7%;
+  border-top-left-radius: 15px 15px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+.bus-detail.front-bumper {
+  width: 10px;
+  height: 11px;
+  right: -2px;
+  bottom: 1px;
+  border-radius: 3px;
+}
+.bus-detail.front-light {
+  width: 10px;
+  height: 8px;
+  right: -2px;
+  bottom: 17px;
+  border-radius: 50%;
+}
+
+.bus-detail.center {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  border-radius: 5px;
+  border-top-left-radius: 20px 15px;
+  border-top-right-radius: 25px 40px;
+  border: 4px solid var( --bus-color );
   background: none;
   box-sizing: border-box;
 }
-.car-detail.center1 {
-  height: 35px;
-  width: 35px;
-  left: 12px;
-  border-top-left-radius: 30px;
+.bus-detail.center2 {
+  height: 55%;
+  width: 100%;
+  left: 0px;
+  bottom: 0;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 5px 20px;
 }
-.car-detail.front {
-  height: 20px;
-  width: 50px;
-  top: 15px;
-  left: 67px;
-  border-top-right-radius: 50px 40px;
-  border-bottom-right-radius: 10px;
+.bus-detail.top {
+  height: 12%;
+  width: 84%;
+  top: 2px;
+  left: 6px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
-.car-detail.wheel {
+.bus-detail.wheel {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  top: 20px;
-  left: 12px;
-  border: 3px solid var( --background-color );
-  background: linear-gradient(45deg, transparent 45%, var( --car-color ) 46%, var( --car-color ) 54%, transparent 55%), linear-gradient(-45deg, transparent 45%, var( --car-color ) 46%, var( --car-color ) 54%, transparent 55%), linear-gradient(90deg, transparent 45%, var( --car-color ) 46%, var( --car-color ) 54%, transparent 55%), linear-gradient(0deg, transparent 45%, var( --car-color ) 46%, var( --car-color ) 54%, transparent 55%), radial-gradient(var( --car-color ) 29%, transparent 30%, transparent 50%, var( --car-color ) 51%), var( --background-color );
-  -webkit-animation-name: spin;
-          animation-name: spin;
+  top: 45px;
+  border: 1px solid black;
+  background: linear-gradient(45deg, transparent 45%, var( --bus-color ) 46%, var( --bus-color ) 54%, transparent 55%), linear-gradient(-45deg, transparent 45%, var( --bus-color ) 46%, var( --bus-color ) 54%, transparent 55%), linear-gradient(90deg, transparent 45%, var( --bus-color ) 46%, var( --bus-color ) 54%, transparent 55%), linear-gradient(0deg, transparent 45%, var( --bus-color ) 46%, var( --bus-color ) 54%, transparent 55%), radial-gradient(var( --bus-color ) 29%, transparent 30%, transparent 50%, var( --bus-color ) 51%), var( --body-background-color );
+  animation: rotate360 infinite linear .7s;
 }
-.car-detail.wheel2 {
-  left: 82px;
+.bus-detail.wheel:nth-of-type(2n+1) {
+  left: 7px;
 }
+.bus-detail.wheel:nth-of-type(2n) {
+  left: 87px;
+}
+.bus-detail.door {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 84%;
+  width: 18%;
+  top: 5px;
+  left: 55px;
+  background: none;
+}
+
+
 
 
 

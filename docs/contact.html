@@ -54,6 +54,7 @@
 
   <div id='particles'></div>
 
+  <!-- do not change this line; server uses text.split(...) to rewrite html-->
   <div id='content'>
   <div class="flex flex-1 body-tags" id='contact'>
     <div id='contact-info' class='flex'>
@@ -124,26 +125,36 @@
   </div>
 </div>
 
-  <div id="loading" class='hide'>
+  <script>document.getElementById('content').classList.add('hide', 'fadeIn');</script>
+  <div id="loading" class='fadeIn'>
     <div class="loading-window">
-        <div class="car">
-            <div class="strike"></div>
-            <div class="strike strike2"></div>
-            <div class="strike strike3"></div>
-            <div class="strike strike4"></div>
-            <div class="strike strike5"></div>
-            <div class="car-detail spoiler"></div>
-            <div class="car-detail back"></div>
-            <div class="car-detail center"></div>
-            <div class="car-detail center1"></div>
-            <div class="car-detail front"></div>
-            <div class="car-detail wheel"></div>
-            <div class="car-detail wheel wheel2"></div>
+      <div class="bus">
+        <div class="strike"></div>
+        <div class="strike"></div>
+        <div class="strike"></div>
+        <div class="strike"></div>
+        <div class="strike"></div>
+        <div class="strike"></div>
+        <div class="speed">
+          <div class="bus-detail center"></div>
+          <div class="bus-detail center2"></div>
+          <div class="bus-detail top"></div>
+          <div class="bus-detail window"></div>
+          <div class="bus-detail window"></div>
+          <div class="bus-detail window"></div>
+          <div class="bus-detail window"></div>
+          <div class="bus-detail window"></div>
+          <div class="bus-detail rear-bumper"></div>
+          <div class="bus-detail front-bumper"></div>
+          <div class="bus-detail front-light"></div>
+          <div class="bus-detail wheel"></div>
+          <div class="bus-detail wheel"></div>
+          <div class='bus-detail door'></div>
         </div>
-    
-        <div class="text">
-            <span>Loading</span><span class = "dots">...</span>
-        </div>
+      </div>
+      <div class="text">
+          <span>Loading</span><span class = "dots">...</span>
+      </div>
     </div>
   </div>
   

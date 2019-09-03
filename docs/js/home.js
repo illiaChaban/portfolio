@@ -132,25 +132,27 @@
     }
     return src;
   };
+  const takeImgOutsideOfPicture = (img, picture) => {
+    // remove picture element, update img src
+    let container = picture.parentElement;
+    // rv should be removed from picture first to 
+    // prevent extra img request on picture.remove()
+    container.insertBefore(img, picture);
+    container.removeChild(picture);
+  }
   const loadBetterQualityImg = async (picture, timeout) => {
-    try {
-      const img = picture.querySelector('img');
-      const src = await getBetterQualityImgSrc(img);
-      const blobUrl = await lazy.loadImgWithTimeout(src, timeout);
-      // remove picture element, update img src
-      let container = picture.parentElement;
-      // rv should be removed from picture first to 
-      // prevent extra img request on picture.remove()
-      container.insertBefore(img, picture);
-      container.removeChild(picture);
-      img.src = blobUrl;
-    } catch(e) {
+    const img = picture.querySelector('img');
+    const src = await getBetterQualityImgSrc(img);
+    const blobUrl = await lazy.loadImgWithTimeout(src, timeout).catch( e => {
       if (e.name === 'AbortError') {
         // console.log('Fetch aborted');
       } else {
         console.error(e);
       }
-    }
+    });
+    // prevent future img load requests on #content update
+    takeImgOutsideOfPicture(img, picture); 
+    if (blobUrl) img.src = blobUrl;
   };
   const loadBetterQualityArt = async () => {
     const pictures = document.querySelectorAll("#art picture");
@@ -165,7 +167,7 @@
       loadBetterQualityArt
     );
 
-    // should be called after anime.js was loaded
+    // should be called after anime.js is loaded
     runTextAnimation();
   }   
 

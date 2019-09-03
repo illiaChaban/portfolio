@@ -204,12 +204,21 @@ window.init = {};
   l.hideLoadingWindow = () => {
     l.find('#loading').classList.add('hide');
     l.find('#content').classList.remove('hide');
+    l.fadeInContent();
   };
+  l.fadeInContent = () => {
+    let c = l.find('#content').classList;
+    let f1 = 'fadeIn';
+    let f2 = 'fadeIn2';
+    // toggle between fadeIn & fadeIn2 classes (identical)
+    // to force animation to execute
+    c.replace(f1, f2) || c.replace(f2, f1) || c.add(f1);
+  }
 
   let activeLink = null;
   l.highlightActiveMenu = (href=document.location.pathname) => {
     const $nav = document.getElementById('nav');
-    let pageName = lazy.getPageName(href);
+    let pageName = l.getPageName(href);
     let currLink = $nav.querySelector(`a[href^=${pageName}]`);
     if (activeLink) activeLink.classList.remove('active');
     if (currLink) {
@@ -266,7 +275,7 @@ window.init = {};
   l.navigateToPageFromLink = (e) => {
     e.preventDefault();
     let href = e.target.getAttribute('href');
-    lazy.navigateToPage(href);
+    l.navigateToPage(href);
   };
 
 
@@ -291,7 +300,11 @@ window.init = {};
   l.callOnce = (...functions) => {
     for( let func of functions) {
       if (calledOnce.has(func)) continue;
-      func();
+      try {
+        func();
+      } catch(e) {
+        console.error(e);
+      }
       calledOnce.set(func, true);
     }
   };
@@ -331,7 +344,7 @@ window.init = {};
         .then( blob => URL.createObjectURL(blob))
     } catch(e) {
       console.log('Abortable fetch is not supported');
-      promiseUrl = lazy.loadImg(url).then( () => url );
+      promiseUrl = l.loadImg(url).then( () => url );
     }
     return promiseUrl;
   };
