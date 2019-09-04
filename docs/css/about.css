@@ -12,6 +12,12 @@
 #skills .content {
   width: 35%;
 }
+@media (max-width: 960px) {
+  #skills-canvas {
+    /* preventing scrolling prevention */
+    pointer-events: none;
+  }
+}
 
 #content .main-container {
   display: flex;

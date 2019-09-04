@@ -25,7 +25,7 @@
   
     textFont: null, 
     
-    pinchZoom: true,
+    pinchZoom: false,
     freezeDecel: true,
     fadeIn: 1500,
     initial: [0.3, -0.1],
