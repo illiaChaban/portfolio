@@ -152,7 +152,11 @@
     });
     // prevent future img load requests on #content update
     takeImgOutsideOfPicture(img, picture); 
-    if (blobUrl) img.src = blobUrl;
+    if (blobUrl) {
+      // trying to prevent flickering since the first blob url load might take up to 50ms
+      await lazy.loadImg(blobUrl);
+      img.src = blobUrl;
+    }
   };
   const loadBetterQualityArt = async () => {
     const pictures = document.querySelectorAll("#art picture");
