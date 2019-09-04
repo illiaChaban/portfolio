@@ -248,6 +248,16 @@
   left: 55px;
   background: none;
 }
+.bus-detail.door::after {
+  position: absolute;
+  content: '';
+  width: 5px;
+  height: 1px;
+  background: black;
+  top: 28px;
+  left: 13px;
+  border-radius: 5px;
+}
 
 
 
