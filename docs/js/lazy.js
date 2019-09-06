@@ -108,7 +108,7 @@ window.init = {};
   };
   l.loadCss = (src) => {
     if ( !(src in loadedCss) ) {
-      if (document.querySelector(`link[href='${src}']`)) {
+      if (document.querySelector(`link[href='${src}']:not([rel="preload"])`)) {
         loadedCss[src] = Promise.resolve();
         // console.log("CSS src = " + src + " was sync loaded");
       } else {
@@ -120,11 +120,11 @@ window.init = {};
           s.onload = () => {
             // console.log("LOADED CSS src = " + src);
             // console.log(s.sheet.cssRules[0].cssText)
-            resolve()
+            resolve();
           };
           s.onerror = reject;
           document.querySelector('head').appendChild(s);
-        })
+        });
       }
     }
     return loadedCss[src];
