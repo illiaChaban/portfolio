@@ -31,8 +31,8 @@ body {
   --color-subtle: grey;
   --color-highlight: #FF6138;
   
-  --body-background-color: rgb(50,56,91);
-  --body-background-color: rgb(44,49,53);
+  /* --body-background-color: rgb(50,56,91);
+  --body-background-color: rgb(44,49,53); */
   --body-background-color: #252627;
 
 
@@ -511,9 +511,12 @@ a {
 
 /* COLOR EXPERIMENTS */
 body.modern-theme {
-  --color-main: #fffedc;
   --color-subtle: #7f838a;
-  --color-highlight: #ff4639;
+  /* --color-main: #fffedc;
+  --color-highlight: #ff4639; */
+
+  --color-main: #fdfbeb;
+  --color-highlight: #49eeff;
 
   /* --body-background-color: #122438;  */
   --body-background-color: #112d44; 
