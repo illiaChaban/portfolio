@@ -7,15 +7,17 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    function gtagSetPath(path) {
-      path = path || location.pathname;
-      gtag('config', 'UA-178460557-1', {'page_path': path});
+    function gtagEvent(eventName, config) {
+      gtag('event', eventName, config);
     }
-    function gtagEvent(eventName) {
-      gtag('event', eventName);
+    function gtagSetPath(path) {
+      gtagEvent('page_view', {
+        page_path: location.pathname,
+      })
     }
 
     gtag('js', new Date());
+    gtag('config', 'UA-178460557-1');
     gtagSetPath();
   </script>
 
