@@ -14,8 +14,10 @@
   };
   
   function bindHistoryNavigation() {
-    window.onpopstate = () => 
-      lazy.navigateToPage(document.location.pathname, false /* dont update url */);
+    window.onpopstate = () => {
+      const pushUrlHistory = false;
+      lazy.navigateToPage(document.location.pathname, pushUrlHistory);
+    }
   };
 
   function preloadExtraFiles() {

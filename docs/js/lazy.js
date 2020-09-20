@@ -232,7 +232,8 @@ window.init = {};
     l.highlightActiveMenu(href);
 
     // updating location.href without reloading
-    updateUrl && window.history.pushState(null, "", href); 
+    updateUrl && window.history.pushState(null, "", href);
+    gtagSetPath();
   };
 
 

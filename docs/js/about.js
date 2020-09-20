@@ -217,6 +217,7 @@
       this.$art.querySelector('.btn').addEventListener('click', () => {
         this.currentArtCount = (this.currentArtCount + 1) % artMap.length;
         this.updateArt();
+        gtagEvent('wisdom_button_click');
       });
     };
   }
