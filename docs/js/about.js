@@ -111,6 +111,19 @@
 // ****************************************************
   const artMap = [
     {
+      imgUrl: 'imgs/quotes/simpsons.svg',
+      colors: ['var(--color-main)', 'black', '#afadad', 'var(--color-highlight)'],
+      
+      // imgUrl: 'imgs/quotes/simpsons1.svg',
+      // colors: ['black', 'var(--color-main)', '#afadad'],
+      quote: ["Find what you love and follow it to glory.", "- The Simpsons"],
+    },
+    {
+      imgUrl: 'imgs/quotes/todd.svg',
+      colors: ['black', 'var(--color-main)', 'var(--color-subtle)', 'var(--color-highlight)'],
+      quote: ["I never know if I can handle anything! That’s what makes my life so exciting.", "- Todd from BoJack Horseman"],
+    },
+    {
       imgUrl: 'imgs/quotes/feynman.svg',
       colors: ['var(--color-main)', '#afadad', 'black'],
       // quote: ["I'm smart enough to know that I'm dumb.", "- Richard Feynman"],
@@ -125,19 +138,6 @@
       imgUrl: 'imgs/quotes/lee7.svg',
       colors: ['black', 'var(--color-main)', '#afadad'],
       quote: ["Knowing is not enough, we must apply. Willing is not enough, we must do.", "- Bruce Lee"],
-    },
-    {
-      imgUrl: 'imgs/quotes/simpsons.svg',
-      colors: ['var(--color-main)', 'black', '#afadad', 'var(--color-highlight)'],
-      
-      // imgUrl: 'imgs/quotes/simpsons1.svg',
-      // colors: ['black', 'var(--color-main)', '#afadad'],
-      quote: ["Find what you love and follow it to glory.", "- The Simpsons"],
-    },
-    {
-      imgUrl: 'imgs/quotes/todd.svg',
-      colors: ['black', 'var(--color-main)', 'var(--color-subtle)', 'var(--color-highlight)'],
-      quote: ["I never know if I can handle anything! That’s what makes my life so exciting.", "- Todd from BoJack Horseman"],
     },
   ];
 

@@ -29,6 +29,7 @@ body {
 
   --color-main: #f2f1c6;
   --color-subtle: grey;
+  --color-subtle-text: #73aeb9;
   --color-highlight: #FF6138;
   
   /* --body-background-color: rgb(50,56,91);
@@ -49,11 +50,15 @@ body {
 }
 
 
-.c-orange {
+.c-highlight {
   color: var(--color-highlight);
 }
 
-.c-bright {
+.c-subtle-text {
+  color: var(--color-subtle-text)
+}
+
+.c-main {
   color: var(--color-main);
 }
 
@@ -304,6 +309,7 @@ a {
   --mouse-pos-y: 0px;
   --btn-color: var(--color-highlight);
 
+  box-shadow: 0 0 10px var(--btn-color);
   text-decoration: none;
   color: var(--btn-color);
   background: transparent;
@@ -320,6 +326,10 @@ a {
   text-transform: uppercase;
   cursor: pointer;
   outline: none;
+}
+
+.btn:focus {
+  box-shadow: 0 0 20px 1px var(--color-highlight);
 }
 
 .btn-bright {

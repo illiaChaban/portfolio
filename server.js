@@ -3,17 +3,11 @@ const fs = require('fs');
 
 const app = express();
 const port = 5000;
-// const pageBuilder = require("./pageBuilderRoute");
-
-// const bodyparser = require('body-parser');
-// app.use(bodyparser.text());
-// app.use(bodyparser.json());
 
 
 function generateStaticHtml() {
   let files = fs.readdirSync("./html");
   files = files.filter( x => x !== 'index.html');
-  // console.log(files)
 
   let index = fs.readFileSync('./html/index.html', 'utf8');
   fs.writeFileSync(`./docs/index.html`, index);
@@ -28,10 +22,6 @@ function generateStaticHtml() {
   console.log('rewritten HTML files successfully');
 }
 
-
-// app.use(pageBuilder); // serve html
-
-
 generateStaticHtml();
 
 app.use(express.static(__dirname + '/docs', {
@@ -39,3 +29,7 @@ app.use(express.static(__dirname + '/docs', {
 })); 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+
+// To start a server and listen to template changes
+// nodemon --ext js,html --ignore 'docs/*'
