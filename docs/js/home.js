@@ -103,7 +103,7 @@
 
   const bindContactLink = () => {
     document
-      .getElementById('contact-me')
+      .getElementById('home-btn')
       .addEventListener('click', lazy.navigateToPageFromLink ); 
   };
 
