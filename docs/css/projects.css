@@ -44,6 +44,11 @@
 
 .project h1 {
   text-align: center;
+  margin-top: 0;
+}
+.project h1 .c-subtle-text {
+  font-size: .6em; 
+  display: block;
 }
 
 /* .project .container-open a:hover, */
@@ -208,6 +213,12 @@
 }
 .project .icon-to-text-on-hover i.fa-globe::after {
   content: 'website';
+}
+.project .icon-to-text-on-hover i.fa-google-play::after {
+  content: 'google play';
+}
+.project .icon-to-text-on-hover i.fa-app-store-ios::after {
+  content: 'app store';
 }
 /* *** */
 

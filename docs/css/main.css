@@ -551,12 +551,9 @@ body.modern-theme {
   }
 }
 
-.modern-theme #menu {
-  background: #050215; 
-}
-
 /* adding transparent menu */
 .modern-theme #menu {
+  background: #050215; 
   background: rgba(0,0,0,.4);
   border-right: 1px solid var(--color-subtle);
 }
