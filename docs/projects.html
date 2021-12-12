@@ -77,7 +77,12 @@
 
   <!-- do not change this line; server uses text.split(...) to rewrite html-->
   <div id='content'>
-  <div class='flex flex-1' id='projects'>
+  <!-- Quick fix to have max 4 cards in row  -->
+  <div 
+    style="max-width: 1380px;"
+    class='flex flex-1' 
+    id='projects' 
+  >
 
     <div class="row flex-1">
 
@@ -97,7 +102,6 @@
               Car wash mobile app and admin page. 
               Created custom svg animations, 
               worked on location services, 
-              login functionality, 
               integrated with Stripe payment services (+ coupons & vouchers),
               user tracking and more...
             </p>
@@ -112,9 +116,20 @@
           
           <div class="container-open">
             <p>
+              <span class='highlight'>Implemented:</span>
+              <br>
+              Location proximity,
+              authentication,
+              in-app purchases, vouchers, family plan, fleet plan,
+              share with a friend,
+              permissions based admin page,
+              user tracking,
+              in-app games
+            </p>
+            <p>
               <span class='highlight'>Technologies:</span>
               <br>
-              Typescript, React, React Native, Nest.js, Typeorm, Stripe, Salesforce
+              Typescript, React, React Native, Nest.js, Typeorm, Stripe, Auth0, Salesforce
             </p>
             <div class='links'>
               <a href='https://apps.apple.com/us/app/autowash-car-wash/id1556443611' target='_blank' rel='noopener' class='icon-to-text-on-hover' aria-label='App store'><i class="fab fa-app-store-ios"></i></a>
