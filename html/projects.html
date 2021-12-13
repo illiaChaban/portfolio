@@ -1,12 +1,57 @@
 <div id='content'>
-  <!-- Quick fix to have max 4 cards in row  -->
   <div 
-    style="max-width: 1380px;"
     class='flex flex-1' 
     id='projects' 
   >
+  <h2 class="project-section-title">On the job:</h2>
 
     <div class="row flex-1">
+
+      <section class='project'>
+        <div class="shadow"></div>
+  
+        <div class="project-content">
+  
+          <button class='toggle'>
+            <span class='open'>More</span>
+            <span class='close'>Close</span> <i class="fas fa-angle-right"></i>
+          </button>
+      
+          <div class="container-closed" >
+            <h1>Caribou <i class="fas fa-building"></i></h1>
+            <p>
+              Complex auto refinancing platform that helps you navigate through 
+              different lenders to find the best quotes.
+              <ul>
+                <li>Delivered one of the more complex pages on the consumer flow.</li>
+                <li>Completed company websites rebrand within a 30-day deadline</li>
+              </ul>
+            </p>
+          </div>
+      
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon class="border polymorph" points="94,90 0,100 100,100 100,0"></polygon>
+          </svg>
+          
+          <div class="container-open">
+            <p>
+              <span class='highlight'>Details:</span>
+              <br>
+              Integrated content platform with advanced user and error tracking.
+              Using GraphQL to navigate a complex system of microservices 
+            </p>
+            <p>
+              <span class='highlight'>Technologies:</span>
+              <br>
+              Typescript, React, GraphQL, Hasura, Next.js, Node.js, Rollbar, Segment, Contentful
+            </p>
+            <div class='links'>
+              <a href='https://www.gocaribou.com/' target='_blank' rel='noopener' class='icon-to-text-on-hover' aria-label='website'><i class="fas fa-globe"></i></a>
+            </div>
+          </div>
+  
+        </div>
+      </section>
 
       <section class='project'>
         <div class="shadow"></div>
@@ -24,8 +69,8 @@
               Car wash mobile app and admin page. 
               Created custom svg animations, 
               worked on location services, 
-              integrated with Stripe payment services (+ coupons & vouchers),
-              user tracking and more...
+              integrated Stripe payment services and
+              user tracking, and more...
             </p>
             <p>
               
@@ -110,30 +155,40 @@
         <div class="shadow"></div>
 
         <div class="project-content">
+          <button class='toggle'>
+            <span class='open'>More</span>
+            <span class='close'>Close</span> <i class="fas fa-angle-right"></i>
+          </button>
+
           <div class="container-closed" >
-            <h1>Capgemini <i class="fas fa-code"></i></h1>
-            <ul>
-              <li>
-                Role: Web Development Consultant
-              </li>
-              <li>
-                A major project for one of the biggest insurance companies in the US
-              </li>
-              <li>
-                Consistently received great performance reviews
-              </li>
-              <li>
-                You can find more information on my
-                <a href='https://www.linkedin.com/in/illia-chaban/' 
-                  target='_blank' rel='noopener' 
-                  class='hover-underline' aria-label='my-linkedin'>
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
+            <h1>Capgemini <i class="fas fa-building"></i></h1>
+            <p>
+              Delivered a major project for one of the biggest insurance companies in the US.
+              Transformed existing website to match new designs, 
+              improve download speeds and help the company perform A-B 
+              testing to test marketing assumptions
+            </p>
           </div>
+
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon class="border polymorph" points="94,90 0,100 100,100 100,0"></polygon>
+          </svg>
+          
+          <div class="container-open">
+            <p>
+              <span class='highlight'>Technologies:</span>
+              <br>
+              Moovweb, Node.js, HTML, SASS, jQuery, Cheerio.js, Bootstrap
+            </p>
+          </div>
+
         </div>
       </section>
+      </div>
+
+      <h2 class="project-section-title">Personal Projects:</h2>
+    <div class="row flex-1">
+
   
       <section class='project'>
         <div class="shadow"></div>
@@ -148,7 +203,7 @@
           <div class="container-closed" >
             <h1>Planted <i class="fas fa-seedling"></i></h1>
             <p>
-              A mobile app that helps you keep your plants thriving.
+              A mobile app that helps keep your plants thriving.
               Raspberry Pi collects data from a variety of sensors 
               and sends it to the server.
               Our React Native app visulizes the data.

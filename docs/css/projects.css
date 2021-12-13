@@ -15,6 +15,7 @@
   position: relative;
   width: 14rem;
   height: 19rem;
+  min-height: 330px;
   margin: 20px;
   background: var(--body-background-color);
 }
@@ -27,6 +28,12 @@
   left: 0;
   box-shadow: 0 5px 55px black;
   z-index: -1;
+}
+
+.project-section-title {
+  margin: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .project .project-content {
