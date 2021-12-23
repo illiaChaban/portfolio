@@ -39,6 +39,11 @@ h1.header {
   line-height: 1.2em;
   margin: 0;
 }
+h1.gradient-text {
+  background: linear-gradient(to right, var(--color-main), #6df1ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 /* ********************************************************** */
 /* ********************************************************** */
