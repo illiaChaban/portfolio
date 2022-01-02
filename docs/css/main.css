@@ -161,11 +161,14 @@ body {
   font-family: 'Inconsolata', monospace;
   font-weight: 100;
 }
-.icon-to-text-on-hover:hover i::before {
-  opacity: 0;
-}
-.icon-to-text-on-hover:hover i::after {
-  opacity: 1;
+
+@media (hover: hover) and (pointer: fine) {
+  .icon-to-text-on-hover:hover i::before {
+    opacity: 0;
+  }
+  .icon-to-text-on-hover:hover i::after {
+    opacity: 1;
+  }
 }
 
 .icon-to-text-on-hover i::before,
